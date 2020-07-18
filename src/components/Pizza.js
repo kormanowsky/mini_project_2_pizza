@@ -38,8 +38,8 @@ class ToppingConfiguration {
 class Pizza extends React.Component {
     toppingRenderers = {
         tomatoes: () => {
-            const tomatoSize = 7,
-                tomatoPadding = 8,
+            const tomatoSize = this.state.size / 40,
+                tomatoPadding = tomatoSize * 2,
                 tomatoTotalSize = tomatoSize + 2 * tomatoPadding,
                 tomatoes = [];
             for (let i = 0; i < this.state.size / tomatoTotalSize; ++i) {
@@ -86,7 +86,6 @@ class Pizza extends React.Component {
             outerRadius: size / 2,
             innerRadius: (size / 2) * innerRadiusFraction,
         };
-        console.log(this.state);
         this.renderToppings = this.renderToppings.bind(this);
     }
 
@@ -95,7 +94,7 @@ class Pizza extends React.Component {
             return "";
         }
         return (
-            <g className="toppings">
+            <g className="pizza-toppings">
                 {this.props.toppings.getAll().map((topping) => {
                     if (topping in this.toppingRenderers) {
                         return this.toppingRenderers[topping]();
@@ -160,26 +159,28 @@ class Pizza extends React.Component {
                     cy={outerRadius}
                     fill="transparent"
                 ></circle>
-                <path
-                    className="pizza-divider pizza-divider-horizontal"
-                    d={horizontalDivider}
-                    fill={bgColor}
-                ></path>
-                <path
-                    className="pizza-divider pizza-divider-vertical"
-                    d={verticalDivider}
-                    fill={bgColor}
-                ></path>
-                <path
-                    className="pizza-divider pizza-divider-diagonal"
-                    d={primaryDiagonalDivider}
-                    fill={bgColor}
-                ></path>
-                <path
-                    className="pizza-divider pizza-divider-diagonal"
-                    d={secondaryDiagonalDivider}
-                    fill={bgColor}
-                ></path>
+                <g className="pizza-dividers">
+                    <path
+                        className="pizza-divider pizza-divider-horizontal"
+                        d={horizontalDivider}
+                        fill={bgColor}
+                    ></path>
+                    <path
+                        className="pizza-divider pizza-divider-vertical"
+                        d={verticalDivider}
+                        fill={bgColor}
+                    ></path>
+                    <path
+                        className="pizza-divider pizza-divider-diagonal"
+                        d={primaryDiagonalDivider}
+                        fill={bgColor}
+                    ></path>
+                    <path
+                        className="pizza-divider pizza-divider-diagonal"
+                        d={secondaryDiagonalDivider}
+                        fill={bgColor}
+                    ></path>
+                </g>
                 <circle
                     className="pizza-background"
                     r={innerRadius + outerRadius * radiusRatio}
