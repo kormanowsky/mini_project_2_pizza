@@ -1,15 +1,17 @@
 import React from "react";
 import { Pizza, ToppingConfiguration } from "./components/Pizza";
+import "./App.css";
 
 function App() {
     return (
         <div className="App">
             <Pizza
-                size={1000}
+                size={500}
                 toppings={new ToppingConfiguration()
                     .addTomatoes()
                     .addMushrooms()}
                 innerRadiusFraction={0.92}
+                bgColor="#FFEB3B"
             ></Pizza>
         </div>
     );

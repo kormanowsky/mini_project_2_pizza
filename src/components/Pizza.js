@@ -88,11 +88,14 @@ class Pizza extends React.Component {
                 }
             }
             return (
-                <g className="topping mushrooms">
+                <g className="topping mushrooms" key="mushrooms">
                     {mushrooms.map((_, iIndex, mushrooms) => {
-                        return mushrooms[iIndex].map((_, jIndex, mushrooms) => {
+                        return mushrooms[iIndex].map((_, jIndex) => {
                             return (
-                                <g className="mushroom">
+                                <g
+                                    className="mushroom"
+                                    key={`mushroom-${iIndex}-${jIndex}`}
+                                >
                                     <ellipse
                                         cx={(iIndex + 0.5) * mushroomTotalWidth}
                                         cy={
