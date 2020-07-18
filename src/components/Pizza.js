@@ -95,6 +95,13 @@ class Pizza extends React.Component {
                                 <g
                                     className="mushroom"
                                     key={`mushroom-${iIndex}-${jIndex}`}
+                                    transform={`rotate(${
+                                        Math.random() * 90 - 45
+                                    }, ${
+                                        (iIndex + 0.5) * mushroomTotalWidth
+                                    } , ${
+                                        (jIndex + 0.5) * mushroomTotalHeight
+                                    } )`}
                                 >
                                     <ellipse
                                         cx={(iIndex + 0.5) * mushroomTotalWidth}
@@ -193,6 +200,11 @@ class Pizza extends React.Component {
                                     strokeLinejoin="round"
                                     d={pepperD}
                                     key={`pepper-${iIndex}-${jIndex}`}
+                                    transform={`rotate(${
+                                        Math.random() * 360
+                                    }, ${(iIndex + 0.5) * pepperTotalWidth} , ${
+                                        (jIndex + 0.5) * pepperTotalHeight
+                                    } )`}
                                 ></path>
                             );
                         });
@@ -245,6 +257,10 @@ class Pizza extends React.Component {
                     })}
                 </g>
             );
+        },
+
+        meat: () => {
+            const meatSize = this.state.size / 19;
         },
     };
 
