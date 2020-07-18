@@ -12,7 +12,9 @@ function App() {
                     .addMushrooms()
                     .addPepper()
                     .addOnion()
-                    .addMeat()}
+                    .addMeat()
+                    .addSausages()
+                    .addGreens()}
                 innerRadiusFraction={0.92}
                 bgColor="aliceblue"
             ></Pizza>

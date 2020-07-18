@@ -303,6 +303,107 @@ class Pizza extends React.Component {
                 </g>
             );
         },
+
+        sausages: () => {
+            const sausageRadius = this.state.size / 21,
+                sausagePadding = sausageRadius * 0.5,
+                sausageTotalSize = sausageRadius * 2 + sausagePadding * 2;
+            let sausages = [];
+            for (let i = 0; i < this.state.size / sausageTotalSize; ++i) {
+                sausages.push([]);
+                for (let j = 0; j < this.state.size / sausageTotalSize; ++j) {
+                    sausages[i].push(0);
+                }
+            }
+            return (
+                <g className="topping sausages" key="sausages">
+                    {sausages.map((_, iIndex, sausages) => {
+                        return sausages.map((_, jIndex) => {
+                            return (
+                                <circle
+                                    className="sausage"
+                                    key={`sausage-${iIndex}-${jIndex}`}
+                                    r={sausageRadius}
+                                    fill="#ffa8c5"
+                                    cx={
+                                        iIndex * sausageTotalSize +
+                                        sausagePadding +
+                                        +sausageRadius *
+                                            (Math.random() * 0.4 + 0.8)
+                                    }
+                                    cy={
+                                        jIndex * sausageTotalSize +
+                                        sausagePadding +
+                                        sausageRadius *
+                                            (Math.random() * 0.4 + 0.8)
+                                    }
+                                ></circle>
+                            );
+                        });
+                    })}
+                </g>
+            );
+        },
+
+        greens: () => {
+            const greensLineSize = this.state.size / 25,
+                greensSquareSize = greensLineSize * 1.6,
+                greensPadding = greensSquareSize / 1.5,
+                greensTotalSize = greensPadding * 2 + greensSquareSize;
+            let greens = [];
+            for (let i = 0; i < this.state.size / greensTotalSize; ++i) {
+                greens.push([]);
+                for (let j = 0; j < this.state.size / greensTotalSize; ++j) {
+                    greens[i].push(0);
+                }
+            }
+            return (
+                <g key="greens" className="topping greens">
+                    {greens.map((_, iIndex, greens) => {
+                        return greens.map((_, jIndex) => {
+                            return (
+                                <path
+                                    key={`greens-${iIndex}-${jIndex}`}
+                                    className="greens-piece"
+                                    d={`M ${
+                                        iIndex * greensTotalSize + greensPadding
+                                    } ${
+                                        (jIndex + 1) * greensTotalSize -
+                                        greensPadding
+                                    } L ${(iIndex + 0.5) * greensTotalSize} ${
+                                        (jIndex + 1) * greensTotalSize -
+                                        greensPadding -
+                                        greensLineSize * 0.6
+                                    } L ${(iIndex + 0.5) * greensTotalSize} ${
+                                        jIndex * greensTotalSize + greensPadding
+                                    } L ${(iIndex + 0.5) * greensTotalSize} ${
+                                        (jIndex + 1) * greensTotalSize -
+                                        greensPadding -
+                                        greensLineSize * 0.6
+                                    } L ${
+                                        (iIndex + 1) * greensTotalSize -
+                                        greensPadding
+                                    } ${
+                                        (jIndex + 1) * greensTotalSize -
+                                        greensPadding
+                                    }`}
+                                    fill="transparent"
+                                    stroke="#00c400"
+                                    strokeWidth={greensSquareSize / 10}
+                                    transform={`rotate(${
+                                        Math.random() * 360
+                                    }, ${(iIndex + 0.5) * greensTotalSize}, ${
+                                        (jIndex + 1) * greensTotalSize -
+                                        greensPadding -
+                                        greensLineSize * 0.6
+                                    })`}
+                                ></path>
+                            );
+                        });
+                    })}
+                </g>
+            );
+        },
     };
 
     constructor(props) {
