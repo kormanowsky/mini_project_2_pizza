@@ -9,7 +9,8 @@ function App() {
                 size={500}
                 toppings={new ToppingConfiguration()
                     .addTomatoes()
-                    .addMushrooms()}
+                    .addMushrooms()
+                    .addPepper()}
                 innerRadiusFraction={0.92}
                 bgColor="#FFEB3B"
             ></Pizza>
