@@ -38,7 +38,7 @@ class ToppingConfiguration {
 class Pizza extends React.Component {
     toppingRenderers = {
         tomatoes: () => {
-            const tomatoSize = 4,
+            const tomatoSize = 7,
                 tomatoPadding = 8,
                 tomatoTotalSize = tomatoSize + 2 * tomatoPadding,
                 tomatoes = [];
@@ -49,10 +49,11 @@ class Pizza extends React.Component {
                 }
             }
             return (
-                <g className="topping tomatoes">
+                <g className="topping tomatoes" key="tomatoes">
                     {tomatoes.map((_, iIndex, tomatoes) => {
                         return tomatoes[iIndex].map((_, jIndex, tomatoes) => (
                             <circle
+                                key={`tomato-${iIndex}-${jIndex}`}
                                 className="tomato"
                                 r={tomatoSize}
                                 cx={(iIndex + 0.5) * tomatoTotalSize}
@@ -69,7 +70,7 @@ class Pizza extends React.Component {
     constructor(props) {
         super(props);
         let size = parseInt(this.props.size),
-            innerRadiusFraction = parseInt(this.props.innerRadiusFraction);
+            innerRadiusFraction = parseFloat(this.props.innerRadiusFraction);
         if (isNaN(size)) {
             size = 150;
         }
@@ -78,12 +79,14 @@ class Pizza extends React.Component {
         }
         this.state = {
             pizzaColor: "#ffd700",
+            pizzaBorderColor: "#ffbc0a",
             size,
             innerRadiusFraction,
             bgColor: this.props.bgColor || "white",
             outerRadius: size / 2,
             innerRadius: (size / 2) * innerRadiusFraction,
         };
+        console.log(this.state);
         this.renderToppings = this.renderToppings.bind(this);
     }
 
@@ -106,6 +109,7 @@ class Pizza extends React.Component {
     render() {
         const {
             pizzaColor,
+            pizzaBorderColor,
             size,
             bgColor,
             outerRadius,
@@ -138,27 +142,48 @@ class Pizza extends React.Component {
             secondaryDiagonalDivider = `M ${bigRightCoord} ${bigLeftCoord} L ${smallRightCoord} ${smallLeftCoord} L ${smallLeftCoord} ${smallRightCoord} L ${bigLeftCoord} ${bigRightCoord} L ${bigRightCoord} ${bigLeftCoord}`;
 
         return (
-            <svg width={size} height={size}>
+            <svg className="pizza" width={size} height={size}>
                 <circle
-                    r={outerRadius}
-                    cx={outerRadius}
-                    cy={outerRadius}
-                    fill={bgColor}
-                ></circle>
-                <circle
+                    className="pizza-basement"
                     r={innerRadius}
                     cx={outerRadius}
                     cy={outerRadius}
                     fill={pizzaColor}
                 ></circle>
                 {this.renderToppings()}
-                <path d={horizontalDivider} fill={bgColor}></path>
-                <path d={verticalDivider} fill={bgColor}></path>
-                <path d={primaryDiagonalDivider} fill={bgColor}></path>
-                <path d={secondaryDiagonalDivider} fill={bgColor}></path>
                 <circle
-                    r={innerRadius + blankSpaceLineWidth * 5}
-                    strokeWidth={blankSpaceLineWidth * 10}
+                    className="pizza-border"
+                    r={innerRadius - blankSpaceLineWidth}
+                    strokeWidth={blankSpaceLineWidth * 2}
+                    stroke={pizzaBorderColor}
+                    cx={outerRadius}
+                    cy={outerRadius}
+                    fill="transparent"
+                ></circle>
+                <path
+                    className="pizza-divider pizza-divider-horizontal"
+                    d={horizontalDivider}
+                    fill={bgColor}
+                ></path>
+                <path
+                    className="pizza-divider pizza-divider-vertical"
+                    d={verticalDivider}
+                    fill={bgColor}
+                ></path>
+                <path
+                    className="pizza-divider pizza-divider-diagonal"
+                    d={primaryDiagonalDivider}
+                    fill={bgColor}
+                ></path>
+                <path
+                    className="pizza-divider pizza-divider-diagonal"
+                    d={secondaryDiagonalDivider}
+                    fill={bgColor}
+                ></path>
+                <circle
+                    className="pizza-background"
+                    r={innerRadius + outerRadius * radiusRatio}
+                    strokeWidth={outerRadius * radiusRatio * 2}
                     stroke={bgColor}
                     fill="transparent"
                     cx={outerRadius}
