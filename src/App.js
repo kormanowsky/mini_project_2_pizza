@@ -10,9 +10,10 @@ function App() {
                 toppings={new ToppingConfiguration()
                     .addTomatoes()
                     .addMushrooms()
-                    .addPepper()}
+                    .addPepper()
+                    .addOnion()}
                 innerRadiusFraction={0.92}
-                bgColor="#FFEB3B"
+                bgColor="aliceblue"
             ></Pizza>
         </div>
     );

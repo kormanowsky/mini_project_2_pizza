@@ -200,6 +200,52 @@ class Pizza extends React.Component {
                 </g>
             );
         },
+
+        onion: () => {
+            const onionRadius = this.state.size / 18,
+                onionPadding = onionRadius * 0.5,
+                onionTotalSize = onionRadius * 2 + onionPadding * 2,
+                onionStrokeWidth = onionRadius / 8;
+            let onions = [];
+            for (let i = 0; i < this.state.size / onionTotalSize; ++i) {
+                onions.push([]);
+                for (let j = 0; j < this.state.size / onionTotalSize; ++j) {
+                    onions[i].push(0);
+                }
+            }
+            return (
+                <g className="topping onion" key="onion">
+                    {onions.map((_, iIndex, onions) => {
+                        return onions.map((_, jIndex) => {
+                            return (
+                                <circle
+                                    className="onion"
+                                    key={`onion-${iIndex}-${jIndex}`}
+                                    r={onionRadius}
+                                    fill="transparent"
+                                    strokeWidth={onionStrokeWidth}
+                                    cx={
+                                        iIndex * onionTotalSize +
+                                        onionPadding +
+                                        +onionRadius *
+                                            (Math.random() * 0.4 + 0.8) +
+                                        onionStrokeWidth / 2
+                                    }
+                                    cy={
+                                        jIndex * onionTotalSize +
+                                        onionPadding +
+                                        onionStrokeWidth / 2 +
+                                        onionRadius *
+                                            (Math.random() * 0.4 + 0.8)
+                                    }
+                                    stroke="#b68cff"
+                                ></circle>
+                            );
+                        });
+                    })}
+                </g>
+            );
+        },
     };
 
     constructor(props) {
@@ -249,7 +295,7 @@ class Pizza extends React.Component {
             outerRadius,
             innerRadius,
         } = this.state;
-        const blankSpaceLineWidth = 0.5 * (outerRadius - innerRadius),
+        const blankSpaceLineWidth = 0.25 * (outerRadius - innerRadius),
             radiusRatio =
                 (outerRadius * 2 ** 0.5 - innerRadius) / outerRadius / 2 ** 0.5,
             smallCenteredCoord = outerRadius * radiusRatio,
@@ -287,8 +333,8 @@ class Pizza extends React.Component {
                 {this.renderToppings()}
                 <circle
                     className="pizza-border"
-                    r={innerRadius - blankSpaceLineWidth}
-                    strokeWidth={blankSpaceLineWidth * 2}
+                    r={innerRadius - blankSpaceLineWidth * 2}
+                    strokeWidth={blankSpaceLineWidth * 4}
                     stroke={pizzaBorderColor}
                     cx={outerRadius}
                     cy={outerRadius}
