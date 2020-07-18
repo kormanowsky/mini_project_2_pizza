@@ -546,6 +546,7 @@ class Pizza extends React.Component {
                             justifyContent: "center",
                             marginTop: "2rem",
                         }}
+                        key={`control-${topping}`}
                     >
                         <button
                             disabled={this.state.toppings[topping]}
