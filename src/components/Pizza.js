@@ -65,6 +65,62 @@ class Pizza extends React.Component {
                 </g>
             );
         },
+        mushrooms: () => {
+            const mushroomWidth = this.state.size / 20,
+                mushroomHeight = mushroomWidth * 0.8,
+                mushroomPartWidth = mushroomWidth * 0.6,
+                mushroomPartHeight = mushroomPartWidth * 0.8,
+                mushroomPadding = mushroomWidth * 1.5,
+                mushroomTotalWidth = 2 * mushroomPadding + mushroomWidth,
+                mushroomTotalHeight =
+                    2 * mushroomPadding +
+                    mushroomHeight +
+                    mushroomPartHeight * 0.25;
+            let mushrooms = [];
+            for (let i = 0; i < this.state.size / mushroomTotalWidth; ++i) {
+                mushrooms.push([]);
+                for (
+                    let j = 0;
+                    j < this.state.size / mushroomTotalHeight;
+                    ++j
+                ) {
+                    mushrooms[i].push(0);
+                }
+            }
+            return (
+                <g className="topping mushrooms">
+                    {mushrooms.map((_, iIndex, mushrooms) => {
+                        return mushrooms[iIndex].map((_, jIndex, mushrooms) => {
+                            return (
+                                <g className="mushroom">
+                                    <ellipse
+                                        cx={(iIndex + 0.5) * mushroomTotalWidth}
+                                        cy={
+                                            (jIndex + 0.25) *
+                                            mushroomTotalHeight
+                                        }
+                                        rx={mushroomWidth}
+                                        ry={mushroomHeight}
+                                        fill="#aea4a0"
+                                    ></ellipse>
+                                    <ellipse
+                                        cx={(iIndex + 0.5) * mushroomTotalWidth}
+                                        cy={
+                                            (jIndex + 0.25) *
+                                                mushroomTotalHeight +
+                                            mushroomPartHeight * 0.75
+                                        }
+                                        rx={mushroomPartWidth}
+                                        ry={mushroomPartHeight}
+                                        fill="#938e8c"
+                                    ></ellipse>
+                                </g>
+                            );
+                        });
+                    })}
+                </g>
+            );
+        },
     };
 
     constructor(props) {

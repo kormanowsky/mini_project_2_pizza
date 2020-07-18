@@ -4,7 +4,13 @@ import { Pizza, ToppingConfiguration } from "./components/Pizza";
 function App() {
     return (
         <div className="App">
-            <Pizza size={1000} toppings={new ToppingConfiguration().addTomatoes()} innerRadiusFraction={0.92}></Pizza>
+            <Pizza
+                size={1000}
+                toppings={new ToppingConfiguration()
+                    .addTomatoes()
+                    .addMushrooms()}
+                innerRadiusFraction={0.92}
+            ></Pizza>
         </div>
     );
 }
