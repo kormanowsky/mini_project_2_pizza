@@ -276,7 +276,7 @@ class Pizza extends React.Component {
                         return meatPieces[iIndex].map((_, jIndex) => {
                             return (
                                 <rect
-                                    class="meat-piece"
+                                    className="meat-piece"
                                     key={`meat-piece-${iIndex}-${jIndex}`}
                                     fill="brown"
                                     x={iIndex * meatTotalSize + meatPadding}
