@@ -140,14 +140,6 @@ class Pizza extends React.Component {
                     pepper[i].push(0);
                 }
             }
-            console.log({
-                pepperSideSize,
-                pepperStrokeWidth,
-                pepperTotalHeight,
-                pepperTotalWidth,
-                pepperHeight,
-                pepperWidth,
-            });
             return (
                 <g className="topping pepper" key="pepper">
                     {pepper.map((_, iIndex, pepper) => {
@@ -200,6 +192,7 @@ class Pizza extends React.Component {
                                     strokeWidth={pepperStrokeWidth}
                                     strokeLinejoin="round"
                                     d={pepperD}
+                                    key={`pepper-${iIndex}-${jIndex}`}
                                 ></path>
                             );
                         });
