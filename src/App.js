@@ -6,12 +6,13 @@ function App() {
     return (
         <div className="App">
             <Pizza
-                size={500}
+                size={600}
                 toppings={new ToppingConfiguration()
                     .addTomatoes()
                     .addMushrooms()
                     .addPepper()
-                    .addOnion()}
+                    .addOnion()
+                    .addMeat()}
                 innerRadiusFraction={0.92}
                 bgColor="aliceblue"
             ></Pizza>

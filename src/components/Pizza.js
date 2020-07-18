@@ -260,7 +260,48 @@ class Pizza extends React.Component {
         },
 
         meat: () => {
-            const meatSize = this.state.size / 19;
+            const meatSize = this.state.size / 19,
+                meatPadding = meatSize,
+                meatTotalSize = meatSize + meatPadding * 2,
+                meatPieces = [];
+            for (let i = 0; i < this.state.size / meatTotalSize; ++i) {
+                meatPieces.push([]);
+                for (let j = 0; j < this.state.size / meatTotalSize; ++j) {
+                    meatPieces[i].push(0);
+                }
+            }
+            return (
+                <g key="meat" className="topping meat">
+                    {meatPieces.map((_, iIndex, meatPieces) => {
+                        return meatPieces[iIndex].map((_, jIndex) => {
+                            return (
+                                <rect
+                                    class="meat-piece"
+                                    key={`meat-piece-${iIndex}-${jIndex}`}
+                                    fill="brown"
+                                    x={iIndex * meatTotalSize + meatPadding}
+                                    y={jIndex * meatTotalSize + meatPadding}
+                                    width={meatSize}
+                                    height={meatSize}
+                                    rx={meatSize / 5}
+                                    ry={meatSize / 5}
+                                    transform={`rotate(${
+                                        360 * Math.random()
+                                    }, ${
+                                        iIndex * meatTotalSize +
+                                        meatPadding +
+                                        meatSize / 2
+                                    }, ${
+                                        jIndex * meatTotalSize +
+                                        meatPadding +
+                                        meatSize / 2
+                                    })`}
+                                />
+                            );
+                        });
+                    })}
+                </g>
+            );
         },
     };
 
