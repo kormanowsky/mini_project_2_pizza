@@ -539,17 +539,48 @@ class Pizza extends React.Component {
                     ></circle>
                 </svg>
 
-                <button
-                    onClick={() => {
-                        this.setState({
-                            toppings: Object.assign({}, this.state.toppings, {
-                                onion: false,
-                            }),
-                        });
-                    }}
-                >
-                    Remove onion!!!
-                </button>
+                {Object.keys(this.state.toppings).map((topping) => (
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            marginTop: "2rem",
+                        }}
+                    >
+                        <button
+                            disabled={this.state.toppings[topping]}
+                            onClick={() => {
+                                this.setState({
+                                    toppings: Object.assign(
+                                        {},
+                                        this.state.toppings,
+                                        {
+                                            [topping]: true,
+                                        }
+                                    ),
+                                });
+                            }}
+                        >
+                            Add {topping}
+                        </button>
+                        <button
+                            disabled={!this.state.toppings[topping]}
+                            onClick={() => {
+                                this.setState({
+                                    toppings: Object.assign(
+                                        {},
+                                        this.state.toppings,
+                                        {
+                                            [topping]: false,
+                                        }
+                                    ),
+                                });
+                            }}
+                        >
+                            Remove {topping}
+                        </button>
+                    </div>
+                ))}
             </div>
         );
     }
