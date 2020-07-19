@@ -6,6 +6,7 @@ import OnionTopping from "./OnionTopping";
 import MeatTopping from "./MeatTopping";
 import SausagesTopping from "./SausagesTopping";
 import GreensTopping from "./GreensTopping";
+import PepperoniTopping from "./PepperoniTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -17,6 +18,7 @@ class ToppingConfiguration {
             meat: false,
             sausages: false,
             greens: false,
+            pepperoni: false,
         };
         Object.assign(this, initialConfiguration);
         for (let key in initialConfiguration) {
@@ -41,6 +43,7 @@ class Pizza extends React.Component {
         onion: OnionTopping,
         meat: MeatTopping,
         sausages: SausagesTopping,
+        pepperoni: PepperoniTopping,
         greens: GreensTopping,
     };
 
