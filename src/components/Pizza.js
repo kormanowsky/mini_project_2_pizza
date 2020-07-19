@@ -1,8 +1,8 @@
 import React from "react";
 
 class ToppingConfiguration {
-    constructor() {
-        this.configuration = {
+    constructor(configuration) {
+        const initialConfiguration = configuration || {
             tomatoes: false,
             mushrooms: false,
             pepper: false,
@@ -11,27 +11,82 @@ class ToppingConfiguration {
             sausages: false,
             greens: false,
         };
-        for (let key in this.configuration) {
+        Object.assign(this, initialConfiguration);
+        for (let key in initialConfiguration) {
             let capitalizedKey = key[0].toUpperCase() + key.slice(1);
             this.constructor.prototype[`add${capitalizedKey}`] = () => {
-                this.configuration[key] = true;
+                this[key] = true;
                 return this;
             };
             this.constructor.prototype[`remove${capitalizedKey}`] = () => {
-                this.configuration[key] = false;
+                this[key] = false;
                 return this;
             };
         }
     }
+}
 
-    getAll() {
-        let toppings = [];
-        for (let key in this.configuration) {
-            if (this.configuration[key]) {
-                toppings.push(key);
+class Topping extends React.Component {
+    constructor(props) {
+        super(props);
+        this.renderLayer = this.renderLayer.bind(this);
+        this.iterator = this.iterator.bind(this);
+    }
+
+    *iterator() {
+        for (let i = 0; i < this.props.pizzaSize / this.props.size.width; ++i) {
+            for (
+                let j = 0;
+                j < this.props.pizzaSize / this.props.size.height;
+                ++j
+            ) {
+                yield this.props.renderer(i, j);
             }
         }
-        return toppings;
+    }
+
+    renderLayer() {
+        return Array.from(this.iterator());
+    }
+
+    render() {
+        return (
+            <g className={`topping ${this.name}`} key={this.name}>
+                {this.renderLayer()}
+            </g>
+        );
+    }
+}
+
+class TomatoesTopping extends React.Component {
+    constructor(props) {
+        super(props);
+        const tomatoSize = this.props.pizzaSize / 40,
+            tomatoPadding = tomatoSize * 2,
+            tomatoTotalSize = tomatoSize + 2 * tomatoPadding;
+        this.state = {
+            size: { width: tomatoTotalSize, height: tomatoTotalSize },
+            tomatoSize,
+        };
+    }
+    render() {
+        return (
+            <Topping
+                name="tomatoes"
+                pizzaSize={this.props.pizzaSize}
+                size={this.state.size}
+                renderer={(iIndex, jIndex) => (
+                    <circle
+                        key={`tomato-${iIndex}-${jIndex}`}
+                        className="tomato"
+                        r={this.state.tomatoSize}
+                        cx={(iIndex + 0.5) * this.state.size.width}
+                        cy={(jIndex + 0.5) * this.state.size.height}
+                        fill="red"
+                    ></circle>
+                )}
+            />
+        );
     }
 }
 
@@ -46,28 +101,8 @@ class Pizza extends React.Component {
 
     toppingRenderers = {
         tomatoes: () => {
-            const tomatoSize = this.state.size / 40,
-                tomatoPadding = tomatoSize * 2,
-                tomatoTotalSize = tomatoSize + 2 * tomatoPadding;
             return (
-                <g className="topping tomatoes" key="tomatoes">
-                    {Array.from(
-                        this.toppingIterator(
-                            tomatoTotalSize,
-                            tomatoTotalSize,
-                            (iIndex, jIndex) => (
-                                <circle
-                                    key={`tomato-${iIndex}-${jIndex}`}
-                                    className="tomato"
-                                    r={tomatoSize}
-                                    cx={(iIndex + 0.5) * tomatoTotalSize}
-                                    cy={(jIndex + 0.5) * tomatoTotalSize}
-                                    fill="red"
-                                ></circle>
-                            )
-                        )
-                    )}
-                </g>
+                <TomatoesTopping key="tomatoes" pizzaSize={this.state.size} />
             );
         },
         mushrooms: () => {
@@ -402,10 +437,10 @@ class Pizza extends React.Component {
             bgColor: this.props.bgColor || "white",
             outerRadius: size / 2,
             innerRadius: (size / 2) * innerRadiusFraction,
-            toppings: this.props.toppings.configuration,
+            toppings: this.props.toppings,
         };
         this.renderToppings = this.renderToppings.bind(this);
-        this.toppingIterator = this.toppingIterator.bind(this);
+        this.toppingIterator = this.toppingIterator.bind(this); // Temporary
     }
 
     renderToppings() {
