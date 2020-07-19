@@ -34,7 +34,6 @@ class ToppingConfiguration {
 }
 
 class Pizza extends React.Component {
-    
     toppings = {
         tomatoes: TomatoesTopping,
         mushrooms: MushroomsTopping,
@@ -72,26 +71,22 @@ class Pizza extends React.Component {
         if (!this.state.toppings) {
             return "";
         }
-        let enabledToppings = [];
-        for (let key in this.state.toppings) {
-            if (this.state.toppings[key]) {
-                enabledToppings.push(key);
-            }
-        }
         return (
             <g className="pizza-toppings">
-                {enabledToppings.map((topping) => {
-                    if (topping in this.toppings) {
-                        const ToppingComponent = this.toppings[topping];
-                        return (
-                            <ToppingComponent
-                                key={topping}
-                                pizzaSize={this.state.size}
-                            />
-                        );
-                    }
-                    return "";
-                })}
+                {Object.keys(this.state.toppings)
+                    .filter((topping) => this.state.toppings[topping])
+                    .map((topping) => {
+                        if (topping in this.toppings) {
+                            const ToppingComponent = this.toppings[topping];
+                            return (
+                                <ToppingComponent
+                                    key={topping}
+                                    pizzaSize={this.state.size}
+                                />
+                            );
+                        }
+                        return "";
+                    })}
             </g>
         );
     }
