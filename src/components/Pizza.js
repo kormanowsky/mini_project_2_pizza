@@ -34,49 +34,15 @@ class ToppingConfiguration {
 }
 
 class Pizza extends React.Component {
-    *toppingIterator(width, height, renderItem) {
-        for (let i = 0; i < this.state.size / width; ++i) {
-            for (let j = 0; j < this.state.size / height; ++j) {
-                yield renderItem(i, j);
-            }
-        }
-    }
-
-    toppingRenderers = {
-        tomatoes: () => {
-            return (
-                <TomatoesTopping key="tomatoes" pizzaSize={this.state.size} />
-            );
-        },
-        mushrooms: () => {
-            return (
-                <MushroomsTopping key="mushrooms" pizzaSize={this.state.size} />
-            );
-        },
-
-        pepper: () => {
-            return (
-                <PepperTopping key="mushrooms" pizzaSize={this.state.size} />
-            );
-        },
-
-        onion: () => {
-            return <OnionTopping key="onion" pizzaSize={this.state.size} />;
-        },
-
-        meat: () => {
-            return <MeatTopping key="meat" pizzaSize={this.state.size} />;
-        },
-
-        sausages: () => {
-            return (
-                <SausagesTopping key="sausages" pizzaSize={this.state.size} />
-            );
-        },
-
-        greens: () => {
-            return <GreensTopping key="greens" pizzaSize={this.state.size} />;
-        },
+    
+    toppings = {
+        tomatoes: TomatoesTopping,
+        mushrooms: MushroomsTopping,
+        pepper: PepperTopping,
+        onion: OnionTopping,
+        meat: MeatTopping,
+        sausages: SausagesTopping,
+        greens: GreensTopping,
     };
 
     constructor(props) {
@@ -100,7 +66,6 @@ class Pizza extends React.Component {
             toppings: this.props.toppings,
         };
         this.renderToppings = this.renderToppings.bind(this);
-        this.toppingIterator = this.toppingIterator.bind(this); // Temporary
     }
 
     renderToppings() {
@@ -116,8 +81,14 @@ class Pizza extends React.Component {
         return (
             <g className="pizza-toppings">
                 {enabledToppings.map((topping) => {
-                    if (topping in this.toppingRenderers) {
-                        return this.toppingRenderers[topping]();
+                    if (topping in this.toppings) {
+                        const ToppingComponent = this.toppings[topping];
+                        return (
+                            <ToppingComponent
+                                key={topping}
+                                pizzaSize={this.state.size}
+                            />
+                        );
                     }
                     return "";
                 })}
