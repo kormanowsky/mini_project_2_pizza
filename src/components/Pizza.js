@@ -36,6 +36,14 @@ class ToppingConfiguration {
 }
 
 class Pizza extends React.Component {
+    *toppingIterator(width, height, renderItem) {
+        for (let i = 0; i < this.state.size / width; ++i) {
+            for (let j = 0; j < this.state.size / height; ++j) {
+                yield renderItem(i, j);
+            }
+        }
+    }
+
     toppingRenderers = {
         tomatoes: () => {
             const tomatoSize = this.state.size / 40,
@@ -427,6 +435,7 @@ class Pizza extends React.Component {
             toppings: this.props.toppings.configuration,
         };
         this.renderToppings = this.renderToppings.bind(this);
+        this.toppingIterator = this.toppingIterator.bind(this);
     }
 
     renderToppings() {
