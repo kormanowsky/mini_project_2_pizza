@@ -1,5 +1,6 @@
 import React from "react";
 import TomatoesTopping from "./TomatoesTopping";
+import MushroomsTopping from "./MushroomsTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -43,60 +44,8 @@ class Pizza extends React.Component {
             );
         },
         mushrooms: () => {
-            const mushroomWidth = this.state.size / 20,
-                mushroomHeight = mushroomWidth * 0.8,
-                mushroomPartWidth = mushroomWidth * 0.6,
-                mushroomPartHeight = mushroomPartWidth * 0.8,
-                mushroomPadding = mushroomWidth * 1.5,
-                mushroomTotalWidth = 2 * mushroomPadding + mushroomWidth,
-                mushroomTotalHeight =
-                    2 * mushroomPadding +
-                    mushroomHeight +
-                    mushroomPartHeight * 0.25;
             return (
-                <g className="topping mushrooms" key="mushrooms">
-                    {Array.from(
-                        this.toppingIterator(
-                            mushroomTotalWidth,
-                            mushroomTotalHeight,
-                            (iIndex, jIndex) => (
-                                <g
-                                    className="mushroom"
-                                    key={`mushroom-${iIndex}-${jIndex}`}
-                                    transform={`rotate(${
-                                        Math.random() * 90 - 45
-                                    }, ${
-                                        (iIndex + 0.5) * mushroomTotalWidth
-                                    } , ${
-                                        (jIndex + 0.5) * mushroomTotalHeight
-                                    } )`}
-                                >
-                                    <ellipse
-                                        cx={(iIndex + 0.5) * mushroomTotalWidth}
-                                        cy={
-                                            (jIndex + 0.25) *
-                                            mushroomTotalHeight
-                                        }
-                                        rx={mushroomWidth}
-                                        ry={mushroomHeight}
-                                        fill="#aea4a0"
-                                    ></ellipse>
-                                    <ellipse
-                                        cx={(iIndex + 0.5) * mushroomTotalWidth}
-                                        cy={
-                                            (jIndex + 0.25) *
-                                                mushroomTotalHeight +
-                                            mushroomPartHeight * 0.75
-                                        }
-                                        rx={mushroomPartWidth}
-                                        ry={mushroomPartHeight}
-                                        fill="#938e8c"
-                                    ></ellipse>
-                                </g>
-                            )
-                        )
-                    )}
-                </g>
+                <MushroomsTopping key="mushrooms" pizzaSize={this.state.size} />
             );
         },
 
