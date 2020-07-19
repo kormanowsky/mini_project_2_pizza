@@ -4,7 +4,7 @@ import Topping from "./Topping";
 class MushroomsTopping extends React.Component {
     constructor(props) {
         super(props);
-        const mushroomWidth = this.state.size / 20,
+        const mushroomWidth = this.props.pizzaSize / 20,
             mushroomHeight = mushroomWidth * 0.8,
             mushroomPartWidth = mushroomWidth * 0.6,
             mushroomPartHeight = mushroomPartWidth * 0.8,

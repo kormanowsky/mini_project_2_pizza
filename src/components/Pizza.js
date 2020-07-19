@@ -1,6 +1,7 @@
 import React from "react";
 import TomatoesTopping from "./TomatoesTopping";
 import MushroomsTopping from "./MushroomsTopping";
+import PepperTopping from "./PepperTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -50,85 +51,8 @@ class Pizza extends React.Component {
         },
 
         pepper: () => {
-            const pepperSideSize = this.state.size / 15,
-                pepperWidth = pepperSideSize * 2,
-                pepperHeight = pepperSideSize * Math.sqrt(3),
-                pepperStrokeWidth = pepperSideSize * 0.2,
-                pepperPadding = pepperSideSize,
-                pepperTotalWidth = pepperPadding * 2 + pepperWidth,
-                pepperTotalHeight = pepperPadding * 2 + pepperHeight;
             return (
-                <g className="topping pepper" key="pepper">
-                    {Array.from(
-                        this.toppingIterator(
-                            pepperTotalWidth,
-                            pepperTotalHeight,
-                            (iIndex, jIndex) => {
-                                let pepperD = `M ${
-                                    iIndex * pepperTotalWidth + pepperPadding
-                                } ${(jIndex + 0.5) * pepperTotalHeight} 
-                                L ${
-                                    iIndex * pepperTotalWidth +
-                                    pepperSideSize / 2 +
-                                    pepperPadding
-                                } ${jIndex * pepperTotalHeight + pepperPadding}
-                                L ${
-                                    iIndex * pepperTotalWidth +
-                                    (3 * pepperSideSize) / 2 +
-                                    pepperPadding
-                                } ${jIndex * pepperTotalHeight + pepperPadding}
-                                L ${
-                                    (iIndex + 1) * pepperTotalWidth -
-                                    pepperPadding
-                                } ${(jIndex + 0.5) * pepperTotalHeight}
-                                L ${
-                                    iIndex * pepperTotalWidth +
-                                    (3 * pepperSideSize) / 2 +
-                                    pepperPadding
-                                } ${
-                                    (jIndex + 1) * pepperTotalHeight -
-                                    pepperPadding
-                                }
-                                L ${
-                                    iIndex * pepperTotalWidth +
-                                    pepperSideSize / 2 +
-                                    pepperPadding
-                                } ${
-                                    (jIndex + 1) * pepperTotalHeight -
-                                    pepperPadding
-                                }
-                                L ${
-                                    iIndex * pepperTotalWidth + pepperPadding
-                                } ${(jIndex + 0.5) * pepperTotalHeight}
-                                L ${
-                                    iIndex * pepperTotalWidth +
-                                    pepperSideSize / 2 +
-                                    pepperPadding
-                                } ${jIndex * pepperTotalHeight + pepperPadding}`
-                                    .replace(/[\n\t]/g, " ")
-                                    .replace(/[\t ]+/g, " ");
-                                return (
-                                    <path
-                                        className="pizza-pepper"
-                                        fill="transparent"
-                                        stroke="green"
-                                        strokeWidth={pepperStrokeWidth}
-                                        strokeLinejoin="round"
-                                        d={pepperD}
-                                        key={`pepper-${iIndex}-${jIndex}`}
-                                        transform={`rotate(${
-                                            Math.random() * 360
-                                        }, ${
-                                            (iIndex + 0.5) * pepperTotalWidth
-                                        } , ${
-                                            (jIndex + 0.5) * pepperTotalHeight
-                                        } )`}
-                                    ></path>
-                                );
-                            }
-                        )
-                    )}
-                </g>
+                <PepperTopping key="mushrooms" pizzaSize={this.state.size} />
             );
         },
 
