@@ -28,7 +28,7 @@ class Topping extends React.Component {
 
     render() {
         return (
-            <g className={`topping ${this.name}`} key={this.name}>
+            <g className={`topping ${this.props.name}`} key={this.props.name}>
                 {this.renderItems()}
             </g>
         );

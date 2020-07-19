@@ -21,18 +21,18 @@ class MeatTopping extends React.Component {
                 className="meat-piece"
                 key={`meat-piece-${iIndex}-${jIndex}`}
                 fill="brown"
-                x={iIndex * this.state.size + this.state.padding}
-                y={jIndex * this.state.size + this.state.padding}
+                x={iIndex * this.state.size.width + this.state.padding}
+                y={jIndex * this.state.size.height + this.state.padding}
                 width={this.state.meatSize.width}
                 height={this.state.meatSize.height}
                 rx={this.state.meatSize.width / 5}
                 ry={this.state.meatSize.width / 5}
                 transform={`rotate(${360 * Math.random()}, ${
-                    iIndex * this.state.size +
+                    iIndex * this.state.size.width +
                     this.state.padding +
                     this.state.meatSize.width / 2
                 }, ${
-                    jIndex * this.state.size +
+                    jIndex * this.state.size.height +
                     this.state.padding +
                     this.state.meatSize.height / 2
                 })`}
