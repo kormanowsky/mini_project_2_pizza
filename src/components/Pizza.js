@@ -17,8 +17,8 @@ class ToppingConfiguration {
             onion: false,
             meat: false,
             sausages: false,
-            greens: false,
             pepperoni: false,
+            greens: false,
         };
         Object.assign(this, initialConfiguration);
         for (let key in initialConfiguration) {
