@@ -1,4 +1,5 @@
 import React from "react";
+import TomatoesTopping from "./TomatoesTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -23,70 +24,6 @@ class ToppingConfiguration {
                 return this;
             };
         }
-    }
-}
-
-class Topping extends React.Component {
-    constructor(props) {
-        super(props);
-        this.renderLayer = this.renderLayer.bind(this);
-        this.iterator = this.iterator.bind(this);
-    }
-
-    *iterator() {
-        for (let i = 0; i < this.props.pizzaSize / this.props.size.width; ++i) {
-            for (
-                let j = 0;
-                j < this.props.pizzaSize / this.props.size.height;
-                ++j
-            ) {
-                yield this.props.renderer(i, j);
-            }
-        }
-    }
-
-    renderLayer() {
-        return Array.from(this.iterator());
-    }
-
-    render() {
-        return (
-            <g className={`topping ${this.name}`} key={this.name}>
-                {this.renderLayer()}
-            </g>
-        );
-    }
-}
-
-class TomatoesTopping extends React.Component {
-    constructor(props) {
-        super(props);
-        const tomatoSize = this.props.pizzaSize / 40,
-            tomatoPadding = tomatoSize * 2,
-            tomatoTotalSize = tomatoSize + 2 * tomatoPadding;
-        this.state = {
-            size: { width: tomatoTotalSize, height: tomatoTotalSize },
-            tomatoSize,
-        };
-    }
-    render() {
-        return (
-            <Topping
-                name="tomatoes"
-                pizzaSize={this.props.pizzaSize}
-                size={this.state.size}
-                renderer={(iIndex, jIndex) => (
-                    <circle
-                        key={`tomato-${iIndex}-${jIndex}`}
-                        className="tomato"
-                        r={this.state.tomatoSize}
-                        cx={(iIndex + 0.5) * this.state.size.width}
-                        cy={(jIndex + 0.5) * this.state.size.height}
-                        fill="red"
-                    ></circle>
-                )}
-            />
-        );
     }
 }
 
