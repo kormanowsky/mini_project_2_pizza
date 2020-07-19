@@ -26,13 +26,13 @@ class OnionTopping extends React.Component {
                 fill="transparent"
                 strokeWidth={this.state.strokeWidth}
                 cx={
-                    iIndex * this.state.width +
+                    iIndex * this.state.size.width +
                     this.state.padding +
                     this.state.radius * (Math.random() * 0.4 + 0.8) +
                     this.state.strokeWidth / 2
                 }
                 cy={
-                    jIndex * this.state.height +
+                    jIndex * this.state.size.height +
                     this.state.padding +
                     this.state.radius * (Math.random() * 0.4 + 0.8) +
                     this.state.strokeWidth / 2
