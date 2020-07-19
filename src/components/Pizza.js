@@ -2,6 +2,7 @@ import React from "react";
 import TomatoesTopping from "./TomatoesTopping";
 import MushroomsTopping from "./MushroomsTopping";
 import PepperTopping from "./PepperTopping";
+import OnionTopping from "./OnionTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -57,44 +58,7 @@ class Pizza extends React.Component {
         },
 
         onion: () => {
-            const onionRadius = this.state.size / 18,
-                onionPadding = onionRadius * 0.5,
-                onionTotalSize = onionRadius * 2 + onionPadding * 2,
-                onionStrokeWidth = onionRadius / 8;
-            return (
-                <g className="topping onion" key="onion">
-                    {Array.from(
-                        this.toppingIterator(
-                            onionTotalSize,
-                            onionTotalSize,
-                            (iIndex, jIndex) => (
-                                <circle
-                                    className="onion"
-                                    key={`onion-${iIndex}-${jIndex}`}
-                                    r={onionRadius}
-                                    fill="transparent"
-                                    strokeWidth={onionStrokeWidth}
-                                    cx={
-                                        iIndex * onionTotalSize +
-                                        onionPadding +
-                                        +onionRadius *
-                                            (Math.random() * 0.4 + 0.8) +
-                                        onionStrokeWidth / 2
-                                    }
-                                    cy={
-                                        jIndex * onionTotalSize +
-                                        onionPadding +
-                                        onionStrokeWidth / 2 +
-                                        onionRadius *
-                                            (Math.random() * 0.4 + 0.8)
-                                    }
-                                    stroke="#b68cff"
-                                ></circle>
-                            )
-                        )
-                    )}
-                </g>
-            );
+            return <OnionTopping key="onion" pizzaSize={this.state.size} />;
         },
 
         meat: () => {
