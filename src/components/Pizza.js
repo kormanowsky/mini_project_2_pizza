@@ -5,6 +5,7 @@ import PepperTopping from "./PepperTopping";
 import OnionTopping from "./OnionTopping";
 import MeatTopping from "./MeatTopping";
 import SausagesTopping from "./SausagesTopping";
+import GreensTopping from "./GreensTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -74,58 +75,7 @@ class Pizza extends React.Component {
         },
 
         greens: () => {
-            const greensLineSize = this.state.size / 25,
-                greensSquareSize = greensLineSize * 1.6,
-                greensPadding = greensSquareSize / 1.5,
-                greensTotalSize = greensPadding * 2 + greensSquareSize;
-            return (
-                <g key="greens" className="topping greens">
-                    {Array.from(
-                        this.toppingIterator(
-                            greensTotalSize,
-                            greensTotalSize,
-                            (iIndex, jIndex) => (
-                                <path
-                                    key={`greens-${iIndex}-${jIndex}`}
-                                    className="greens-piece"
-                                    d={`M ${
-                                        iIndex * greensTotalSize + greensPadding
-                                    } ${
-                                        (jIndex + 1) * greensTotalSize -
-                                        greensPadding
-                                    } L ${(iIndex + 0.5) * greensTotalSize} ${
-                                        (jIndex + 1) * greensTotalSize -
-                                        greensPadding -
-                                        greensLineSize * 0.6
-                                    } L ${(iIndex + 0.5) * greensTotalSize} ${
-                                        jIndex * greensTotalSize + greensPadding
-                                    } L ${(iIndex + 0.5) * greensTotalSize} ${
-                                        (jIndex + 1) * greensTotalSize -
-                                        greensPadding -
-                                        greensLineSize * 0.6
-                                    } L ${
-                                        (iIndex + 1) * greensTotalSize -
-                                        greensPadding
-                                    } ${
-                                        (jIndex + 1) * greensTotalSize -
-                                        greensPadding
-                                    }`}
-                                    fill="transparent"
-                                    stroke="#00c400"
-                                    strokeWidth={greensSquareSize / 10}
-                                    transform={`rotate(${
-                                        Math.random() * 360
-                                    }, ${(iIndex + 0.5) * greensTotalSize}, ${
-                                        (jIndex + 1) * greensTotalSize -
-                                        greensPadding -
-                                        greensLineSize * 0.6
-                                    })`}
-                                ></path>
-                            )
-                        )
-                    )}
-                </g>
-            );
+            return <GreensTopping key="greens" pizzaSize={this.state.size} />;
         },
     };
 
