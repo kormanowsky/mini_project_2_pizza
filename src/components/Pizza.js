@@ -48,28 +48,25 @@ class Pizza extends React.Component {
         tomatoes: () => {
             const tomatoSize = this.state.size / 40,
                 tomatoPadding = tomatoSize * 2,
-                tomatoTotalSize = tomatoSize + 2 * tomatoPadding,
-                tomatoes = [];
-            for (let i = 0; i < this.state.size / tomatoTotalSize; ++i) {
-                tomatoes.push([]);
-                for (let j = 0; j < this.state.size / tomatoTotalSize; ++j) {
-                    tomatoes[i].push(0);
-                }
-            }
+                tomatoTotalSize = tomatoSize + 2 * tomatoPadding;
             return (
                 <g className="topping tomatoes" key="tomatoes">
-                    {tomatoes.map((_, iIndex, tomatoes) => {
-                        return tomatoes[iIndex].map((_, jIndex, tomatoes) => (
-                            <circle
-                                key={`tomato-${iIndex}-${jIndex}`}
-                                className="tomato"
-                                r={tomatoSize}
-                                cx={(iIndex + 0.5) * tomatoTotalSize}
-                                cy={(jIndex + 0.5) * tomatoTotalSize}
-                                fill="red"
-                            ></circle>
-                        ));
-                    })}
+                    {Array.from(
+                        this.toppingIterator(
+                            tomatoTotalSize,
+                            tomatoTotalSize,
+                            (iIndex, jIndex) => (
+                                <circle
+                                    key={`tomato-${iIndex}-${jIndex}`}
+                                    className="tomato"
+                                    r={tomatoSize}
+                                    cx={(iIndex + 0.5) * tomatoTotalSize}
+                                    cy={(jIndex + 0.5) * tomatoTotalSize}
+                                    fill="red"
+                                ></circle>
+                            )
+                        )
+                    )}
                 </g>
             );
         },
@@ -84,22 +81,13 @@ class Pizza extends React.Component {
                     2 * mushroomPadding +
                     mushroomHeight +
                     mushroomPartHeight * 0.25;
-            let mushrooms = [];
-            for (let i = 0; i < this.state.size / mushroomTotalWidth; ++i) {
-                mushrooms.push([]);
-                for (
-                    let j = 0;
-                    j < this.state.size / mushroomTotalHeight;
-                    ++j
-                ) {
-                    mushrooms[i].push(0);
-                }
-            }
             return (
                 <g className="topping mushrooms" key="mushrooms">
-                    {mushrooms.map((_, iIndex, mushrooms) => {
-                        return mushrooms[iIndex].map((_, jIndex) => {
-                            return (
+                    {Array.from(
+                        this.toppingIterator(
+                            mushroomTotalWidth,
+                            mushroomTotalHeight,
+                            (iIndex, jIndex) => (
                                 <g
                                     className="mushroom"
                                     key={`mushroom-${iIndex}-${jIndex}`}
@@ -133,9 +121,9 @@ class Pizza extends React.Component {
                                         fill="#938e8c"
                                     ></ellipse>
                                 </g>
-                            );
-                        });
-                    })}
+                            )
+                        )
+                    )}
                 </g>
             );
         },
@@ -148,75 +136,77 @@ class Pizza extends React.Component {
                 pepperPadding = pepperSideSize,
                 pepperTotalWidth = pepperPadding * 2 + pepperWidth,
                 pepperTotalHeight = pepperPadding * 2 + pepperHeight;
-            let pepper = [];
-            for (let i = 0; i < this.state.size / pepperTotalWidth; ++i) {
-                pepper.push([]);
-                for (let j = 0; j < this.state.size / pepperTotalHeight; ++j) {
-                    pepper[i].push(0);
-                }
-            }
             return (
                 <g className="topping pepper" key="pepper">
-                    {pepper.map((_, iIndex, pepper) => {
-                        return pepper[iIndex].map((_, jIndex) => {
-                            let pepperD = `M ${
-                                iIndex * pepperTotalWidth + pepperPadding
-                            } ${(jIndex + 0.5) * pepperTotalHeight} 
-                            L ${
-                                iIndex * pepperTotalWidth +
-                                pepperSideSize / 2 +
-                                pepperPadding
-                            } ${jIndex * pepperTotalHeight + pepperPadding}
-                            L ${
-                                iIndex * pepperTotalWidth +
-                                (3 * pepperSideSize) / 2 +
-                                pepperPadding
-                            } ${jIndex * pepperTotalHeight + pepperPadding}
-                            L ${
-                                (iIndex + 1) * pepperTotalWidth - pepperPadding
-                            } ${(jIndex + 0.5) * pepperTotalHeight}
-                            L ${
-                                iIndex * pepperTotalWidth +
-                                (3 * pepperSideSize) / 2 +
-                                pepperPadding
-                            } ${
-                                (jIndex + 1) * pepperTotalHeight - pepperPadding
+                    {Array.from(
+                        this.toppingIterator(
+                            pepperTotalWidth,
+                            pepperTotalHeight,
+                            (iIndex, jIndex) => {
+                                let pepperD = `M ${
+                                    iIndex * pepperTotalWidth + pepperPadding
+                                } ${(jIndex + 0.5) * pepperTotalHeight} 
+                                L ${
+                                    iIndex * pepperTotalWidth +
+                                    pepperSideSize / 2 +
+                                    pepperPadding
+                                } ${jIndex * pepperTotalHeight + pepperPadding}
+                                L ${
+                                    iIndex * pepperTotalWidth +
+                                    (3 * pepperSideSize) / 2 +
+                                    pepperPadding
+                                } ${jIndex * pepperTotalHeight + pepperPadding}
+                                L ${
+                                    (iIndex + 1) * pepperTotalWidth -
+                                    pepperPadding
+                                } ${(jIndex + 0.5) * pepperTotalHeight}
+                                L ${
+                                    iIndex * pepperTotalWidth +
+                                    (3 * pepperSideSize) / 2 +
+                                    pepperPadding
+                                } ${
+                                    (jIndex + 1) * pepperTotalHeight -
+                                    pepperPadding
+                                }
+                                L ${
+                                    iIndex * pepperTotalWidth +
+                                    pepperSideSize / 2 +
+                                    pepperPadding
+                                } ${
+                                    (jIndex + 1) * pepperTotalHeight -
+                                    pepperPadding
+                                }
+                                L ${
+                                    iIndex * pepperTotalWidth + pepperPadding
+                                } ${(jIndex + 0.5) * pepperTotalHeight}
+                                L ${
+                                    iIndex * pepperTotalWidth +
+                                    pepperSideSize / 2 +
+                                    pepperPadding
+                                } ${jIndex * pepperTotalHeight + pepperPadding}`
+                                    .replace(/[\n\t]/g, " ")
+                                    .replace(/[\t ]+/g, " ");
+                                return (
+                                    <path
+                                        className="pizza-pepper"
+                                        fill="transparent"
+                                        stroke="green"
+                                        strokeWidth={pepperStrokeWidth}
+                                        strokeLinejoin="round"
+                                        d={pepperD}
+                                        key={`pepper-${iIndex}-${jIndex}`}
+                                        transform={`rotate(${
+                                            Math.random() * 360
+                                        }, ${
+                                            (iIndex + 0.5) * pepperTotalWidth
+                                        } , ${
+                                            (jIndex + 0.5) * pepperTotalHeight
+                                        } )`}
+                                    ></path>
+                                );
                             }
-                            L ${
-                                iIndex * pepperTotalWidth +
-                                pepperSideSize / 2 +
-                                pepperPadding
-                            } ${
-                                (jIndex + 1) * pepperTotalHeight - pepperPadding
-                            }
-                            L ${iIndex * pepperTotalWidth + pepperPadding} ${
-                                (jIndex + 0.5) * pepperTotalHeight
-                            }
-                            L ${
-                                iIndex * pepperTotalWidth +
-                                pepperSideSize / 2 +
-                                pepperPadding
-                            } ${jIndex * pepperTotalHeight + pepperPadding}`
-                                .replace(/[\n\t]/g, " ")
-                                .replace(/[\t ]+/g, " ");
-                            return (
-                                <path
-                                    className="pizza-pepper"
-                                    fill="transparent"
-                                    stroke="green"
-                                    strokeWidth={pepperStrokeWidth}
-                                    strokeLinejoin="round"
-                                    d={pepperD}
-                                    key={`pepper-${iIndex}-${jIndex}`}
-                                    transform={`rotate(${
-                                        Math.random() * 360
-                                    }, ${(iIndex + 0.5) * pepperTotalWidth} , ${
-                                        (jIndex + 0.5) * pepperTotalHeight
-                                    } )`}
-                                ></path>
-                            );
-                        });
-                    })}
+                        )
+                    )}
                 </g>
             );
         },
@@ -226,18 +216,13 @@ class Pizza extends React.Component {
                 onionPadding = onionRadius * 0.5,
                 onionTotalSize = onionRadius * 2 + onionPadding * 2,
                 onionStrokeWidth = onionRadius / 8;
-            let onions = [];
-            for (let i = 0; i < this.state.size / onionTotalSize; ++i) {
-                onions.push([]);
-                for (let j = 0; j < this.state.size / onionTotalSize; ++j) {
-                    onions[i].push(0);
-                }
-            }
             return (
                 <g className="topping onion" key="onion">
-                    {onions.map((_, iIndex, onions) => {
-                        return onions.map((_, jIndex) => {
-                            return (
+                    {Array.from(
+                        this.toppingIterator(
+                            onionTotalSize,
+                            onionTotalSize,
+                            (iIndex, jIndex) => (
                                 <circle
                                     className="onion"
                                     key={`onion-${iIndex}-${jIndex}`}
@@ -260,9 +245,9 @@ class Pizza extends React.Component {
                                     }
                                     stroke="#b68cff"
                                 ></circle>
-                            );
-                        });
-                    })}
+                            )
+                        )
+                    )}
                 </g>
             );
         },
@@ -270,19 +255,14 @@ class Pizza extends React.Component {
         meat: () => {
             const meatSize = this.state.size / 19,
                 meatPadding = meatSize,
-                meatTotalSize = meatSize + meatPadding * 2,
-                meatPieces = [];
-            for (let i = 0; i < this.state.size / meatTotalSize; ++i) {
-                meatPieces.push([]);
-                for (let j = 0; j < this.state.size / meatTotalSize; ++j) {
-                    meatPieces[i].push(0);
-                }
-            }
+                meatTotalSize = meatSize + meatPadding * 2;
             return (
                 <g key="meat" className="topping meat">
-                    {meatPieces.map((_, iIndex, meatPieces) => {
-                        return meatPieces[iIndex].map((_, jIndex) => {
-                            return (
+                    {Array.from(
+                        this.toppingIterator(
+                            meatTotalSize,
+                            meatTotalSize,
+                            (iIndex, jIndex) => (
                                 <rect
                                     className="meat-piece"
                                     key={`meat-piece-${iIndex}-${jIndex}`}
@@ -305,9 +285,9 @@ class Pizza extends React.Component {
                                         meatSize / 2
                                     })`}
                                 />
-                            );
-                        });
-                    })}
+                            )
+                        )
+                    )}
                 </g>
             );
         },
@@ -316,18 +296,13 @@ class Pizza extends React.Component {
             const sausageRadius = this.state.size / 21,
                 sausagePadding = sausageRadius * 0.5,
                 sausageTotalSize = sausageRadius * 2 + sausagePadding * 2;
-            let sausages = [];
-            for (let i = 0; i < this.state.size / sausageTotalSize; ++i) {
-                sausages.push([]);
-                for (let j = 0; j < this.state.size / sausageTotalSize; ++j) {
-                    sausages[i].push(0);
-                }
-            }
             return (
                 <g className="topping sausages" key="sausages">
-                    {sausages.map((_, iIndex, sausages) => {
-                        return sausages.map((_, jIndex) => {
-                            return (
+                    {Array.from(
+                        this.toppingIterator(
+                            sausageTotalSize,
+                            sausageTotalSize,
+                            (iIndex, jIndex) => (
                                 <circle
                                     className="sausage"
                                     key={`sausage-${iIndex}-${jIndex}`}
@@ -346,9 +321,9 @@ class Pizza extends React.Component {
                                             (Math.random() * 0.4 + 0.8)
                                     }
                                 ></circle>
-                            );
-                        });
-                    })}
+                            )
+                        )
+                    )}
                 </g>
             );
         },
@@ -358,18 +333,13 @@ class Pizza extends React.Component {
                 greensSquareSize = greensLineSize * 1.6,
                 greensPadding = greensSquareSize / 1.5,
                 greensTotalSize = greensPadding * 2 + greensSquareSize;
-            let greens = [];
-            for (let i = 0; i < this.state.size / greensTotalSize; ++i) {
-                greens.push([]);
-                for (let j = 0; j < this.state.size / greensTotalSize; ++j) {
-                    greens[i].push(0);
-                }
-            }
             return (
                 <g key="greens" className="topping greens">
-                    {greens.map((_, iIndex, greens) => {
-                        return greens.map((_, jIndex) => {
-                            return (
+                    {Array.from(
+                        this.toppingIterator(
+                            greensTotalSize,
+                            greensTotalSize,
+                            (iIndex, jIndex) => (
                                 <path
                                     key={`greens-${iIndex}-${jIndex}`}
                                     className="greens-piece"
@@ -406,9 +376,9 @@ class Pizza extends React.Component {
                                         greensLineSize * 0.6
                                     })`}
                                 ></path>
-                            );
-                        });
-                    })}
+                            )
+                        )
+                    )}
                 </g>
             );
         },
