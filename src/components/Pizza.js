@@ -3,6 +3,7 @@ import TomatoesTopping from "./TomatoesTopping";
 import MushroomsTopping from "./MushroomsTopping";
 import PepperTopping from "./PepperTopping";
 import OnionTopping from "./OnionTopping";
+import MeatTopping from "./MeatTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -62,43 +63,7 @@ class Pizza extends React.Component {
         },
 
         meat: () => {
-            const meatSize = this.state.size / 19,
-                meatPadding = meatSize,
-                meatTotalSize = meatSize + meatPadding * 2;
-            return (
-                <g key="meat" className="topping meat">
-                    {Array.from(
-                        this.toppingIterator(
-                            meatTotalSize,
-                            meatTotalSize,
-                            (iIndex, jIndex) => (
-                                <rect
-                                    className="meat-piece"
-                                    key={`meat-piece-${iIndex}-${jIndex}`}
-                                    fill="brown"
-                                    x={iIndex * meatTotalSize + meatPadding}
-                                    y={jIndex * meatTotalSize + meatPadding}
-                                    width={meatSize}
-                                    height={meatSize}
-                                    rx={meatSize / 5}
-                                    ry={meatSize / 5}
-                                    transform={`rotate(${
-                                        360 * Math.random()
-                                    }, ${
-                                        iIndex * meatTotalSize +
-                                        meatPadding +
-                                        meatSize / 2
-                                    }, ${
-                                        jIndex * meatTotalSize +
-                                        meatPadding +
-                                        meatSize / 2
-                                    })`}
-                                />
-                            )
-                        )
-                    )}
-                </g>
-            );
+            return <MeatTopping key="meat" pizzaSize={this.state.size} />;
         },
 
         sausages: () => {
