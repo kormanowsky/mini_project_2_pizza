@@ -4,6 +4,7 @@ import MushroomsTopping from "./MushroomsTopping";
 import PepperTopping from "./PepperTopping";
 import OnionTopping from "./OnionTopping";
 import MeatTopping from "./MeatTopping";
+import SausagesTopping from "./SausagesTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -67,38 +68,8 @@ class Pizza extends React.Component {
         },
 
         sausages: () => {
-            const sausageRadius = this.state.size / 21,
-                sausagePadding = sausageRadius * 0.5,
-                sausageTotalSize = sausageRadius * 2 + sausagePadding * 2;
             return (
-                <g className="topping sausages" key="sausages">
-                    {Array.from(
-                        this.toppingIterator(
-                            sausageTotalSize,
-                            sausageTotalSize,
-                            (iIndex, jIndex) => (
-                                <circle
-                                    className="sausage"
-                                    key={`sausage-${iIndex}-${jIndex}`}
-                                    r={sausageRadius}
-                                    fill="#ffa8c5"
-                                    cx={
-                                        iIndex * sausageTotalSize +
-                                        sausagePadding +
-                                        +sausageRadius *
-                                            (Math.random() * 0.4 + 0.8)
-                                    }
-                                    cy={
-                                        jIndex * sausageTotalSize +
-                                        sausagePadding +
-                                        sausageRadius *
-                                            (Math.random() * 0.4 + 0.8)
-                                    }
-                                ></circle>
-                            )
-                        )
-                    )}
-                </g>
+                <SausagesTopping key="sausages" pizzaSize={this.state.size} />
             );
         },
 
