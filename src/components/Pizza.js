@@ -9,6 +9,8 @@ import GreensTopping from "./GreensTopping";
 import PepperoniTopping from "./PepperoniTopping";
 import OlivesTopping from "./OlivesTopping";
 import BaconTopping from "./BaconTopping";
+import BBQSauce from "./BBQSauce";
+import TomatoSauce from "./TomatoSauce";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -23,6 +25,8 @@ class ToppingConfiguration {
             pepperoni: false,
             olives: false,
             greens: false,
+            bbqSauce: false,
+            tomatoSauce: false,
         };
         Object.assign(this, initialConfiguration);
         for (let key in initialConfiguration) {
@@ -51,6 +55,8 @@ class Pizza extends React.Component {
         pepperoni: PepperoniTopping,
         olives: OlivesTopping,
         greens: GreensTopping,
+        bbqSauce: BBQSauce,
+        tomatoSauce: TomatoSauce,
     };
 
     constructor(props) {
@@ -91,6 +97,7 @@ class Pizza extends React.Component {
                                 <ToppingComponent
                                     key={topping}
                                     pizzaSize={this.state.size}
+                                    pizzaRadius={this.state.innerRadius}
                                 />
                             );
                         }
