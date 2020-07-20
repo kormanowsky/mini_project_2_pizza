@@ -1,26 +1,21 @@
 import React from "react";
 import { Pizza, ToppingConfiguration } from "./components/pizza/Pizza";
-import "./App.css";
 
 function App() {
     return (
-        <div className="App">
-            <Pizza
-                size={600}
-                toppings={new ToppingConfiguration()
-                    .addTomatoes()
-                    .addMushrooms()
-                    .addPepper()
-                    .addOnion()
-                    .addMeat()
-                    .addSausages()
-                    .addGreens()
-                    .removeMushrooms()
-                    .addPepperoni()
-                    .addOlives()}
-                innerRadiusFraction={0.92}
-                bgColor="aliceblue"
-            ></Pizza>
+        <div className="app app-home">
+            <main>
+                <section class="container" id="section-home-top">
+                    <div class="row" id="home-top-row">
+                        <div class="col-xs-8" id="home-top-text">
+                            <h1>Project 2</h1>
+                        </div>
+                        <div class="col-xs-4" id="home-top-pizza">
+                            <Pizza size={600} />
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
     );
 }

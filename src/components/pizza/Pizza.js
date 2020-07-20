@@ -62,7 +62,7 @@ class Pizza extends React.Component {
             size = 150;
         }
         if (isNaN(innerRadiusFraction)) {
-            innerRadiusFraction = 0.9;
+            innerRadiusFraction = 0.92;
         }
         this.state = {
             pizzaColor: "#ffd700",

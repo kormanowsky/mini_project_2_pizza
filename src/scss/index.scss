@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap");
+@import "./variables";
+
+.pizza {
+    border-radius: 50%;
+}
+
+body,
+.font-pt-sans {
+    font-family: "PT Sans", sans-serif;
+}
+
+h1,
+.font-pd {
+    font-family: "Playfair Display", serif;
+}
+
+@import "./home";
