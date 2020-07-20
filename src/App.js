@@ -16,7 +16,8 @@ function App() {
                     .addSausages()
                     .addGreens()
                     .removeMushrooms()
-                    .addPepperoni()}
+                    .addPepperoni()
+                    .addOlives()}
                 innerRadiusFraction={0.92}
                 bgColor="aliceblue"
             ></Pizza>
