@@ -58,18 +58,13 @@ class Pizza extends React.Component {
         super(props);
         let size = parseInt(this.props.size),
             innerRadiusFraction = parseFloat(this.props.innerRadiusFraction);
-        // If no size is given or pizza must be responsive, we may set its width to any value. 
+        // If no size is given or pizza must be responsive, we may set its width to any value.
         // In this case the size of the pizza is managed by CSS properties: width and height.
         if (isNaN(size) || this.props.responsive) {
             size = 150;
         }
         if (isNaN(innerRadiusFraction)) {
             innerRadiusFraction = 0.92;
-        }
-        let style = {};
-        if(this.props.responsive){
-            style.width = '100%';
-            style.height = 'auto';
         }
         this.state = {
             pizzaColor: "#ffd700",
@@ -80,7 +75,6 @@ class Pizza extends React.Component {
             outerRadius: size / 2,
             innerRadius: (size / 2) * innerRadiusFraction,
             toppings: this.props.toppings,
-            style
         };
         this.renderToppings = this.renderToppings.bind(this);
     }
@@ -117,7 +111,6 @@ class Pizza extends React.Component {
             bgColor,
             outerRadius,
             innerRadius,
-            style, 
         } = this.state;
         const blankSpaceLineWidth = 0.25 * (outerRadius - innerRadius),
             radiusRatio =
@@ -144,14 +137,15 @@ class Pizza extends React.Component {
             primaryDiagonalDivider = `M ${bigLeftCoord} ${smallLeftCoord} L ${bigRightCoord} ${smallRightCoord} L ${smallRightCoord} ${bigRightCoord} 
         L ${smallLeftCoord} ${bigLeftCoord} L ${bigLeftCoord} ${smallLeftCoord}`,
             secondaryDiagonalDivider = `M ${bigRightCoord} ${bigLeftCoord} L ${smallRightCoord} ${smallLeftCoord} L ${smallLeftCoord} ${smallRightCoord} L ${bigLeftCoord} ${bigRightCoord} L ${bigRightCoord} ${bigLeftCoord}`;
-        
+
         return (
             <svg
-                className="pizza"
+                className={`pizza${
+                    this.props.responsive ? " pizza-responsive" : ""
+                }`}
                 width={size}
                 height={size}
                 viewBox={`0 0 ${size} ${size}`}
-                style={style}
             >
                 <circle
                     className="pizza-basement"
