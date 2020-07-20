@@ -1,4 +1,4 @@
-section{
+section {
     margin-bottom: 5rem;
 }
 
@@ -31,4 +31,20 @@ section{
     margin: -0.2em auto 0;
     font-size: 2rem;
     line-height: 0.7;
+}
+
+.new-pizza-inner {
+    margin: 2rem;
+    text-align: center;
+    border-radius: 0 1rem 0 1rem;
+    border: 1px solid #ffbc0a;
+    padding: 1rem 1rem;
+}
+
+.new-pizza-title {
+    margin-bottom: 0.5rem;
+}
+
+.new-pizza-price {
+    margin: 0;
 }
