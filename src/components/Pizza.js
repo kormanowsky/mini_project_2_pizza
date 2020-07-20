@@ -8,6 +8,7 @@ import SausagesTopping from "./SausagesTopping";
 import GreensTopping from "./GreensTopping";
 import PepperoniTopping from "./PepperoniTopping";
 import OlivesTopping from "./OlivesTopping";
+import BaconTopping from "./BaconTopping";
 
 class ToppingConfiguration {
     constructor(configuration) {
@@ -16,6 +17,7 @@ class ToppingConfiguration {
             mushrooms: false,
             pepper: false,
             onion: false,
+            bacon: false,
             meat: false,
             sausages: false,
             pepperoni: false,
@@ -43,6 +45,7 @@ class Pizza extends React.Component {
         mushrooms: MushroomsTopping,
         pepper: PepperTopping,
         onion: OnionTopping,
+        bacon: BaconTopping,
         meat: MeatTopping,
         sausages: SausagesTopping,
         pepperoni: PepperoniTopping,

@@ -4,13 +4,13 @@ import Topping from "./Topping";
 class PepperoniTopping extends React.Component {
     constructor(props) {
         super(props);
-        const sausageRadius = this.props.pizzaSize / 28,
-            sausagePadding = sausageRadius * 0.5,
-            sausageTotalSize = sausageRadius * 2 + sausagePadding * 2;
+        const pepproniRadius = this.props.pizzaSize / 19,
+            pepproniPadding = pepproniRadius * 0.5,
+            pepproniTotalSize = pepproniRadius * 2 + pepproniPadding * 2;
         this.state = {
-            size: { width: sausageTotalSize, height: sausageTotalSize },
-            padding: sausagePadding,
-            radius: sausageRadius,
+            size: { width: pepproniTotalSize, height: pepproniTotalSize },
+            padding: pepproniPadding,
+            radius: pepproniRadius,
         };
         this.itemRenderer = this.itemRenderer.bind(this);
     }
