@@ -33,7 +33,7 @@ class App extends React.Component {
                         <div className="row" id="home-new-pizzas">
                             {data.newPizzas.map((pizza) => (
                                 <div className="col-xs-3 home-new-pizza">
-                                    <div class="new-pizza-inner">
+                                    <div className="new-pizza-inner">
                                         <Pizza
                                             toppings={pizza.toppings}
                                             responsive={true}
@@ -80,7 +80,7 @@ class App extends React.Component {
                             ))}
                         </div>
                     </section>
-                    <section className="container" id="section-advantages">
+                    <section className="container" id="section-feedback">
                         <div className="section-header">
                             <h2 className="section-title font-pd">Отзывы</h2>
                         </div>
@@ -100,13 +100,44 @@ class App extends React.Component {
                                             </div>
                                         </div>
                                         <div className="feedback-main">
-                                            <h3 class="feedback-content font-pd">
+                                            <h3 className="feedback-content">
                                                 {feedback.content}
                                             </h3>
                                         </div>
                                     </div>
                                 </div>
                             ))}
+                        </div>
+                    </section>
+                    <section className="container" id="section-conatcts">
+                        <div className="section-header">
+                            <h2 className="section-title font-pd">Контакты</h2>
+                        </div>
+                        <div className="row">
+                            <div
+                                className="col-xs-12 col-md-6"
+                                id="home-contacts-map"
+                            >
+                                <iframe
+                                    title="Карта"
+                                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A7dbe79e036dda60a8ac6773dd57712468c0e0c27fd4cf55ffc34a2ed1580b56d&amp;source=constructor"
+                                    width="100%"
+                                    height="400"
+                                    frameborder="0"
+                                    id="home-contacts-map-iframe"
+                                ></iframe>
+                            </div>
+                            <div
+                                className="col-xs-12 col-md-6"
+                                id="home-contacts-data"
+                            >
+                                <h2>{Data.projectInfo.name}</h2>
+                                <p>
+                                    Красногорск, улица Братьев Горожанкиных, дом
+                                    13, ТЦ "Строящийся"
+                                </p>
+                                <p>+7 495 563 00 00</p>
+                            </div>
                         </div>
                     </section>
                 </main>

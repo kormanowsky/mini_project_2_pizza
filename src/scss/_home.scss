@@ -71,7 +71,7 @@ section {
     font-weight: 700;
 }
 
-.home-feedback{
+.home-feedback {
     margin-bottom: 2rem;
 }
 
@@ -101,5 +101,9 @@ img.feedback-user-picture {
     padding: 1rem;
     margin-right: 1rem;
     border: 1px solid #ffd801;
+    border-radius: 0 1rem 0 1rem;
+}
+
+#home-contacts-map-iframe {
     border-radius: 0 1rem 0 1rem;
 }
