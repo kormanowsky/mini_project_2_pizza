@@ -12,24 +12,26 @@ import BaconTopping from "./BaconTopping";
 import BBQSauce from "./BBQSauce";
 import TomatoSauce from "./TomatoSauce";
 
+const Toppings = {
+    tomatoes: TomatoesTopping,
+    mushrooms: MushroomsTopping,
+    pepper: PepperTopping,
+    onion: OnionTopping,
+    bacon: BaconTopping,
+    meat: MeatTopping,
+    sausages: SausagesTopping,
+    pepperoni: PepperoniTopping,
+    olives: OlivesTopping,
+    greens: GreensTopping,
+    bbqSauce: BBQSauce,
+    tomatoSauce: TomatoSauce,
+};
+
 class ToppingConfiguration {
     constructor(configuration) {
-        const initialConfiguration = configuration || {
-            tomatoes: false,
-            mushrooms: false,
-            pepper: false,
-            onion: false,
-            bacon: false,
-            meat: false,
-            sausages: false,
-            pepperoni: false,
-            olives: false,
-            greens: false,
-            bbqSauce: false,
-            tomatoSauce: false,
-        };
+        const initialConfiguration = configuration || this.emptyConfiguration();
         Object.assign(this, initialConfiguration);
-        for (let key in initialConfiguration) {
+        for (let key in Toppings) {
             let capitalizedKey = key[0].toUpperCase() + key.slice(1);
             this.constructor.prototype[`add${capitalizedKey}`] = () => {
                 this[key] = true;
@@ -41,24 +43,17 @@ class ToppingConfiguration {
             };
         }
     }
+
+    emptyConfiguration() {
+        let configuration = {};
+        for (let key in Toppings) {
+            configuration[key] = false;
+        }
+        return configuration;
+    }
 }
 
 class Pizza extends React.Component {
-    toppings = {
-        tomatoes: TomatoesTopping,
-        mushrooms: MushroomsTopping,
-        pepper: PepperTopping,
-        onion: OnionTopping,
-        bacon: BaconTopping,
-        meat: MeatTopping,
-        sausages: SausagesTopping,
-        pepperoni: PepperoniTopping,
-        olives: OlivesTopping,
-        greens: GreensTopping,
-        bbqSauce: BBQSauce,
-        tomatoSauce: TomatoSauce,
-    };
-
     constructor(props) {
         super(props);
         let size = parseInt(this.props.size),
@@ -91,13 +86,12 @@ class Pizza extends React.Component {
                 {Object.keys(this.state.toppings)
                     .filter((topping) => this.state.toppings[topping])
                     .map((topping) => {
-                        if (topping in this.toppings) {
-                            const ToppingComponent = this.toppings[topping];
+                        if (topping in Toppings) {
+                            const ToppingComponent = Toppings[topping];
                             return (
                                 <ToppingComponent
                                     key={topping}
                                     pizzaSize={this.state.size}
-                                    pizzaRadius={this.state.innerRadius}
                                 />
                             );
                         }
@@ -197,4 +191,4 @@ class Pizza extends React.Component {
     }
 }
 
-export { Pizza, ToppingConfiguration };
+export { Pizza, Toppings, ToppingConfiguration };
