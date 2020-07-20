@@ -179,15 +179,6 @@ class Pizza extends React.Component {
                         fill={bgColor}
                     ></path>
                 </g>
-                <circle
-                    className="pizza-background"
-                    r={radius + radius * radiusRatio}
-                    strokeWidth={radius * radiusRatio * 2}
-                    stroke={bgColor}
-                    fill="transparent"
-                    cx={radius}
-                    cy={radius}
-                ></circle>
             </svg>
         );
     }
