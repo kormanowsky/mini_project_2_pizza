@@ -1,37 +1,7 @@
 import React from "react";
-import { Pizza, ToppingConfiguration } from "./components/pizza/Pizza";
+import { Pizza } from "./components/pizza/Pizza";
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            pizzaSize: 0,
-        };
-    }
-    updatePizzaSize() {
-        const newPizzaSize =
-            document.querySelector("#section-home-top").offsetWidth / 2;
-        if (this.state.pizzaSize !== newPizzaSize) {
-            this.setState({
-                pizzaSize: newPizzaSize,
-            });
-        }
-    }
-
-    componentDidMount() {
-        this.updatePizzaSize();
-    }
-
-    componentDidUpdate() {
-        this.updatePizzaSize();
-    }
-    makePizza() {
-        if (this.state.pizzaSize) {
-            return <Pizza size={this.state.pizzaSize}></Pizza>;
-        }
-        return "";
-    }
-
     render() {
         return (
             <div className="app app-home">
@@ -43,7 +13,7 @@ class App extends React.Component {
                                 <h3>Пиццерия в Чернево-2</h3>
                             </div>
                             <div className="col-xs-6" id="home-top-pizza">
-                                {this.makePizza()}
+                                <Pizza responsive={true} />
                                 <p style={{ textAlign: "center" }}>
                                     <a href="#/builder" className="button">
                                         Собрать свою пиццу &raquo;
