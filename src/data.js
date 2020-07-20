@@ -7,6 +7,15 @@ export default {
     newPizzas: [
         {
             toppings: {
+                tomatoes: true,
+                tomatoSauce: true,
+                greens: true,
+            },
+            name: "Маргарита",
+            price: 320,
+        },
+        {
+            toppings: {
                 pepperoni: true,
                 tomatoSauce: true,
             },
@@ -45,6 +54,17 @@ export default {
             },
             name: "Грибная",
             price: 400,
+        },
+        {
+            toppings: {
+                mushrooms: true,
+                tomatoes: true,
+                greens: true,
+                pepper: true,
+                sausages: true,
+            },
+            name: "Ветчина+Грибы",
+            price: 440,
         },
     ],
     advantages: [

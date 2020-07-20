@@ -7,14 +7,30 @@ class App extends React.Component {
     render() {
         return (
             <div className="app app-home">
+                <header>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-xs-9">
+                                <h3 className="font-pd">
+                                    {data.projectInfo.name}
+                                </h3>
+                            </div>
+                            <div className="col-xs-3">
+                                <h3 className="font-pd">
+                                    {data.projectInfo.name}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </header>
                 <main>
                     <section className="container" id="section-home-top">
                         <div className="row" id="home-top-row">
-                            <div className="col-xs-8" id="home-top-text">
+                            <div className="col-xs-9" id="home-top-text">
                                 <h1>{data.projectInfo.name}</h1>
                                 <h3>Пиццерия в Чернево-2</h3>
                             </div>
-                            <div className="col-xs-4" id="home-top-pizza">
+                            <div className="col-xs-3" id="home-top-pizza">
                                 <Pizza responsive={true} />
                                 <p style={{ textAlign: "center" }}>
                                     <a href="#/builder" className="button">
@@ -32,7 +48,7 @@ class App extends React.Component {
                         </div>
                         <div className="row" id="home-new-pizzas">
                             {data.newPizzas.map((pizza) => (
-                                <div className="col-xs-3 home-new-pizza">
+                                <div className="col-xs-2 home-new-pizza">
                                     <div className="new-pizza-inner">
                                         <Pizza
                                             toppings={pizza.toppings}
