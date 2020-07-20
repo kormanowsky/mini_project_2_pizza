@@ -1,5 +1,5 @@
 import React from "react";
-import { Pizza, ToppingConfiguration } from "./components/Pizza";
+import { Pizza, ToppingConfiguration } from "./components/pizza/Pizza";
 import "./App.css";
 
 function App() {
