@@ -32,7 +32,7 @@ section {
     background: $primary-color;
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .section-title {
@@ -98,7 +98,7 @@ div#home-feedbacks {
     align-items: center;
 }
 
-.feedback-content{
+.feedback-content {
     line-height: 1.5;
     margin-left: 2rem;
     font-weight: 400;
@@ -128,6 +128,24 @@ img.feedback-user-picture {
     border-radius: 0 1rem 0 1rem;
 }
 
+#home-contacts-row {
+    align-items: center;
+}
+
 #home-contacts-map-iframe {
     border-radius: 0 1rem 0 1rem;
+}
+
+div#home-contacts-data p, footer #footer-contacts p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+div#home-contacts-data img, footer p img {
+    margin-right: 1rem;
+}
+
+div#home-contacts-data {
+    padding-left: 2rem;
 }

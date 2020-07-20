@@ -10,10 +10,18 @@ class App extends React.Component {
                 <header>
                     <div className="container">
                         <div className="row">
-                            <div className="col-xs-9">
+                            <div className="col-xs-9" id="header-nav">
                                 <h3 className="font-pd">
-                                    {data.projectInfo.name}
+                                    <a href="/">{data.projectInfo.name}</a>
                                 </h3>
+                                <ul id="header-navigation">
+                                    <li>
+                                        <a href="/#pizzas">Пиццы</a>
+                                    </li>
+                                    <li>
+                                        <a href="/#builder">Конструктор</a>
+                                    </li>
+                                </ul>
                             </div>
                             <div className="col-xs-3" id="header-cart-info">
                                 <img
@@ -144,7 +152,7 @@ class App extends React.Component {
                         <div className="section-header">
                             <h2 className="section-title font-pd">Контакты</h2>
                         </div>
-                        <div className="row">
+                        <div className="row" id="home-contacts-row">
                             <div
                                 className="col-xs-12 col-md-8"
                                 id="home-contacts-map"
@@ -162,45 +170,61 @@ class App extends React.Component {
                                 className="col-xs-12 col-md-4"
                                 id="home-contacts-data"
                             >
-                                <h2 className="font-pd">{Data.projectInfo.name}</h2>
-                                <p>{Data.projectInfo.address}</p>
-                                <p>{Data.projectInfo.phone}</p>
+                                <h2 className="font-pd">
+                                    {Data.projectInfo.name}
+                                </h2>
+                                <p>
+                                    <img
+                                        src="/images/map-pin-primary.svg"
+                                        alt="Адрес"
+                                    ></img>
+                                    {Data.projectInfo.address}
+                                </p>
+                                <p>
+                                    <img
+                                        src="/images/phone-primary.svg"
+                                        alt="Телефон"
+                                    ></img>
+                                    {Data.projectInfo.phone}
+                                </p>
                             </div>
                         </div>
                     </section>
                 </main>
                 <footer>
                     <div className="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-4">
+                        <div class="row" id="footer-row">
+                            <div
+                                class="col-xs-12 col-md-4"
+                                id="footer-contacts"
+                            >
                                 <h1>{Data.projectInfo.name}</h1>
-                                <p>&copy; 2020 {Data.projectInfo.name}</p>
-                                <p>{Data.projectInfo.address}</p>
-                                <p>{Data.projectInfo.phone}</p>
-                            </div>
-                            <div class="col-xs-12 col-md-4">
-                                <ul>
-                                    <li>
-                                        <a href="/">Главная</a>
-                                    </li>
-                                    <li>
-                                        <a href="/#pizzas">Пиццы</a>
-                                    </li>
-                                    <li>
-                                        <a href="/#builder">Конструктор</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-xs-12 col-md-4">
                                 <p>
-                                    Разработка сайта -{" "}
+                                    <img
+                                        src="/images/map-pin-white.svg"
+                                        alt="Адрес"
+                                    ></img>
+                                    {Data.projectInfo.address}
+                                </p>
+                                <p>
+                                    <img
+                                        src="/images/phone-white.svg"
+                                        alt="Телефон"
+                                    ></img>
+                                    {Data.projectInfo.phone}
+                                </p>
+                            </div>
+                            <div class="col-xs-12 col-md-4 col-md-offset-4">
+                                <p>
+                                    Разработал{" "}
                                     <a
                                         href="https://vk.com/kormanowsky"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         Михаил Кормановский
-                                    </a>
+                                    </a>{" "}
+                                    в 2020 году.
                                 </p>
                                 <p>
                                     Все данные на этом сайте - вымышленные.
