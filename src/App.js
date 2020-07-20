@@ -27,7 +27,7 @@ class App extends React.Component {
                     <section className="container" id="section-news">
                         <div className="section-header">
                             <h2 className="section-title font-pd">
-                                Наши новинки
+                                Наши пиццы
                             </h2>
                         </div>
                         <div className="row" id="home-new-pizzas">
@@ -48,6 +48,11 @@ class App extends React.Component {
                                 </div>
                             ))}
                         </div>
+                        <p id="home-all-pizzas">
+                            <a href="/#pizzas" id="home-all-pizzas-link">
+                                Все пиццы
+                            </a>
+                        </p>
                     </section>
                     <section className="container" id="section-advantages">
                         <div className="section-header">
@@ -64,8 +69,41 @@ class App extends React.Component {
                                             alt={advantage.title}
                                             className="advantage-icon"
                                         />
-                                        <h3 className="advantage-title font-pd">{advantage.title}</h3>
-                                        <p className="advantage-description">{advantage.description}</p>
+                                        <h3 className="advantage-title font-pd">
+                                            {advantage.title}
+                                        </h3>
+                                        <p className="advantage-description">
+                                            {advantage.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                    <section className="container" id="section-advantages">
+                        <div className="section-header">
+                            <h2 className="section-title font-pd">Отзывы</h2>
+                        </div>
+                        <div className="row" id="home-feedbacks">
+                            {data.feedbacks.map((feedback) => (
+                                <div className="col-xs-6 home-feedback">
+                                    <div className="feedback-inner">
+                                        <div className="feedback-header">
+                                            <img
+                                                src="/images/user.svg"
+                                                alt={feedback.userName}
+                                                className="feedback-user-picture"
+                                            />
+                                            <div className="feedback-user-data">
+                                                <h5>{feedback.userName}</h5>
+                                                <p>{feedback.date}</p>
+                                            </div>
+                                        </div>
+                                        <div className="feedback-main">
+                                            <h3 class="feedback-content font-pd">
+                                                {feedback.content}
+                                            </h3>
+                                        </div>
                                     </div>
                                 </div>
                             ))}

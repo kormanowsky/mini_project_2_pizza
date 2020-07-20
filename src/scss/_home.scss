@@ -61,3 +61,45 @@ section {
     border-radius: 0 1rem 0 1rem;
     padding: 1rem;
 }
+
+#home-all-pizzas {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+#home-all-pizzas-link {
+    font-weight: 700;
+}
+
+.home-feedback{
+    margin-bottom: 2rem;
+}
+
+.feedback-header {
+    display: flex;
+    align-items: center;
+}
+
+.feedback-user-data h5,
+.feedback-user-data p {
+    margin: 0;
+}
+
+.feedback-user-data h5 {
+    font-size: 1.1rem;
+}
+
+.feedback-user-data p {
+    color: #757575;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding-top: 0.25em;
+}
+
+img.feedback-user-picture {
+    width: 3rem;
+    padding: 1rem;
+    margin-right: 1rem;
+    border: 1px solid #ffd801;
+    border-radius: 0 1rem 0 1rem;
+}
