@@ -30,7 +30,7 @@ class App extends React.Component {
                                 Наши новинки
                             </h2>
                         </div>
-                        <div className="row">
+                        <div className="row" id="home-new-pizzas">
                             {data.newPizzas.map((pizza) => (
                                 <div className="col-xs-3 home-new-pizza">
                                     <div class="new-pizza-inner">

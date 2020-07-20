@@ -34,11 +34,11 @@ section {
 }
 
 .new-pizza-inner {
-    margin: 2rem;
+    margin: 1rem;
     text-align: center;
     border-radius: 0 1rem 0 1rem;
     border: 1px solid #ffbc0a;
-    padding: 1rem 1rem;
+    padding: 2rem 2rem 1rem;
 }
 
 .new-pizza-title {
@@ -47,4 +47,8 @@ section {
 
 .new-pizza-price {
     margin: 0;
+}
+
+#home-new-pizzas {
+    margin: 2rem -1.5rem 0 -1.5rem;
 }
