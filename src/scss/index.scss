@@ -57,8 +57,18 @@ footer a {
     text-decoration: underline;
 }
 
-header{
+header {
     background: $primary-color;
+}
+
+#header-cart-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#header-cart-icon {
+    margin-right: 1rem;
 }
 
 @import "./home";

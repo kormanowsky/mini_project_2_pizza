@@ -15,10 +15,13 @@ class App extends React.Component {
                                     {data.projectInfo.name}
                                 </h3>
                             </div>
-                            <div className="col-xs-3">
-                                <h3 className="font-pd">
-                                    {data.projectInfo.name}
-                                </h3>
+                            <div className="col-xs-3" id="header-cart-info">
+                                <img
+                                    src="/images/shopping-cart.svg"
+                                    alt="Корзина"
+                                    id="header-cart-icon"
+                                ></img>
+                                <p>0 товаров на 0&#x20bd;</p>
                             </div>
                         </div>
                     </div>
@@ -29,14 +32,20 @@ class App extends React.Component {
                             <div className="col-xs-9" id="home-top-text">
                                 <h1>{data.projectInfo.name}</h1>
                                 <h3>Пиццерия в Чернево-2</h3>
+                                <a
+                                    href="#/builder"
+                                    className="button"
+                                    id="home-go-to-builder"
+                                >
+                                    Собрать свою пиццу &raquo;
+                                </a>
                             </div>
                             <div className="col-xs-3" id="home-top-pizza">
-                                <Pizza responsive={true} />
-                                <p style={{ textAlign: "center" }}>
-                                    <a href="#/builder" className="button">
-                                        Собрать свою пиццу &raquo;
-                                    </a>
-                                </p>
+                                <Pizza
+                                    toppings={ToppingConfiguration.getRandom()}
+                                    responsive={true}
+                                />
+                                <p id="home-top-pizza-caption">Случайная пицца</p>
                             </div>
                         </div>
                     </section>
@@ -65,9 +74,13 @@ class App extends React.Component {
                             ))}
                         </div>
                         <p id="home-all-pizzas">
-                            <a href="/#pizzas" id="home-all-pizzas-link">
-                                Все пиццы
-                            </a>
+                        <a
+                                    href="#/pizzas"
+                                    className="button"
+                                    id="home-go-to-builder"
+                                >
+                                    Все пиццы &raquo;
+                                </a>
                         </p>
                     </section>
                     <section className="container" id="section-advantages">

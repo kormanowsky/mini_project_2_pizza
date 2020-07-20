@@ -51,6 +51,14 @@ class ToppingConfiguration {
         }
         return configuration;
     }
+
+    static getRandom() {
+        let configuration = {};
+        for (let key in Toppings) {
+            configuration[key] = Math.random() > 0.5;
+        }
+        return configuration;
+    }
 }
 
 class Pizza extends React.Component {
@@ -106,8 +114,7 @@ class Pizza extends React.Component {
             radius,
         } = this.state;
         const blankSpaceLineWidth = radius / 50,
-            radiusRatio =
-                (radius * 2 ** 0.5 - radius) / radius / 2 ** 0.5,
+            radiusRatio = (radius * 2 ** 0.5 - radius) / radius / 2 ** 0.5,
             smallCenteredCoord = radius * radiusRatio,
             bigCenteredCoord = size - smallCenteredCoord,
             blankSpaceLineCoordDelta = blankSpaceLineWidth / 2 ** 0.5,
