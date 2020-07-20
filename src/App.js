@@ -21,6 +21,11 @@ function App() {
                         </div>
                     </div>
                 </section>
+                <section className="container" id="section-news">
+                    <div className="section-header">
+                        <h2 className="section-title font-pd">Наши новинки</h2>
+                    </div>
+                </section>
             </main>
         </div>
     );
