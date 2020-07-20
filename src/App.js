@@ -38,8 +38,34 @@ class App extends React.Component {
                                             toppings={pizza.toppings}
                                             responsive={true}
                                         ></Pizza>
-                                        <h4 className="new-pizza-title font-pd">{pizza.name}</h4>
-                                        <p className="new-pizza-price">{pizza.price} &#x20bd;</p>
+                                        <h4 className="new-pizza-title font-pd">
+                                            {pizza.name}
+                                        </h4>
+                                        <p className="new-pizza-price">
+                                            {pizza.price} &#x20bd;
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                    <section className="container" id="section-advantages">
+                        <div className="section-header">
+                            <h2 className="section-title font-pd">
+                                Почему {Data.projectInfo.name}?
+                            </h2>
+                        </div>
+                        <div className="row" id="home-advantages">
+                            {data.advantages.map((advantage) => (
+                                <div className="col-xs-4 home-advantage">
+                                    <div className="advantage-inner">
+                                        <img
+                                            src={advantage.icon}
+                                            alt={advantage.title}
+                                            className="advantage-icon"
+                                        />
+                                        <h3 className="advantage-title font-pd">{advantage.title}</h3>
+                                        <p className="advantage-description">{advantage.description}</p>
                                     </div>
                                 </div>
                             ))}
