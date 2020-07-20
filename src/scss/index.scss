@@ -40,4 +40,17 @@ button:hover {
     background: $primary-color;
 }
 
+li {
+    list-style: none;
+}
+
+footer {
+    background: $primary-dark-color;
+}
+
+footer a {
+    color: black;
+    text-decoration: underline;
+}
+
 @import "./home";

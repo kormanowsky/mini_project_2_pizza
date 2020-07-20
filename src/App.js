@@ -132,15 +132,53 @@ class App extends React.Component {
                                 id="home-contacts-data"
                             >
                                 <h2>{Data.projectInfo.name}</h2>
-                                <p>
-                                    Красногорск, улица Братьев Горожанкиных, дом
-                                    13, ТЦ "Строящийся"
-                                </p>
-                                <p>+7 495 563 00 00</p>
+                                <p>{Data.projectInfo.address}</p>
+                                <p>{Data.projectInfo.phone}</p>
                             </div>
                         </div>
                     </section>
                 </main>
+                <footer>
+                    <div className="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                                <h1>{Data.projectInfo.name}</h1>
+                                <p>&copy; 2020 {Data.projectInfo.name}</p>
+                                <p>{Data.projectInfo.address}</p>
+                                <p>{Data.projectInfo.phone}</p>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <ul>
+                                    <li>
+                                        <a href="/">Главная</a>
+                                    </li>
+                                    <li>
+                                        <a href="/#pizzas">Пиццы</a>
+                                    </li>
+                                    <li>
+                                        <a href="/#builder">Конструктор</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <p>
+                                    Разработка сайта -{" "}
+                                    <a
+                                        href="https://vk.com/kormanowsky"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Михаил Кормановский
+                                    </a>
+                                </p>
+                                <p>
+                                    Все данные на этом сайте - вымышленные.
+                                    Совпадения с реальными данными случайны.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         );
     }
