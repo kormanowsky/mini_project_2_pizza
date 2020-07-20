@@ -47,7 +47,7 @@ section {
     margin: 1rem;
     text-align: center;
     border-radius: 0 1rem 0 1rem;
-    border: 1px solid #ffbc0a;
+    border: 1px solid #cecece;
     padding: 1.5rem 1rem 1rem;
 }
 
@@ -80,6 +80,15 @@ section {
     font-weight: 700;
 }
 
+.advantage-title {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+div#home-feedbacks {
+    margin-top: 5rem;
+}
+
 .home-feedback {
     margin-bottom: 2rem;
 }
@@ -87,6 +96,12 @@ section {
 .feedback-header {
     display: flex;
     align-items: center;
+}
+
+.feedback-content{
+    line-height: 1.5;
+    margin-left: 2rem;
+    font-weight: 400;
 }
 
 .feedback-user-data h5,

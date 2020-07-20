@@ -34,7 +34,7 @@ class App extends React.Component {
                                 <h3>Пиццерия в Чернево-2</h3>
                                 <a
                                     href="#/builder"
-                                    className="button"
+                                    className="button font-pd"
                                     id="home-go-to-builder"
                                 >
                                     Собрать свою пиццу &raquo;
@@ -45,7 +45,9 @@ class App extends React.Component {
                                     toppings={ToppingConfiguration.getRandom()}
                                     responsive={true}
                                 />
-                                <p id="home-top-pizza-caption">Случайная пицца</p>
+                                <p id="home-top-pizza-caption">
+                                    Случайная пицца
+                                </p>
                             </div>
                         </div>
                     </section>
@@ -74,13 +76,13 @@ class App extends React.Component {
                             ))}
                         </div>
                         <p id="home-all-pizzas">
-                        <a
-                                    href="#/pizzas"
-                                    className="button"
-                                    id="home-go-to-builder"
-                                >
-                                    Все пиццы &raquo;
-                                </a>
+                            <a
+                                href="#/pizzas"
+                                className="button font-pd"
+                                id="home-go-to-builder"
+                            >
+                                Все пиццы &raquo;
+                            </a>
                         </p>
                     </section>
                     <section className="container" id="section-advantages">
@@ -129,7 +131,7 @@ class App extends React.Component {
                                             </div>
                                         </div>
                                         <div className="feedback-main">
-                                            <h3 className="feedback-content">
+                                            <h3 className="feedback-content font-pd">
                                                 {feedback.content}
                                             </h3>
                                         </div>
@@ -144,7 +146,7 @@ class App extends React.Component {
                         </div>
                         <div className="row">
                             <div
-                                className="col-xs-12 col-md-6"
+                                className="col-xs-12 col-md-8"
                                 id="home-contacts-map"
                             >
                                 <iframe
@@ -157,10 +159,10 @@ class App extends React.Component {
                                 ></iframe>
                             </div>
                             <div
-                                className="col-xs-12 col-md-6"
+                                className="col-xs-12 col-md-4"
                                 id="home-contacts-data"
                             >
-                                <h2>{Data.projectInfo.name}</h2>
+                                <h2 className="font-pd">{Data.projectInfo.name}</h2>
                                 <p>{Data.projectInfo.address}</p>
                                 <p>{Data.projectInfo.phone}</p>
                             </div>
