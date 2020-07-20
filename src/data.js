@@ -1,6 +1,6 @@
 export default {
     projectInfo: {
-        name: "Project 2",
+        name: "ПиццаМишка",
         address: "Красногорск, улица Братьев Горожанкиных, дом 13, ТЦ \"Строящийся\"", 
         phone: "+7 495 563 00 00"
     },
