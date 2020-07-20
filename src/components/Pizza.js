@@ -143,102 +143,56 @@ class Pizza extends React.Component {
             secondaryDiagonalDivider = `M ${bigRightCoord} ${bigLeftCoord} L ${smallRightCoord} ${smallLeftCoord} L ${smallLeftCoord} ${smallRightCoord} L ${bigLeftCoord} ${bigRightCoord} L ${bigRightCoord} ${bigLeftCoord}`;
 
         return (
-            <div>
-                <svg className="pizza" width={size} height={size}>
-                    <circle
-                        className="pizza-basement"
-                        r={innerRadius}
-                        cx={outerRadius}
-                        cy={outerRadius}
-                        fill={pizzaColor}
-                    ></circle>
-                    {this.renderToppings()}
-                    <circle
-                        className="pizza-border"
-                        r={innerRadius - blankSpaceLineWidth * 2}
-                        strokeWidth={blankSpaceLineWidth * 4}
-                        stroke={pizzaBorderColor}
-                        cx={outerRadius}
-                        cy={outerRadius}
-                        fill="transparent"
-                    ></circle>
-                    <g className="pizza-dividers">
-                        <path
-                            className="pizza-divider pizza-divider-horizontal"
-                            d={horizontalDivider}
-                            fill={bgColor}
-                        ></path>
-                        <path
-                            className="pizza-divider pizza-divider-vertical"
-                            d={verticalDivider}
-                            fill={bgColor}
-                        ></path>
-                        <path
-                            className="pizza-divider pizza-divider-diagonal"
-                            d={primaryDiagonalDivider}
-                            fill={bgColor}
-                        ></path>
-                        <path
-                            className="pizza-divider pizza-divider-diagonal"
-                            d={secondaryDiagonalDivider}
-                            fill={bgColor}
-                        ></path>
-                    </g>
-                    <circle
-                        className="pizza-background"
-                        r={innerRadius + outerRadius * radiusRatio}
-                        strokeWidth={outerRadius * radiusRatio * 2}
-                        stroke={bgColor}
-                        fill="transparent"
-                        cx={outerRadius}
-                        cy={outerRadius}
-                    ></circle>
-                </svg>
-
-                {Object.keys(this.state.toppings).map((topping) => (
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            marginTop: "2rem",
-                        }}
-                        key={`control-${topping}`}
-                    >
-                        <button
-                            disabled={this.state.toppings[topping]}
-                            onClick={() => {
-                                this.setState({
-                                    toppings: Object.assign(
-                                        {},
-                                        this.state.toppings,
-                                        {
-                                            [topping]: true,
-                                        }
-                                    ),
-                                });
-                            }}
-                        >
-                            Add {topping}
-                        </button>
-                        <button
-                            disabled={!this.state.toppings[topping]}
-                            onClick={() => {
-                                this.setState({
-                                    toppings: Object.assign(
-                                        {},
-                                        this.state.toppings,
-                                        {
-                                            [topping]: false,
-                                        }
-                                    ),
-                                });
-                            }}
-                        >
-                            Remove {topping}
-                        </button>
-                    </div>
-                ))}
-            </div>
+            <svg className="pizza" width={size} height={size}>
+                <circle
+                    className="pizza-basement"
+                    r={innerRadius}
+                    cx={outerRadius}
+                    cy={outerRadius}
+                    fill={pizzaColor}
+                ></circle>
+                {this.renderToppings()}
+                <circle
+                    className="pizza-border"
+                    r={innerRadius - blankSpaceLineWidth * 2}
+                    strokeWidth={blankSpaceLineWidth * 4}
+                    stroke={pizzaBorderColor}
+                    cx={outerRadius}
+                    cy={outerRadius}
+                    fill="transparent"
+                ></circle>
+                <g className="pizza-dividers">
+                    <path
+                        className="pizza-divider pizza-divider-horizontal"
+                        d={horizontalDivider}
+                        fill={bgColor}
+                    ></path>
+                    <path
+                        className="pizza-divider pizza-divider-vertical"
+                        d={verticalDivider}
+                        fill={bgColor}
+                    ></path>
+                    <path
+                        className="pizza-divider pizza-divider-diagonal"
+                        d={primaryDiagonalDivider}
+                        fill={bgColor}
+                    ></path>
+                    <path
+                        className="pizza-divider pizza-divider-diagonal"
+                        d={secondaryDiagonalDivider}
+                        fill={bgColor}
+                    ></path>
+                </g>
+                <circle
+                    className="pizza-background"
+                    r={innerRadius + outerRadius * radiusRatio}
+                    strokeWidth={outerRadius * radiusRatio * 2}
+                    stroke={bgColor}
+                    fill="transparent"
+                    cx={outerRadius}
+                    cy={outerRadius}
+                ></circle>
+            </svg>
         );
     }
 }
