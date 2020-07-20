@@ -56,24 +56,18 @@ class ToppingConfiguration {
 class Pizza extends React.Component {
     constructor(props) {
         super(props);
-        let size = parseInt(this.props.size),
-            innerRadiusFraction = parseFloat(this.props.innerRadiusFraction);
+        let size = parseInt(this.props.size);
         // If no size is given or pizza must be responsive, we may set its width to any value.
         // In this case the size of the pizza is managed by CSS properties: width and height.
         if (isNaN(size) || this.props.responsive) {
             size = 150;
         }
-        if (isNaN(innerRadiusFraction)) {
-            innerRadiusFraction = 0.92;
-        }
         this.state = {
             pizzaColor: "#ffd700",
             pizzaBorderColor: "#ffbc0a",
             size,
-            innerRadiusFraction,
             bgColor: this.props.bgColor || "white",
-            outerRadius: size / 2,
-            innerRadius: (size / 2) * innerRadiusFraction,
+            radius: size / 2,
             toppings: this.props.toppings,
         };
         this.renderToppings = this.renderToppings.bind(this);
@@ -109,13 +103,12 @@ class Pizza extends React.Component {
             pizzaBorderColor,
             size,
             bgColor,
-            outerRadius,
-            innerRadius,
+            radius,
         } = this.state;
-        const blankSpaceLineWidth = 0.25 * (outerRadius - innerRadius),
+        const blankSpaceLineWidth = radius / 50,
             radiusRatio =
-                (outerRadius * 2 ** 0.5 - innerRadius) / outerRadius / 2 ** 0.5,
-            smallCenteredCoord = outerRadius * radiusRatio,
+                (radius * 2 ** 0.5 - radius) / radius / 2 ** 0.5,
+            smallCenteredCoord = radius * radiusRatio,
             bigCenteredCoord = size - smallCenteredCoord,
             blankSpaceLineCoordDelta = blankSpaceLineWidth / 2 ** 0.5,
             smallLeftCoord = smallCenteredCoord - blankSpaceLineCoordDelta,
@@ -123,17 +116,17 @@ class Pizza extends React.Component {
             bigLeftCoord = bigCenteredCoord - blankSpaceLineCoordDelta,
             bigRightCoord = bigCenteredCoord + blankSpaceLineCoordDelta,
             horizontalDivider = `M 0 ${
-                outerRadius - blankSpaceLineWidth
-            } L ${size} ${outerRadius - blankSpaceLineWidth}
-        L ${size} ${outerRadius + blankSpaceLineWidth} L 0 ${
-                outerRadius + blankSpaceLineWidth
-            } L 0 ${outerRadius - blankSpaceLineWidth}`,
-            verticalDivider = `M ${outerRadius - blankSpaceLineWidth} 0 L ${
-                outerRadius - blankSpaceLineWidth
+                radius - blankSpaceLineWidth
+            } L ${size} ${radius - blankSpaceLineWidth}
+        L ${size} ${radius + blankSpaceLineWidth} L 0 ${
+                radius + blankSpaceLineWidth
+            } L 0 ${radius - blankSpaceLineWidth}`,
+            verticalDivider = `M ${radius - blankSpaceLineWidth} 0 L ${
+                radius - blankSpaceLineWidth
             } ${size} 
-        L ${outerRadius + blankSpaceLineWidth} ${size} L ${
-                outerRadius + blankSpaceLineWidth
-            } 0 L ${outerRadius - blankSpaceLineWidth} 0`,
+        L ${radius + blankSpaceLineWidth} ${size} L ${
+                radius + blankSpaceLineWidth
+            } 0 L ${radius - blankSpaceLineWidth} 0`,
             primaryDiagonalDivider = `M ${bigLeftCoord} ${smallLeftCoord} L ${bigRightCoord} ${smallRightCoord} L ${smallRightCoord} ${bigRightCoord} 
         L ${smallLeftCoord} ${bigLeftCoord} L ${bigLeftCoord} ${smallLeftCoord}`,
             secondaryDiagonalDivider = `M ${bigRightCoord} ${bigLeftCoord} L ${smallRightCoord} ${smallLeftCoord} L ${smallLeftCoord} ${smallRightCoord} L ${bigLeftCoord} ${bigRightCoord} L ${bigRightCoord} ${bigLeftCoord}`;
@@ -149,19 +142,19 @@ class Pizza extends React.Component {
             >
                 <circle
                     className="pizza-basement"
-                    r={innerRadius}
-                    cx={outerRadius}
-                    cy={outerRadius}
+                    r={radius}
+                    cx={radius}
+                    cy={radius}
                     fill={pizzaColor}
                 ></circle>
                 {this.renderToppings()}
                 <circle
                     className="pizza-border"
-                    r={innerRadius - blankSpaceLineWidth * 2}
+                    r={radius - blankSpaceLineWidth * 2}
                     strokeWidth={blankSpaceLineWidth * 4}
                     stroke={pizzaBorderColor}
-                    cx={outerRadius}
-                    cy={outerRadius}
+                    cx={radius}
+                    cy={radius}
                     fill="transparent"
                 ></circle>
                 <g className="pizza-dividers">
@@ -188,12 +181,12 @@ class Pizza extends React.Component {
                 </g>
                 <circle
                     className="pizza-background"
-                    r={innerRadius + outerRadius * radiusRatio}
-                    strokeWidth={outerRadius * radiusRatio * 2}
+                    r={radius + radius * radiusRatio}
+                    strokeWidth={radius * radiusRatio * 2}
                     stroke={bgColor}
                     fill="transparent"
-                    cx={outerRadius}
-                    cy={outerRadius}
+                    cx={radius}
+                    cy={radius}
                 ></circle>
             </svg>
         );
