@@ -10,11 +10,11 @@ class App extends React.Component {
                 <main>
                     <section className="container" id="section-home-top">
                         <div className="row" id="home-top-row">
-                            <div className="col-xs-6" id="home-top-text">
+                            <div className="col-xs-8" id="home-top-text">
                                 <h1>{data.projectInfo.name}</h1>
                                 <h3>Пиццерия в Чернево-2</h3>
                             </div>
-                            <div className="col-xs-6" id="home-top-pizza">
+                            <div className="col-xs-4" id="home-top-pizza">
                                 <Pizza responsive={true} />
                                 <p style={{ textAlign: "center" }}>
                                     <a href="#/builder" className="button">
