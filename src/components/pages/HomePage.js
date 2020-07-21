@@ -2,38 +2,13 @@ import React from "react";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import Data from "../../data";
 import { Link } from "react-router-dom";
+import Header from "../blocks/Header";
 
 class HomePage extends React.Component {
     render() {
         return (
             <div className="app app-home">
-                <header>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-xs-9" id="header-nav">
-                                <h3 className="font-pd">
-                                    <a href="/">{Data.projectInfo.name}</a>
-                                </h3>
-                                <ul id="header-navigation">
-                                    <li>
-                                        <a href="/#pizzas">Пиццы</a>
-                                    </li>
-                                    <li>
-                                        <a href="/#builder">Конструктор</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="col-xs-3" id="header-cart-info">
-                                <img
-                                    src="/images/shopping-cart.svg"
-                                    alt="Корзина"
-                                    id="header-cart-icon"
-                                ></img>
-                                <p>0 товаров на 0&#x20bd;</p>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+                <Header />
                 <main>
                     <section className="container" id="section-home-top">
                         <div className="row" id="home-top-row">
