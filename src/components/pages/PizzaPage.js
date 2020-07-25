@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../blocks/Header";
 import Footer from "../blocks/Footer";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
+import { Link } from "react-router-dom";
 
 class PizzaPage extends React.Component {
     render() {
@@ -18,12 +19,16 @@ class PizzaPage extends React.Component {
                                 />
                             </div>
                             <div className="col-xs-6">
+                                <Link to="/pizzas">&laquo; Пиццы</Link>
                                 <h1>{this.props.pizza.name}</h1>
+                                <h3>Состав</h3>
                                 <p>
                                     {ToppingConfiguration.getDescription(
                                         this.props.pizza.toppings
                                     )}
                                 </p>
+                                <h2>{this.props.pizza.price}&nbsp;&#x20bd;</h2>
+                                <button className="add-to-card button">В корзину</button>
                             </div>
                         </div>
                     </div>
