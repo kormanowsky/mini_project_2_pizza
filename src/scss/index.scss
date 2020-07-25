@@ -111,6 +111,10 @@ main {
     padding-top: 3rem;
 }
 
+h1.page-title {
+    font-size: 2.25rem;
+}
+
 @import "./home";
 @import "./pizza";
 @import "./cart";

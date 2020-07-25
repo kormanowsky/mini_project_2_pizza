@@ -57,21 +57,31 @@ class CartPage extends React.Component {
     renderTable() {
         if (Cart.items.length) {
             return (
-                <table id="cart-table">
-                    <thead>
-                        <tr>
-                            <th>ID товара</th>
-                            <th>Изображение</th>
-                            <th>Описание</th>
-                            <th>Цена</th>
-                            <th>Количество</th>
-                            <th>Стоимость</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {Cart.items.map((item) => this.renderItem(item))}
-                    </tbody>
-                </table>
+                <div>
+                    <table id="cart-table">
+                        <thead>
+                            <tr>
+                                <th>ID товара</th>
+                                <th>Изображение</th>
+                                <th>Описание</th>
+                                <th>Цена</th>
+                                <th>Количество</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {Cart.items.map((item) => this.renderItem(item))}
+                        </tbody>
+                    </table>
+                    <p
+                        onClick={() => {
+                            Cart.clear();
+                            this.forceUpdate();
+                        }}
+                    >
+                        Очистить корзину
+                    </p>
+                </div>
             );
         }
         return <p>В корзине пока ничего нет.</p>;
