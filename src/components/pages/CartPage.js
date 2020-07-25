@@ -30,16 +30,34 @@ class CartPage extends React.Component {
                     </p>
                 </td>
                 <td>{item[1].price} &#x20bd;</td>
-                <td>{item[2]}</td>
+                <td>
+                    {item[2]}
+                    <p
+                        onClick={() => {
+                            Cart.add(item[1]);
+                            this.forceUpdate();
+                        }}
+                    >
+                        Увеличить
+                    </p>
+                    <p
+                        onClick={() => {
+                            Cart.remove(item[1]);
+                            this.forceUpdate();
+                        }}
+                    >
+                        Уменьшить
+                    </p>
+                </td>
                 <td>{item[1].price * item[2]} &#x20bd;</td>
             </tr>
         );
     }
 
     renderTable() {
-        if (Cart.items) {
+        if (Cart.items.length) {
             return (
-                <table>
+                <table id="cart-table">
                     <thead>
                         <tr>
                             <th>ID товара</th>
@@ -67,7 +85,40 @@ class CartPage extends React.Component {
                     <section id="section-cart-main">
                         <div className="container">
                             <h1 className="page-title">Корзина</h1>
-                            {this.renderTable()}
+                            <div className="row">
+                                <div className="col-xs-12 col-lg-9">
+                                    {this.renderTable()}
+                                </div>
+                                {Cart.items.length ? (
+                                    <div className="col-xs-12 col-lg-3">
+                                        <h2>К оплате</h2>
+                                        <h2>{Cart.total} &#x20bd;</h2>
+                                        <button
+                                            className="button"
+                                            onClick={() => {
+                                                alert(
+                                                    `Оплачено! Номер заказа ${parseInt(
+                                                        Math.random() * 899 +
+                                                            100
+                                                    )} ${parseInt(
+                                                        Math.random() * 899 +
+                                                            100
+                                                    )} ${parseInt(
+                                                        Math.random() * 899 +
+                                                            100
+                                                    )}`
+                                                );
+                                                Cart.clear();
+                                                this.forceUpdate();
+                                            }}
+                                        >
+                                            Оплатить
+                                        </button>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
+                            </div>
                         </div>
                     </section>
                 </main>

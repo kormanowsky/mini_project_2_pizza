@@ -86,9 +86,7 @@ class Cart {
                 });
             }
             items[entryId][2] -= 1;
-            if (items[entryId][2] <= 0) {
-                delete items[entryId];
-            }
+            items = items.filter((item) => item[2] > 0);
             PrivateCartAPI.decrementCount();
             PrivateCartAPI.removeTotal(item.price);
             window.localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(items));
