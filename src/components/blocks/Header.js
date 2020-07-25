@@ -1,6 +1,8 @@
 import React from "react";
 import Data from "../../data";
 import { Link } from "react-router-dom";
+import Cart from "../../Cart";
+
 class Header extends React.Component {
     render() {
         return (
@@ -27,7 +29,10 @@ class Header extends React.Component {
                                 id="header-cart-icon"
                             ></img>
                             <p>
-                                <Link to="/cart">0 товаров на 0&#x20bd;</Link>
+                                <Link to="/cart">
+                                    {Cart.count} товаров на {Cart.total}
+                                    &#x20bd;
+                                </Link>
                             </p>
                         </div>
                     </div>

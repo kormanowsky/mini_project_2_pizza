@@ -7,7 +7,7 @@ import Cart from "../../Cart";
 
 class PizzaPage extends React.Component {
     render() {
-        window.Cart = Cart;
+        console.log(this.state);
         return (
             <div className="app app-pizza">
                 <Header />
@@ -32,7 +32,12 @@ class PizzaPage extends React.Component {
                                 <h2>{this.props.pizza.price}&nbsp;&#x20bd;</h2>
                                 <button
                                     className="add-to-card button"
-                                    onClick={() => Cart.add(this.props.pizza)}
+                                    onClick={() =>
+                                        Cart.add(
+                                            this.props.pizza,
+                                            this.setState
+                                        )
+                                    }
                                 >
                                     В корзину
                                 </button>

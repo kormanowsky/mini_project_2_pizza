@@ -4,7 +4,7 @@ const CART_TOTAL_KEY = "cart_total";
 
 class PrivateCartAPI {
     static addCount(count) {
-        let currentCount = Cart.count();
+        let currentCount = Cart.count;
         currentCount += count;
         window.localStorage.setItem(CART_ITEMS_COUNT_KEY, currentCount);
     }
@@ -18,7 +18,7 @@ class PrivateCartAPI {
     }
 
     static addTotal(total) {
-        let currentTotal = Cart.total();
+        let currentTotal = Cart.total;
         currentTotal += total;
         window.localStorage.setItem(CART_TOTAL_KEY, currentTotal);
     }
@@ -29,6 +29,26 @@ class PrivateCartAPI {
 }
 
 class Cart {
+    static get items() {
+        let rawItems = window.localStorage.getItem(CART_ITEMS_KEY);
+        if (!rawItems) {
+            return {};
+        }
+        return JSON.parse(window.localStorage.getItem(CART_ITEMS_KEY));
+    }
+
+    static get count() {
+        let rawCount = parseInt(
+            window.localStorage.getItem(CART_ITEMS_COUNT_KEY)
+        );
+        return isNaN(rawCount) ? 0 : rawCount;
+    }
+
+    static get total() {
+        let rawTotal = parseInt(window.localStorage.getItem(CART_TOTAL_KEY));
+        return isNaN(rawTotal) ? 0 : rawTotal;
+    }
+
     static add(item) {
         return new Promise((resolve, reject) => {
             if (!("price" in item)) {
@@ -37,10 +57,12 @@ class Cart {
                     errorData: { item },
                 });
             }
-            let cartId = parseInt(Math.random() * (10 ** 9 - 10 ** 8 - 1) + 10 ** 8);
+            let cartId = parseInt(
+                Math.random() * (10 ** 9 - 10 ** 8 - 1) + 10 ** 8
+            );
             window.localStorage.setItem(
                 CART_ITEMS_KEY,
-                JSON.stringify(Object.assign(this.items(), { [cartId]: item }))
+                JSON.stringify(Object.assign(Cart.items, { [cartId]: item }))
             );
             PrivateCartAPI.incrementCount();
             PrivateCartAPI.addTotal(item.price);
@@ -48,9 +70,9 @@ class Cart {
         });
     }
 
-    static remove(id) {
+    static remove(id, setState) {
         return new Promise((resolve, reject) => {
-            let items = this.items();
+            let items = Cart.items;
             if (!(id in items)) {
                 return reject({ errorText: "No such ID", errorData: { id } });
             }
@@ -63,24 +85,13 @@ class Cart {
         });
     }
 
-    static items() {
-        let rawItems = window.localStorage.getItem(CART_ITEMS_KEY);
-        if (!rawItems) {
-            return {};
-        }
-        return JSON.parse(window.localStorage.getItem(CART_ITEMS_KEY));
-    }
-
-    static count() {
-        let rawCount = parseInt(
-            window.localStorage.getItem(CART_ITEMS_COUNT_KEY)
-        );
-        return isNaN(rawCount) ? 0 : rawCount;
-    }
-
-    static total() {
-        let rawTotal = parseInt(window.localStorage.getItem(CART_TOTAL_KEY));
-        return isNaN(rawTotal) ? 0 : rawTotal;
+    static clear() {
+        return new Promise((resolve, reject) => {
+            window.localStorage.removeItem(CART_ITEMS_KEY);
+            window.localStorage.removeItem(CART_TOTAL_KEY);
+            window.localStorage.removeItem(CART_ITEMS_COUNT_KEY);
+            resolve();
+        });
     }
 }
 
