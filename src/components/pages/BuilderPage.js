@@ -4,6 +4,7 @@ import Footer from "../blocks/Footer";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import Cart from "../../Cart";
 import data from "../../data";
+import CheckBox from "../blocks/Checkbox";
 
 class BuilderPage extends React.Component {
     constructor(props) {
@@ -72,28 +73,29 @@ class BuilderPage extends React.Component {
                                     <div id="builder-toppings">
                                         {Object.keys(this.state.toppings).map(
                                             (topping) => (
-                                                <p key={topping}>
-                                                    <input
-                                                        type="checkbox"
+                                                <div
+                                                    className="builder-topping"
+                                                    key={topping}
+                                                >
+                                                    <CheckBox
                                                         checked={
                                                             this.state.toppings[
                                                                 topping
                                                             ]
                                                         }
-                                                        onChange={(event) =>
+                                                        onChange={(event) => {
+                                                            console.log(event);
                                                             this.setState({
                                                                 toppings: Object.assign(
                                                                     this.state
                                                                         .toppings,
                                                                     {
                                                                         [topping]:
-                                                                            event
-                                                                                .target
-                                                                                .checked,
+                                                                            event.checked,
                                                                     }
                                                                 ),
-                                                            })
-                                                        }
+                                                            });
+                                                        }}
                                                     />
                                                     {data.toppings[topping]}{" "}
                                                     <b>
@@ -104,7 +106,7 @@ class BuilderPage extends React.Component {
                                                         }{" "}
                                                         &#x20bd;
                                                     </b>
-                                                </p>
+                                                </div>
                                             )
                                         )}
                                     </div>
