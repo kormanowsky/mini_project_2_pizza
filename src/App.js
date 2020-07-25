@@ -4,6 +4,7 @@ import HomePage from "./components/pages/HomePage";
 import Data from "./data";
 import PizzaPage from "./components/pages/PizzaPage";
 import CartPage from "./components/pages/CartPage";
+import PizzasPage from "./components/pages/PizzasPage";
 class App extends React.Component {
     render() {
         return (
@@ -14,6 +15,9 @@ class App extends React.Component {
                     </Route>
                     <Route path="/cart">
                         <CartPage />
+                    </Route>
+                    <Route path="/pizzas" exact>
+                        <PizzasPage />
                     </Route>
                     {Data.pizzas.map((pizza) => (
                         <Route
