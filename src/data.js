@@ -19,9 +19,24 @@ export default {
         bbqSauce: "соус барбекю",
         tomatoSauce: "томатный соус",
     },
+    basePrice: 240,
+    toppingPrices: {
+        tomatoes: 40, 
+        mushrooms: 50, 
+        pepper: 40, 
+        onion: 40, 
+        bacon: 50,
+        meat: 60, 
+        sausages: 50, 
+        pepperoni: 50, 
+        olives: 40, 
+        greens: 30, 
+        bbqSauce: 40, 
+        tomatoSauce: 40
+    },
     pizzas: [
         {
-            id: 1,
+            id: 100000000000001,
             toppings: {
                 tomatoes: true,
                 tomatoSauce: true,
@@ -31,7 +46,7 @@ export default {
             price: 320,
         },
         {
-            id: 2,
+            id: 100000000000002,
             toppings: {
                 pepperoni: true,
                 tomatoSauce: true,
@@ -40,7 +55,7 @@ export default {
             price: 360,
         },
         {
-            id: 3,
+            id: 100000000000003,
             toppings: {
                 onion: true,
                 greens: true,
@@ -52,7 +67,7 @@ export default {
             price: 400,
         },
         {
-            id: 4,
+            id: 100000000000004,
             toppings: {
                 meat: true,
                 sausages: true,
@@ -65,7 +80,7 @@ export default {
             price: 440,
         },
         {
-            id: 5,
+            id: 100000000000005,
             toppings: {
                 mushrooms: true,
                 tomatoes: true,
@@ -76,7 +91,7 @@ export default {
             price: 400,
         },
         {
-            id: 6,
+            id: 100000000000006,
             toppings: {
                 mushrooms: true,
                 tomatoes: true,

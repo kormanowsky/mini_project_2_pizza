@@ -67,6 +67,7 @@ class ToppingConfiguration {
         let toppingToDescription = (topping) => Data.toppings[topping];
         return Object.keys(configuration)
             .filter(toppingToDescription)
+            .filter((topping) => configuration[topping])
             .map(toppingToDescription)
             .join(", ");
     }
