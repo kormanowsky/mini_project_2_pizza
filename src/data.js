@@ -1,8 +1,23 @@
 export default {
     projectInfo: {
         name: "ПиццаМишка",
-        address: "Красногорск, улица Братьев Горожанкиных, дом 13, ТЦ \"Строящийся\"", 
-        phone: "+7 495 563 00 00"
+        address:
+            'Красногорск, улица Братьев Горожанкиных, дом 13, ТЦ "Строящийся"',
+        phone: "+7 495 563 00 00",
+    },
+    toppings: {
+        tomatoes: "помидоры",
+        mushrooms: "грибы",
+        pepper: "сладкий перец",
+        onion: "лук",
+        bacon: "бекон",
+        meat: "говядина",
+        sausages: "ветчина",
+        pepperoni: "пепперони",
+        olives: "оливки",
+        greens: "зелень",
+        bbqSauce: "соус барбекю",
+        tomatoSauce: "томатный соус",
     },
     pizzas: [
         {
@@ -27,7 +42,7 @@ export default {
         {
             id: 3,
             toppings: {
-                onions: true,
+                onion: true,
                 greens: true,
                 olives: true,
                 pepper: true,

@@ -12,7 +12,7 @@ class App extends React.Component {
                         <HomePage />
                     </Route>
                     {Data.pizzas.map((pizza) => (
-                        <Route path={`/pizza/${pizza.id}`} exact>
+                        <Route path={`/pizza/${pizza.id}`} exact key={`route-pizza-${pizza.id}`}>
                             <PizzaPage pizza={pizza} />
                         </Route>
                     ))}

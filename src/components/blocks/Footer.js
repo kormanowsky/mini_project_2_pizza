@@ -6,8 +6,8 @@ class Footer extends React.Component {
         return (
             <footer>
                 <div className="container">
-                    <div class="row" id="footer-row">
-                        <div class="col-xs-12 col-md-4" id="footer-contacts">
+                    <div className="row" id="footer-row">
+                        <div className="col-xs-12 col-md-4" id="footer-contacts">
                             <h1>
                                 <Link to="/">{Data.projectInfo.name}</Link>
                             </h1>
@@ -26,7 +26,7 @@ class Footer extends React.Component {
                                 {Data.projectInfo.phone}
                             </p>
                         </div>
-                        <div class="col-xs-12 col-md-4 col-md-offset-4">
+                        <div className="col-xs-12 col-md-4 col-md-offset-4">
                             <p>
                                 Разработал{" "}
                                 <a

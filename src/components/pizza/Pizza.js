@@ -11,7 +11,7 @@ import OlivesTopping from "./OlivesTopping";
 import BaconTopping from "./BaconTopping";
 import BBQSauce from "./BBQSauce";
 import TomatoSauce from "./TomatoSauce";
-
+import Data from "../../data";
 const Toppings = {
     tomatoes: TomatoesTopping,
     mushrooms: MushroomsTopping,
@@ -59,6 +59,17 @@ class ToppingConfiguration {
         }
         return configuration;
     }
+
+    static getDescription(configuration) {
+        if (!configuration || !(configuration instanceof Object)) {
+            return null;
+        }
+        let toppingToDescription = (topping) => Data.toppings[topping];
+        return Object.keys(configuration)
+            .filter(toppingToDescription)
+            .map(toppingToDescription)
+            .join(", ");
+    }
 }
 
 class Pizza extends React.Component {
@@ -78,29 +89,38 @@ class Pizza extends React.Component {
             radius: size / 2,
             toppings: this.props.toppings,
         };
+        this.getToppings = this.getToppings.bind(this);
         this.renderToppings = this.renderToppings.bind(this);
     }
 
+    getToppings() {
+        return Object.keys(this.state.toppings).filter(
+            (topping) => this.state.toppings[topping]
+        );
+    }
+
+    hasToppings() {
+        return this.getToppings().length;
+    }
+
     renderToppings() {
-        if (!this.state.toppings) {
+        if (!this.hasToppings()) {
             return "";
         }
         return (
             <g className="pizza-toppings">
-                {Object.keys(this.state.toppings)
-                    .filter((topping) => this.state.toppings[topping])
-                    .map((topping) => {
-                        if (topping in Toppings) {
-                            const ToppingComponent = Toppings[topping];
-                            return (
-                                <ToppingComponent
-                                    key={topping}
-                                    pizzaSize={this.state.size}
-                                />
-                            );
-                        }
-                        return "";
-                    })}
+                {this.getToppings().map((topping) => {
+                    if (topping in Toppings) {
+                        const ToppingComponent = Toppings[topping];
+                        return (
+                            <ToppingComponent
+                                key={topping}
+                                pizzaSize={this.state.size}
+                            />
+                        );
+                    }
+                    return "";
+                })}
             </g>
         );
     }
