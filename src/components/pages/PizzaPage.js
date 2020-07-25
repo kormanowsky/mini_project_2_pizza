@@ -25,8 +25,8 @@ class PizzaPage extends React.Component {
                                     <div id="pizza-info">
                                         <Link to="/pizzas">&laquo; Пиццы</Link>
                                         <h1>{this.props.pizza.name}</h1>
-                                        <h3>Состав</h3>
-                                        <p>
+                                        <h3 id="pizza-ingredients-label">Состав</h3>
+                                        <p id="pizza-ingredients">
                                             {capitalize(
                                                 ToppingConfiguration.getDescription(
                                                     this.props.pizza.toppings
