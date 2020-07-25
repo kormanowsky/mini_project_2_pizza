@@ -6,7 +6,7 @@ class PrivateCartAPI {
     static addCount(count) {
         let currentCount = Cart.count();
         currentCount += count;
-        window.localStorage.setItem(CART_ITEMS_KEY, currentCount);
+        window.localStorage.setItem(CART_ITEMS_COUNT_KEY, currentCount);
     }
 
     static incrementCount() {
@@ -37,7 +37,7 @@ class Cart {
                     errorData: { item },
                 });
             }
-            let cartId = Math.random() * (10 ** 9 - 10 ** 8 - 1) + 10 ** 8;
+            let cartId = parseInt(Math.random() * (10 ** 9 - 10 ** 8 - 1) + 10 ** 8);
             window.localStorage.setItem(
                 CART_ITEMS_KEY,
                 JSON.stringify(Object.assign(this.items(), { [cartId]: item }))
@@ -64,15 +64,23 @@ class Cart {
     }
 
     static items() {
+        let rawItems = window.localStorage.getItem(CART_ITEMS_KEY);
+        if (!rawItems) {
+            return {};
+        }
         return JSON.parse(window.localStorage.getItem(CART_ITEMS_KEY));
     }
 
     static count() {
-        return parseInt(window.localStorage.getItem(CART_ITEMS_COUNT_KEY));
+        let rawCount = parseInt(
+            window.localStorage.getItem(CART_ITEMS_COUNT_KEY)
+        );
+        return isNaN(rawCount) ? 0 : rawCount;
     }
 
     static total() {
-        return parseInt(window.localStorage.getItem(CART_TOTAL_KEY));
+        let rawTotal = parseInt(window.localStorage.getItem(CART_TOTAL_KEY));
+        return isNaN(rawTotal) ? 0 : rawTotal;
     }
 }
 

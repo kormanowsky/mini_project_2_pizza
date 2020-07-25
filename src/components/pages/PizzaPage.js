@@ -3,9 +3,11 @@ import Header from "../blocks/Header";
 import Footer from "../blocks/Footer";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import { Link } from "react-router-dom";
+import Cart from "../../Cart";
 
 class PizzaPage extends React.Component {
     render() {
+        window.Cart = Cart;
         return (
             <div className="app app-pizza">
                 <Header />
@@ -28,7 +30,12 @@ class PizzaPage extends React.Component {
                                     )}
                                 </p>
                                 <h2>{this.props.pizza.price}&nbsp;&#x20bd;</h2>
-                                <button className="add-to-card button">В корзину</button>
+                                <button
+                                    className="add-to-card button"
+                                    onClick={() => Cart.add(this.props.pizza)}
+                                >
+                                    В корзину
+                                </button>
                             </div>
                         </div>
                     </div>
