@@ -62,7 +62,7 @@ class Cart {
             );
             window.localStorage.setItem(
                 CART_ITEMS_KEY,
-                JSON.stringify(Object.assign(Cart.items, { [cartId]: item }))
+                JSON.stringify(Object.assign(this.items, { [cartId]: item }))
             );
             PrivateCartAPI.incrementCount();
             PrivateCartAPI.addTotal(item.price);
@@ -72,7 +72,7 @@ class Cart {
 
     static remove(id, setState) {
         return new Promise((resolve, reject) => {
-            let items = Cart.items;
+            let items = this.items;
             if (!(id in items)) {
                 return reject({ errorText: "No such ID", errorData: { id } });
             }

@@ -1,7 +1,6 @@
 import React from "react";
 import Data from "../../data";
 import { Link } from "react-router-dom";
-import Cart from "../../Cart";
 
 class Header extends React.Component {
     render() {
@@ -30,7 +29,8 @@ class Header extends React.Component {
                             ></img>
                             <p>
                                 <Link to="/cart">
-                                    {Cart.count} товаров на {Cart.total}
+                                    {this.props.cart.count} товаров на{" "}
+                                    {this.props.cart.total}
                                     &#x20bd;
                                 </Link>
                             </p>
