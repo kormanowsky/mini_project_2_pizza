@@ -26,13 +26,17 @@ class PrivateCartAPI {
     static removeTotal(total) {
         return this.addTotal(-1 * total);
     }
+
+    static cartEntryIdById(id) {
+        return Cart.items.map((item) => item[0]).indexOf(id);
+    }
 }
 
 class Cart {
     static get items() {
         let rawItems = window.localStorage.getItem(CART_ITEMS_KEY);
         if (!rawItems) {
-            return {};
+            return [];
         }
         return JSON.parse(window.localStorage.getItem(CART_ITEMS_KEY));
     }
@@ -57,29 +61,36 @@ class Cart {
                     errorData: { item },
                 });
             }
-            let cartId = parseInt(
-                Math.random() * (10 ** 9 - 10 ** 8 - 1) + 10 ** 8
-            );
-            window.localStorage.setItem(
-                CART_ITEMS_KEY,
-                JSON.stringify(Object.assign(this.items, { [cartId]: item }))
-            );
+            let items = this.items,
+                entryId = PrivateCartAPI.cartEntryIdById(item.id);
+            if (entryId === -1) {
+                items.push([item.id, item, 1]);
+            } else {
+                items[entryId][2] += 1;
+            }
+            window.localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(items));
             PrivateCartAPI.incrementCount();
             PrivateCartAPI.addTotal(item.price);
-            resolve(cartId);
+            resolve();
         });
     }
 
-    static remove(id) {
+    static remove(item) {
         return new Promise((resolve, reject) => {
-            let items = this.items;
-            if (!(id in items)) {
-                return reject({ errorText: "No such ID", errorData: { id } });
+            let items = this.items,
+                entryId = PrivateCartAPI.cartEntryIdById(item.id);
+            if (entryId === -1) {
+                return reject({
+                    errorText: "No such item in cart",
+                    errorData: { id: item.id },
+                });
             }
-            let item = items[id];
+            items[entryId][2] -= 1;
+            if (items[entryId][2] <= 0) {
+                delete items[entryId];
+            }
             PrivateCartAPI.decrementCount();
             PrivateCartAPI.removeTotal(item.price);
-            delete items[id];
             window.localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(items));
             resolve();
         });
