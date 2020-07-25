@@ -14,7 +14,7 @@ class CartPage extends React.Component {
 
     renderItem(item) {
         return (
-            <tr>
+            <tr key={`cart-item-${item[1].id}`}>
                 <td>{item[1].id}</td>
                 <td>
                     <Pizza toppings={item[1].toppings} responsive={true} />
