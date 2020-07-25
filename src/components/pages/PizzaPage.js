@@ -6,17 +6,10 @@ import { Link } from "react-router-dom";
 import Cart from "../../Cart";
 
 class PizzaPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            cart: Cart,
-        };
-    }
     render() {
         return (
             <div className="app app-pizza">
-                <Header cart={this.state.cart} />
+                <Header />
                 <main>
                     <div className="container">
                         <div className="row">
@@ -39,9 +32,9 @@ class PizzaPage extends React.Component {
                                 <button
                                     className="add-to-card button"
                                     onClick={() =>
-                                        this.state.cart
-                                            .add(this.props.pizza)
-                                            .then(() => this.forceUpdate())
+                                        Cart.add(this.props.pizza).then(
+                                            this.forceUpdate
+                                        )
                                     }
                                 >
                                     В корзину

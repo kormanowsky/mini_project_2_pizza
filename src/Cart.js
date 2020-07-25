@@ -70,7 +70,7 @@ class Cart {
         });
     }
 
-    static remove(id, setState) {
+    static remove(id) {
         return new Promise((resolve, reject) => {
             let items = this.items;
             if (!(id in items)) {
