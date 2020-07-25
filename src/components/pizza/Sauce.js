@@ -19,6 +19,7 @@ class Sauce extends React.Component {
     renderItem(iIndex) {
         return (
             <path
+                key={`${this.props.name}-${iIndex}`}
                 fill="transparent"
                 stroke={this.props.color}
                 strokeWidth={this.state.sauceWidth / 2}
