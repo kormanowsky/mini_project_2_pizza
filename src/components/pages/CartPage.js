@@ -14,13 +14,12 @@ class CartPage extends React.Component {
     renderItem(item) {
         return (
             <tr key={`cart-item-${item[1].id}`}>
-                <td>{item[1].id}</td>
-                <td>
+                <td className="cart-pizza-td">
                     <Pizza toppings={item[1].toppings} responsive={true} />
                 </td>
-                <td>
-                    <h4>{item[1].name}</h4>
-                    <p>
+                <td className="cart-desc-td">
+                    <h4 className="font-pd">{item[1].name}</h4>
+                    <p className="pizza-ingredients color-gray">
                         {capitalize(
                             ToppingConfiguration.getDescription(
                                 item[1].toppings
@@ -28,27 +27,28 @@ class CartPage extends React.Component {
                         )}
                     </p>
                 </td>
-                <td>{item[1].price} &#x20bd;</td>
-                <td>
-                    {item[2]}
+                <td className="cart-count-td">
                     <p
                         onClick={() => {
                             Cart.add(item[1]);
                             this.forceUpdate();
                         }}
+                        className="cart-count-control"
                     >
-                        Увеличить
+                        +
                     </p>
+                    <p className="cart-count-value">{item[2]}</p>
                     <p
                         onClick={() => {
                             Cart.remove(item[1]);
                             this.forceUpdate();
                         }}
+                        className="cart-count-control"
                     >
-                        Уменьшить
+                        -
                     </p>
                 </td>
-                <td>{item[1].price * item[2]} &#x20bd;</td>
+                <td className="cart-price-td"><h4>{item[1].price * item[2]} &#x20bd;</h4></td>
             </tr>
         );
     }
@@ -58,16 +58,6 @@ class CartPage extends React.Component {
             return (
                 <div>
                     <table id="cart-table">
-                        <thead>
-                            <tr>
-                                <th>ID товара</th>
-                                <th>Изображение</th>
-                                <th>Описание</th>
-                                <th>Цена</th>
-                                <th>Количество</th>
-                                <th>Стоимость</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             {Cart.items.map((item) => this.renderItem(item))}
                         </tbody>
@@ -100,29 +90,34 @@ class CartPage extends React.Component {
                                 </div>
                                 {Cart.items.length ? (
                                     <div className="col-xs-12 col-lg-3">
-                                        <h2>К оплате</h2>
-                                        <h2>{Cart.total} &#x20bd;</h2>
-                                        <button
-                                            className="button"
-                                            onClick={() => {
-                                                alert(
-                                                    `Оплачено! Номер заказа ${parseInt(
-                                                        Math.random() * 899 +
-                                                            100
-                                                    )} ${parseInt(
-                                                        Math.random() * 899 +
-                                                            100
-                                                    )} ${parseInt(
-                                                        Math.random() * 899 +
-                                                            100
-                                                    )}`
-                                                );
-                                                Cart.clear();
-                                                this.forceUpdate();
-                                            }}
-                                        >
-                                            Оплатить
-                                        </button>
+                                        <div className="border">
+                                            <h2>К оплате</h2>
+                                            <h2>{Cart.total} &#x20bd;</h2>
+                                            <button
+                                                className="button"
+                                                onClick={() => {
+                                                    alert(
+                                                        `Оплачено! Номер заказа ${parseInt(
+                                                            Math.random() *
+                                                                899 +
+                                                                100
+                                                        )} ${parseInt(
+                                                            Math.random() *
+                                                                899 +
+                                                                100
+                                                        )} ${parseInt(
+                                                            Math.random() *
+                                                                899 +
+                                                                100
+                                                        )}`
+                                                    );
+                                                    Cart.clear();
+                                                    this.forceUpdate();
+                                                }}
+                                            >
+                                                Оплатить
+                                            </button>
+                                        </div>
                                     </div>
                                 ) : (
                                     ""

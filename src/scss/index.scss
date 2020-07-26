@@ -183,6 +183,10 @@ h1.page-title {
     color: $accent-color;
 }
 
+.color-gray{
+    color: #555;
+}
+
 @import "./home";
 @import "./pizza";
 @import "./cart";
