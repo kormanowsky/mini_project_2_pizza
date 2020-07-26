@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../blocks/Header";
-import Footer from "../blocks/Footer";
 import Data from "../../data";
 import { Pizza } from "../pizza/Pizza";
 import { Link } from "react-router-dom";
@@ -15,13 +14,13 @@ class PizzasPage extends React.Component {
                     <section id="section-pizzas">
                         <div className="container">
                             <h1 className="page-title">Пиццы</h1>
-                            <div className="row">
+                            <div className="row with-border">
                                 {Data.pizzas.map((pizza) => (
                                     <div
                                         className="col-xs-12 col-md-6 col-lg-4 pizzas-pizza"
                                         key={`pizza-${pizza.id}`}
                                     >
-                                        <div className="row">
+                                        <div className="row border align-items-center">
                                             <div className="col-xs-12 col-md-6">
                                                 <Pizza
                                                     toppings={pizza.toppings}
@@ -29,18 +28,27 @@ class PizzasPage extends React.Component {
                                                 />
                                             </div>
                                             <div className="col-xs-12 col-md-6">
-                                                <h3>{pizza.name}</h3>
-                                                <p>{pizza.price} &#x20bd;</p>
                                                 <Link to={`/pizza/${pizza.id}`}>
-                                                    Подробнее
+                                                    <h3 className="font-pd">
+                                                        {pizza.name}
+                                                    </h3>
                                                 </Link>
                                                 <button
                                                     onClick={() => {
                                                         Cart.add(pizza);
                                                         this.forceUpdate();
                                                     }}
-                                                    className="button"
-                                                >В корзину</button>
+                                                    className="button d-flex align-items-center small"
+                                                    type="button"
+                                                >
+                                                    <img
+                                                        src="/images/shopping-cart.svg"
+                                                        alt="Добавить в корзину"
+                                                        title="Добавить в корзину"
+                                                        className="icon"
+                                                    ></img>
+                                                    {pizza.price} &#x20bd;
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -48,8 +56,13 @@ class PizzasPage extends React.Component {
                             </div>
                         </div>
                     </section>
+                    <section id="section-pizzas-builder">
+                        <p class="container">
+                            Не нашли пиццу по вкусу?{" "}
+                            <Link to="/builder">Соберите свою!</Link>
+                        </p>
+                    </section>
                 </main>
-                <Footer />
             </div>
         );
     }

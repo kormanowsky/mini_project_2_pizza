@@ -39,11 +39,28 @@ button {
     border-radius: 0 1rem 0 1rem;
     font-weight: bold;
     border: none;
+    cursor: pointer;
+}
+
+a.button:focus,
+button:focus {
+    outline: none;
 }
 
 a.button:hover,
 button:hover {
     background: $primary-color;
+}
+
+a.button.small,
+button.small {
+    padding: 0.75rem 1rem;
+}
+
+button .icon,
+a.button .icon {
+    width: 1em;
+    margin-right: 0.5rem;
 }
 
 li {
@@ -142,7 +159,32 @@ h1.page-title {
     display: none;
 }
 
+.border {
+    border-radius: 0 1rem 0 1rem;
+    border: 1px solid #cecece;
+    padding: 1.5rem 1rem 1rem;
+    margin: 1rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.row.with-border {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+.color-accent {
+    color: $accent-color;
+}
+
 @import "./home";
 @import "./pizza";
 @import "./cart";
 @import "./builder";
+@import "./pizzas";

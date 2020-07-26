@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../blocks/Header";
-import Footer from "../blocks/Footer";
 import Cart from "../../Cart";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import { capitalize } from "../../utils";
@@ -132,7 +131,6 @@ class CartPage extends React.Component {
                         </div>
                     </section>
                 </main>
-                <Footer />
             </div>
         );
     }

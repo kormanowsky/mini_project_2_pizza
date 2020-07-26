@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../blocks/Header";
-import Footer from "../blocks/Footer";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import Cart from "../../Cart";
 import data from "../../data";
@@ -58,15 +57,20 @@ class BuilderPage extends React.Component {
                     <section id="section-builder">
                         <div className="container">
                             <h1 className="page-title">Конструктор</h1>
-                            <h3 className="page-subtitle">Соберите свою пиццу!</h3>
+                            <h3 className="page-subtitle">
+                                Соберите свою пиццу!
+                            </h3>
                             <div className="row">
-                                <div className="col-xs-12 col-md-6">
+                                <div className="col-xs-12 col-md-5">
                                     <Pizza
                                         toppings={this.state.toppings}
                                         responsive={true}
                                     />
                                 </div>
-                                <div className="col-xs-12 col-md-6" id="builder-data">
+                                <div
+                                    className="col-xs-12 col-md-7"
+                                    id="builder-data"
+                                >
                                     <h2>Основа</h2>
                                     <h4>{data.basePrice} &#x20bd;</h4>
                                     <h2>Начинки</h2>
@@ -110,7 +114,9 @@ class BuilderPage extends React.Component {
                                         )}
                                     </div>
                                     <h2>Итоговая цена</h2>
-                                    <h2 id="builder-total">{this.getPizzaTotalPrice()} &#x20bd;</h2>
+                                    <h2 id="builder-total">
+                                        {this.getPizzaTotalPrice()} &#x20bd;
+                                    </h2>
                                     <button
                                         className="button"
                                         onClick={this.addToCart}
@@ -122,7 +128,6 @@ class BuilderPage extends React.Component {
                         </div>
                     </section>
                 </main>
-                <Footer />
             </div>
         );
     }

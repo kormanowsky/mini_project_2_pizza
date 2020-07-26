@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../blocks/Header";
-import Footer from "../blocks/Footer";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import { Link } from "react-router-dom";
 import Cart from "../../Cart";
@@ -24,7 +23,7 @@ class PizzaPage extends React.Component {
                                 <div className="col-xs-6">
                                     <div id="pizza-info">
                                         <Link to="/pizzas">&laquo; Пиццы</Link>
-                                        <h1>{this.props.pizza.name}</h1>
+                                        <h1 className="page-title">{this.props.pizza.name}</h1>
                                         <h3 id="pizza-ingredients-label">Состав</h3>
                                         <p id="pizza-ingredients">
                                             {capitalize(
@@ -53,7 +52,6 @@ class PizzaPage extends React.Component {
                         </div>
                     </section>
                 </main>
-                <Footer />
             </div>
         );
     }
