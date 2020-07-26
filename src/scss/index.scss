@@ -183,8 +183,17 @@ h1.page-title {
     color: $accent-color;
 }
 
-.color-gray{
+.color-gray {
     color: #555;
+}
+
+.align-center {
+    text-align: center;
+}
+
+p.link{
+    color: $accent-color; 
+    cursor: pointer;
 }
 
 @import "./home";

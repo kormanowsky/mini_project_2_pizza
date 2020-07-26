@@ -3,6 +3,7 @@ import Header from "../blocks/Header";
 import Cart from "../../Cart";
 import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import { capitalize } from "../../utils";
+import { Link } from "react-router-dom";
 
 class CartPage extends React.Component {
     constructor(props) {
@@ -48,7 +49,9 @@ class CartPage extends React.Component {
                         -
                     </p>
                 </td>
-                <td className="cart-price-td"><h4>{item[1].price * item[2]} &#x20bd;</h4></td>
+                <td className="cart-price-td">
+                    <h4>{item[1].price * item[2]} &#x20bd;</h4>
+                </td>
             </tr>
         );
     }
@@ -67,13 +70,14 @@ class CartPage extends React.Component {
                             Cart.clear();
                             this.forceUpdate();
                         }}
+                        className="color-accent link"
                     >
                         Очистить корзину
                     </p>
                 </div>
             );
         }
-        return <p>В корзине пока ничего нет.</p>;
+        return "";
     }
 
     render() {
@@ -91,13 +95,13 @@ class CartPage extends React.Component {
                                 {Cart.items.length ? (
                                     <div className="col-xs-12 col-lg-3">
                                         <div className="border">
-                                            <h2>К оплате</h2>
+                                            <h2 className="font-pd" id="cart-total-label">Итого</h2>
                                             <h2>{Cart.total} &#x20bd;</h2>
                                             <button
                                                 className="button"
                                                 onClick={() => {
                                                     alert(
-                                                        `Оплачено! Номер заказа ${parseInt(
+                                                        `Заказ № ${parseInt(
                                                             Math.random() *
                                                                 899 +
                                                                 100
@@ -109,13 +113,13 @@ class CartPage extends React.Component {
                                                             Math.random() *
                                                                 899 +
                                                                 100
-                                                        )}`
+                                                        )} успешно оформлен!`
                                                     );
                                                     Cart.clear();
                                                     this.forceUpdate();
                                                 }}
                                             >
-                                                Оплатить
+                                                Оформить заказ
                                             </button>
                                         </div>
                                     </div>
@@ -125,6 +129,20 @@ class CartPage extends React.Component {
                             </div>
                         </div>
                     </section>
+                    {Cart.items.length ? (
+                        ""
+                    ) : (
+                        <section id="section-cart-empty">
+                            <p class="container align-center">
+                                В корзине пока ничего нет.{" "}
+                                <Link to="/pizzas">
+                                    Выберите пиццу из каталога
+                                </Link>{" "}
+                                или <Link to="/builder">соберите свою</Link>, а
+                                потом добавьте в корзину!
+                            </p>
+                        </section>
+                    )}
                 </main>
             </div>
         );
