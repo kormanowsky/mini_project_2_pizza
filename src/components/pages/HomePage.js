@@ -35,7 +35,7 @@ class HomePage extends React.Component {
                                     Случайная пицца
                                     <br />
                                     <Link
-                                        to={`/builder?config=${Toppings.getNumber(
+                                        to={`/builder?toppings=${Toppings.getNumber(
                                             randomToppings
                                         )}`}
                                     >
