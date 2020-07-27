@@ -68,7 +68,7 @@ class PizzasPage extends React.Component {
                         </div>
                     </section>
                     <section id="section-pizzas-builder">
-                        <p class="container">
+                        <p className="container">
                             Не нашли пиццу по вкусу?{" "}
                             <Link to="/builder">Соберите свою!</Link>
                         </p>
