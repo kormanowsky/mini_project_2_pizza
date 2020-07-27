@@ -4,4 +4,4 @@
 3. /delivery?order=${order_id} - Choosing delivery destination 
 4. /order/${order_id} - Order Details 
 5. /builder?config=${config_number} - Predefined Builder Config (from home page's random pizza) `Done!`
-6. Refractor ToppingConfiguration and ToppingBitList
+6. Refractor ToppingConfiguration and ToppingBitList `Done!`
