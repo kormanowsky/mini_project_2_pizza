@@ -40,8 +40,11 @@ class DeliveryPage extends React.Component {
                             <h3 className="page-subtitle">
                                 Выберите, куда его доставить:
                             </h3>
-                            <div className="row">
-                                Тут карта
+                            <div className="row">Тут карта</div>
+                            <div>
+                                <button className="button">
+                                    Перейти к оплате
+                                </button>
                             </div>
                         </div>
                     </section>
