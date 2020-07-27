@@ -36,7 +36,7 @@ export default {
     },
     pizzas: [
         {
-            id: 100000000000001,
+            id: 100000001,
             toppings: {
                 tomatoes: true,
                 tomatoSauce: true,
@@ -46,7 +46,7 @@ export default {
             price: 320,
         },
         {
-            id: 100000000000002,
+            id: 100000002,
             toppings: {
                 pepperoni: true,
                 tomatoSauce: true,
@@ -55,7 +55,7 @@ export default {
             price: 360,
         },
         {
-            id: 100000000000003,
+            id: 100000003,
             toppings: {
                 onion: true,
                 greens: true,
@@ -67,7 +67,7 @@ export default {
             price: 400,
         },
         {
-            id: 100000000000004,
+            id: 100000004,
             toppings: {
                 meat: true,
                 sausages: true,
@@ -80,7 +80,7 @@ export default {
             price: 440,
         },
         {
-            id: 100000000000005,
+            id: 100000005,
             toppings: {
                 mushrooms: true,
                 tomatoes: true,
@@ -91,7 +91,7 @@ export default {
             price: 400,
         },
         {
-            id: 100000000000006,
+            id: 100000006,
             toppings: {
                 mushrooms: true,
                 tomatoes: true,

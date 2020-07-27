@@ -39,16 +39,13 @@ class BuilderPage extends React.Component {
     }
 
     addToCart() {
-        let pizzaId = 0;
-        Object.keys(this.state.toppings).forEach((value, index) => {
-            if (this.state.toppings[value]) {
-                pizzaId += 2 ** index;
-            }
-        });
-        pizzaId += 2 * 10 ** (Object.keys(this.state.toppings).length + 2);
+        let toppingsNumber = ToppingConfiguration.getNumber(
+            this.state.toppings
+        );
+        let pizzaId = 2 * 10 ** 8 + toppingsNumber;
         let pizza = {
             id: pizzaId,
-            toppings: ToppingConfiguration.getNumber(this.state.toppings),
+            toppings: toppingsNumber,
             price: this.getPizzaTotalPrice(),
             name: "Ваша пицца",
         };
