@@ -41,7 +41,7 @@ class PizzasPage extends React.Component {
                                                                 {},
                                                                 pizza,
                                                                 {
-                                                                    toppings: Toppings.getNumber(
+                                                                    toppings: Toppings.configToNumber(
                                                                         pizza.toppings
                                                                     ),
                                                                 }

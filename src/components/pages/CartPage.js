@@ -18,7 +18,7 @@ class CartPage extends React.Component {
             <tr key={`cart-item-${item[1].id}`}>
                 <td className="cart-pizza-td">
                     <Pizza
-                        toppings={Toppings.getObject(item[1].toppings)}
+                        toppings={Toppings.numberToConfig(item[1].toppings)}
                         responsive={true}
                     />
                 </td>

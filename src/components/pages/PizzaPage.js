@@ -49,7 +49,7 @@ class PizzaPage extends React.Component {
                                                         {},
                                                         this.props.pizza,
                                                         {
-                                                            toppings: Toppings.getNumber(
+                                                            toppings: Toppings.configToNumber(
                                                                 this.props.pizza
                                                                     .toppings
                                                             ),

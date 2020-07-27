@@ -40,7 +40,7 @@ class BuilderPage extends React.Component {
     }
 
     addToCart() {
-        let toppingsNumber = Toppings.getNumber(
+        let toppingsNumber = Toppings.configToNumber(
             this.state.toppings
         );
         let pizzaId = 2 * 10 ** 8 + toppingsNumber;
