@@ -45,6 +45,10 @@ class Toppings {
         return ToppingComponents;
     }
 
+    static names() {
+        return ToppingNames;
+    }
+
     static humanNames() {
         return Data.toppings;
     }

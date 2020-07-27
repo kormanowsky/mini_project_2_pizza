@@ -80,7 +80,7 @@ class BuilderPage extends React.Component {
                                     <h4>{data.basePrice} &#x20bd;</h4>
                                     <h2>Начинки</h2>
                                     <div id="builder-toppings">
-                                        {Object.keys(this.state.toppings).map(
+                                        {Toppings.names().map(
                                             (topping) => (
                                                 <div
                                                     className="builder-topping"
@@ -105,10 +105,10 @@ class BuilderPage extends React.Component {
                                                             })
                                                         }
                                                     />
-                                                    {data.toppings[topping]}{" "}
+                                                    {Toppings.humanNames()[topping]}{" "}
                                                     <b>
                                                         {
-                                                            data.toppingPrices[
+                                                            Toppings.prices()[
                                                                 topping
                                                             ]
                                                         }{" "}
