@@ -6,24 +6,26 @@ class DeliveryPage extends React.Component {
         super(props);
         let orderId = parseInt(this.props.urlParams.orderId),
             order = null;
-        if (window.localStorage.getItem(`order_${orderId}_items_count`)) {
+        if (
+            this.getOrderInfo(orderId, "items_count") &&
+            !this.getOrderInfo(orderId, "destination")
+        ) {
             order = {
                 id: orderId,
-                items: JSON.parse(
-                    window.localStorage.getItem(`order_${orderId}_items`)
-                ),
-                count: parseInt(
-                    window.localStorage.getItem(`order_${orderId}_items_count`)
-                ),
-                total: parseInt(
-                    window.localStorage.getItem(`order_${orderId}_total`)
-                ),
+                items: JSON.parse(this.getOrderInfo(orderId, "items")),
+                count: parseInt(this.getOrderInfo(orderId, "items_count")),
+                total: parseInt(this.getOrderInfo(orderId, "total")),
             };
         }
         this.state = {
             order,
         };
     }
+
+    getOrderInfo(id, key) {
+        return window.localStorage.getItem(`order_${id}_${key}`);
+    }
+
     render() {
         if (!this.state.order) {
             return "404";
@@ -41,6 +43,9 @@ class DeliveryPage extends React.Component {
                                 Выберите, куда его доставить:
                             </h3>
                             <div className="row">Тут карта</div>
+                            <pre>
+                                {JSON.stringify(this.state.order, null, 4)}
+                            </pre>
                             <div>
                                 <button className="button">
                                     Перейти к оплате
