@@ -12,6 +12,9 @@ import BaconTopping from "./BaconTopping";
 import BBQSauce from "./BBQSauce";
 import TomatoSauce from "./TomatoSauce";
 import Data from "../../data";
+import BitList from "js-bit-list";
+import { capitalize } from "../../utils";
+
 const Toppings = {
     tomatoes: TomatoesTopping,
     mushrooms: MushroomsTopping,
@@ -27,12 +30,27 @@ const Toppings = {
     tomatoSauce: TomatoSauce,
 };
 
+const ToppingNames = Object.keys(Toppings);
+
+class ToppingBitList extends BitList {
+    setObject(object) {
+        return super.setObject(object, ToppingNames);
+    }
+
+    toObject() {
+        return super.toObject(ToppingNames);
+    }
+}
+
+export default ToppingBitList;
+
 class ToppingConfiguration {
     constructor(configuration) {
-        const initialConfiguration = configuration || this.emptyConfiguration();
+        const initialConfiguration =
+            configuration || this.constructor.getEmpty();
         Object.assign(this, initialConfiguration);
         for (let key in Toppings) {
-            let capitalizedKey = key[0].toUpperCase() + key.slice(1);
+            let capitalizedKey = capitalize(key);
             this.constructor.prototype[`add${capitalizedKey}`] = () => {
                 this[key] = true;
                 return this;
@@ -44,7 +62,7 @@ class ToppingConfiguration {
         }
     }
 
-    emptyConfiguration() {
+    static getEmpty() {
         let configuration = {};
         for (let key in Toppings) {
             configuration[key] = false;
@@ -70,6 +88,14 @@ class ToppingConfiguration {
             .filter((topping) => configuration[topping])
             .map(toppingToDescription)
             .join(", ");
+    }
+
+    static getNumber(config) {
+        return new ToppingBitList(config).toNumber();
+    }
+
+    static getObject(number) {
+        return new ToppingBitList(number).getObject();
     }
 }
 
