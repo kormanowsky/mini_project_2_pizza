@@ -35,7 +35,7 @@ class HomePage extends React.Component {
                                     Случайная пицца
                                     <br />
                                     <Link
-                                        to={`/builder?toppings=${Toppings.configToNumber(
+                                        to={`/builder/${Toppings.configToNumber(
                                             randomToppings
                                         )}`}
                                     >
@@ -53,7 +53,10 @@ class HomePage extends React.Component {
                         </div>
                         <div className="row" id="home-new-pizzas">
                             {Data.pizzas.map((pizza) => (
-                                <div className="col-xs-2 home-new-pizza">
+                                <div
+                                    className="col-xs-2 home-new-pizza"
+                                    key={`pizza-${pizza.id}`}
+                                >
                                     <div className="new-pizza-inner">
                                         <Pizza
                                             toppings={pizza.toppings}
@@ -150,7 +153,7 @@ class HomePage extends React.Component {
                                     src="https://yandex.ru/map-widget/v1/?um=constructor%3A7dbe79e036dda60a8ac6773dd57712468c0e0c27fd4cf55ffc34a2ed1580b56d&amp;source=constructor"
                                     width="100%"
                                     height="400"
-                                    frameborder="0"
+                                    frameBorder="0"
                                     id="home-contacts-map-iframe"
                                 ></iframe>
                             </div>

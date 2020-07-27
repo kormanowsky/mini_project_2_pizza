@@ -5,9 +5,22 @@ import { Link } from "react-router-dom";
 import Cart from "../../Cart";
 import { capitalize } from "../../utils";
 import Toppings from "../../Toppings";
+import data from "../../data";
 
 class PizzaPage extends React.Component {
+    constructor(props) {
+        super(props);
+        let pizza = data.pizzas.find(
+            (pizza) => pizza.id === parseInt(this.props.urlParams.id)
+        );
+        this.state = {
+            pizza,
+        };
+    }
     render() {
+        if (!this.state.pizza) {
+            return "404";
+        }
         return (
             <div className="app app-pizza">
                 <Header />
@@ -18,14 +31,14 @@ class PizzaPage extends React.Component {
                                 <div className="col-xs-4">
                                     <Pizza
                                         responsive={true}
-                                        toppings={this.props.pizza.toppings}
+                                        toppings={this.state.pizza.toppings}
                                     />
                                 </div>
                                 <div className="col-xs-6">
                                     <div id="pizza-info">
                                         <Link to="/pizzas">&laquo; Пиццы</Link>
                                         <h1 className="page-title">
-                                            {this.props.pizza.name}
+                                            {this.state.pizza.name}
                                         </h1>
                                         <h3 id="pizza-ingredients-label">
                                             Состав
@@ -33,12 +46,12 @@ class PizzaPage extends React.Component {
                                         <p id="pizza-ingredients">
                                             {capitalize(
                                                 Toppings.description(
-                                                    this.props.pizza.toppings
+                                                    this.state.pizza.toppings
                                                 )
                                             )}
                                         </p>
                                         <h2>
-                                            {this.props.pizza.price}
+                                            {this.state.pizza.price}
                                             &nbsp;&#x20bd;
                                         </h2>
                                         <button
@@ -47,10 +60,10 @@ class PizzaPage extends React.Component {
                                                 Cart.add(
                                                     Object.assign(
                                                         {},
-                                                        this.props.pizza,
+                                                        this.state.pizza,
                                                         {
                                                             toppings: Toppings.configToNumber(
-                                                                this.props.pizza
+                                                                this.state.pizza
                                                                     .toppings
                                                             ),
                                                         }

@@ -10,14 +10,14 @@ import Toppings from "../../Toppings";
 class BuilderPage extends React.Component {
     constructor(props) {
         super(props);
-        let parsedQueryString = QueryString.parse(props.location.search), toppings;
-        if("toppings" in parsedQueryString){
-            toppings = Toppings.numberToConfig(parseInt(parsedQueryString.toppings));
-        }else{
-            toppings = Toppings.empty();
+        let toppings = Toppings.empty();
+        if (this.props.urlParams && "toppings" in this.props.urlParams) {
+            toppings = Toppings.numberToConfig(
+                parseInt(this.props.urlParams.toppings)
+            );
         }
         this.state = {
-            toppings
+            toppings,
         };
 
         this.getPizzaTotalPrice = this.getPizzaTotalPrice.bind(this);
@@ -40,9 +40,7 @@ class BuilderPage extends React.Component {
     }
 
     addToCart() {
-        let toppingsNumber = Toppings.configToNumber(
-            this.state.toppings
-        );
+        let toppingsNumber = Toppings.configToNumber(this.state.toppings);
         let pizzaId = 2 * 10 ** 8 + toppingsNumber;
         let pizza = {
             id: pizzaId,
@@ -80,43 +78,37 @@ class BuilderPage extends React.Component {
                                     <h4>{data.basePrice} &#x20bd;</h4>
                                     <h2>Начинки</h2>
                                     <div id="builder-toppings">
-                                        {Toppings.names().map(
-                                            (topping) => (
-                                                <div
-                                                    className="builder-topping"
-                                                    key={topping}
-                                                >
-                                                    <CheckBox
-                                                        checked={
-                                                            this.state.toppings[
-                                                                topping
-                                                            ]
-                                                        }
-                                                        onChange={(event) =>
-                                                            this.setState({
-                                                                toppings: Object.assign(
-                                                                    this.state
-                                                                        .toppings,
-                                                                    {
-                                                                        [topping]:
-                                                                            event.checked,
-                                                                    }
-                                                                ),
-                                                            })
-                                                        }
-                                                    />
-                                                    {Toppings.humanNames()[topping]}{" "}
-                                                    <b>
-                                                        {
-                                                            Toppings.prices()[
-                                                                topping
-                                                            ]
-                                                        }{" "}
-                                                        &#x20bd;
-                                                    </b>
-                                                </div>
-                                            )
-                                        )}
+                                        {Toppings.names().map((topping) => (
+                                            <div
+                                                className="builder-topping"
+                                                key={topping}
+                                            >
+                                                <CheckBox
+                                                    checked={
+                                                        this.state.toppings[
+                                                            topping
+                                                        ]
+                                                    }
+                                                    onChange={(event) =>
+                                                        this.setState({
+                                                            toppings: Object.assign(
+                                                                this.state
+                                                                    .toppings,
+                                                                {
+                                                                    [topping]:
+                                                                        event.checked,
+                                                                }
+                                                            ),
+                                                        })
+                                                    }
+                                                />
+                                                {Toppings.humanNames()[topping]}{" "}
+                                                <b>
+                                                    {Toppings.prices()[topping]}{" "}
+                                                    &#x20bd;
+                                                </b>
+                                            </div>
+                                        ))}
                                     </div>
                                     <h2>Итоговая цена</h2>
                                     <h2 id="builder-total">
