@@ -23,6 +23,7 @@ class BaconTopping extends React.Component {
     itemRenderer(iIndex, jIndex) {
         return (
             <path
+                key={`bacon-${iIndex}-${jIndex}`}
                 fill="transparent"
                 stroke="#ff5d94"
                 strokeWidth={this.state.strokeWidth}

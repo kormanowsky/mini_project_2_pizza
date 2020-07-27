@@ -143,7 +143,7 @@ class CartPage extends React.Component {
                         ""
                     ) : (
                         <section id="section-cart-empty">
-                            <p class="container align-center">
+                            <p className="container align-center">
                                 В корзине пока ничего нет.{" "}
                                 <Link to="/pizzas">
                                     Выберите пиццу из каталога
