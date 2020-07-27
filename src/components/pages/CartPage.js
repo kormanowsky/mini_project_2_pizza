@@ -16,14 +16,19 @@ class CartPage extends React.Component {
         return (
             <tr key={`cart-item-${item[1].id}`}>
                 <td className="cart-pizza-td">
-                    <Pizza toppings={item[1].toppings} responsive={true} />
+                    <Pizza
+                        toppings={ToppingConfiguration.getObject(
+                            item[1].toppings
+                        )}
+                        responsive={true}
+                    />
                 </td>
                 <td className="cart-desc-td">
                     <h4 className="font-pd">{item[1].name}</h4>
                     <p className="pizza-ingredients color-gray">
                         {capitalize(
                             ToppingConfiguration.getDescription(
-                                item[1].toppings
+                                ToppingConfiguration.getObject(item[1].toppings)
                             )
                         )}
                     </p>
@@ -95,7 +100,12 @@ class CartPage extends React.Component {
                                 {Cart.items.length ? (
                                     <div className="col-xs-12 col-lg-3">
                                         <div className="border">
-                                            <h2 className="font-pd" id="cart-total-label">Итого</h2>
+                                            <h2
+                                                className="font-pd"
+                                                id="cart-total-label"
+                                            >
+                                                Итого
+                                            </h2>
                                             <h2>{Cart.total} &#x20bd;</h2>
                                             <button
                                                 className="button"

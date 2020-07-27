@@ -48,7 +48,7 @@ class BuilderPage extends React.Component {
         pizzaId += 2 * 10 ** (Object.keys(this.state.toppings).length + 2);
         let pizza = {
             id: pizzaId,
-            toppings: this.state.toppings,
+            toppings: ToppingConfiguration.getNumber(this.state.toppings),
             price: this.getPizzaTotalPrice(),
             name: "Ваша пицца",
         };

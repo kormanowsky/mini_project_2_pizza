@@ -23,8 +23,12 @@ class PizzaPage extends React.Component {
                                 <div className="col-xs-6">
                                     <div id="pizza-info">
                                         <Link to="/pizzas">&laquo; Пиццы</Link>
-                                        <h1 className="page-title">{this.props.pizza.name}</h1>
-                                        <h3 id="pizza-ingredients-label">Состав</h3>
+                                        <h1 className="page-title">
+                                            {this.props.pizza.name}
+                                        </h1>
+                                        <h3 id="pizza-ingredients-label">
+                                            Состав
+                                        </h3>
                                         <p id="pizza-ingredients">
                                             {capitalize(
                                                 ToppingConfiguration.getDescription(
@@ -40,7 +44,16 @@ class PizzaPage extends React.Component {
                                             className="add-to-card button"
                                             onClick={() =>
                                                 Cart.add(
-                                                    this.props.pizza
+                                                    Object.assign(
+                                                        {},
+                                                        this.props.pizza,
+                                                        {
+                                                            toppings: ToppingConfiguration.getNumber(
+                                                                this.props.pizza
+                                                                    .toppings
+                                                            ),
+                                                        }
+                                                    )
                                                 ).then(() => this.forceUpdate())
                                             }
                                         >

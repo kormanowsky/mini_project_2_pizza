@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../blocks/Header";
 import Data from "../../data";
-import { Pizza } from "../pizza/Pizza";
+import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import { Link } from "react-router-dom";
 import Cart from "../../Cart";
 
@@ -35,7 +35,17 @@ class PizzasPage extends React.Component {
                                                 </Link>
                                                 <button
                                                     onClick={() => {
-                                                        Cart.add(pizza);
+                                                        Cart.add(
+                                                            Object.assign(
+                                                                {},
+                                                                pizza,
+                                                                {
+                                                                    toppings: ToppingConfiguration.getNumber(
+                                                                        pizza.toppings
+                                                                    ),
+                                                                }
+                                                            )
+                                                        );
                                                         this.forceUpdate();
                                                     }}
                                                     className="button d-flex align-items-center small"
