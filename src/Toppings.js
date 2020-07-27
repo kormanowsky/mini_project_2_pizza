@@ -31,6 +31,16 @@ const ToppingComponents = {
 const ToppingNames = Object.keys(ToppingComponents);
 
 class ToppingBitList extends BitList {
+
+    constructor(initialValue){
+        if(!(initialValue instanceof Object)){
+            super(initialValue);
+        }else{
+            super();
+            this.setObject(initialValue);
+        }
+    }
+
     setObject(object) {
         return super.setObject(object, ToppingNames);
     }
