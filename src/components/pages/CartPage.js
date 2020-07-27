@@ -107,22 +107,13 @@ class CartPage extends React.Component {
                                             <button
                                                 className="button"
                                                 onClick={() => {
-                                                    alert(
-                                                        `Заказ № ${parseInt(
-                                                            Math.random() *
-                                                                899 +
-                                                                100
-                                                        )} ${parseInt(
-                                                            Math.random() *
-                                                                899 +
-                                                                100
-                                                        )} ${parseInt(
-                                                            Math.random() *
-                                                                899 +
-                                                                100
-                                                        )} успешно оформлен!`
+                                                    Cart.checkout().then(
+                                                        (orderId) => {
+                                                            this.props.history.push(
+                                                                `/delivery/${orderId}`
+                                                            );
+                                                        }
                                                     );
-                                                    Cart.clear();
                                                     this.forceUpdate();
                                                 }}
                                             >

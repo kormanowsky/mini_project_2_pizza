@@ -4,7 +4,6 @@ import Pizza from "../pizza/Pizza";
 import Cart from "../../Cart";
 import data from "../../data";
 import CheckBox from "../blocks/Checkbox";
-import QueryString from "query-string";
 import Toppings from "../../Toppings";
 
 class BuilderPage extends React.Component {

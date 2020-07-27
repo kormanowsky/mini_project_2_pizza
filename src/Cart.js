@@ -102,6 +102,21 @@ class Cart {
             resolve();
         });
     }
+
+    static checkout() {
+        return new Promise((resolve, reject) => {
+            const orderId = parseInt(Math.random() * 899999999) + 100000000;
+            window.localStorage.setItem(`order_${orderId}_items`, this.items);
+            window.localStorage.setItem(
+                `order_${orderId}_items_count`,
+                this.count
+            );
+            window.localStorage.setItem(`order_${orderId}_total`, this.total);
+            this.clear().then(() => {
+                resolve(orderId);
+            });
+        });
+    }
 }
 
 export default Cart;

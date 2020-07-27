@@ -4,6 +4,7 @@ import {
     Route,
     Switch,
     useParams,
+    useHistory,
 } from "react-router-dom";
 import HomePage from "./components/pages/HomePage";
 import PizzaPage from "./components/pages/PizzaPage";
@@ -20,13 +21,26 @@ function WithURLParams(props) {
     return <Component {...componentProps} />;
 }
 
+function WithHistory(props) {
+    let history = useHistory(),
+        Component = props.component,
+        componentProps = Object.assign({}, props);
+    delete componentProps.component;
+    componentProps["history"] = history;
+    return <Component {...componentProps} />;
+}
+
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <Switch>
                     <Route path="/" exact component={HomePage} />
-                    <Route path="/cart" component={CartPage} />
+                    <Route
+                        path="/cart"
+                        exact
+                        children={<WithHistory component={CartPage} />}
+                    />
                     <Route path="/pizzas" exact component={PizzasPage} />
                     <Route path="/builder" exact component={BuilderPage} />
                     <Route
@@ -38,7 +52,7 @@ class App extends React.Component {
                         exact
                         path={`/pizza/:id`}
                         children={<WithURLParams component={PizzaPage} />}
-                    ></Route>
+                    />
                 </Switch>
             </Router>
         );
