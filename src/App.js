@@ -11,18 +11,10 @@ class App extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route path="/" exact>
-                        <HomePage />
-                    </Route>
-                    <Route path="/cart">
-                        <CartPage />
-                    </Route>
-                    <Route path="/pizzas" exact>
-                        <PizzasPage />
-                    </Route>
-                    <Route path="/builder">
-                        <BuilderPage />
-                    </Route>
+                    <Route path="/" exact component={HomePage} />
+                    <Route path="/cart" component={CartPage} />
+                    <Route path="/pizzas" exact component={PizzasPage} />
+                    <Route path="/builder" component={BuilderPage} />
                     {Data.pizzas.map((pizza) => (
                         <Route
                             path={`/pizza/${pizza.id}`}

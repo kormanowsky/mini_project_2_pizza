@@ -95,7 +95,7 @@ class ToppingConfiguration {
     }
 
     static getObject(number) {
-        return new ToppingBitList(number).getObject();
+        return new ToppingBitList(number).toObject();
     }
 }
 

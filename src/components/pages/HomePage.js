@@ -7,6 +7,7 @@ import Footer from "../blocks/Footer";
 
 class HomePage extends React.Component {
     render() {
+        const randomToppings = ToppingConfiguration.getRandom();
         return (
             <div className="app app-home">
                 <Header />
@@ -26,11 +27,19 @@ class HomePage extends React.Component {
                             </div>
                             <div className="col-xs-3" id="home-top-pizza">
                                 <Pizza
-                                    toppings={ToppingConfiguration.getRandom()}
+                                    toppings={randomToppings}
                                     responsive={true}
                                 />
                                 <p id="home-top-pizza-caption">
                                     Случайная пицца
+                                    <br />
+                                    <Link
+                                        to={`/builder?config=${ToppingConfiguration.getNumber(
+                                            randomToppings
+                                        )}`}
+                                    >
+                                        Хочу такую!
+                                    </Link>
                                 </p>
                             </div>
                         </div>

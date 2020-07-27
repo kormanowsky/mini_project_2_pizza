@@ -4,12 +4,19 @@ import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
 import Cart from "../../Cart";
 import data from "../../data";
 import CheckBox from "../blocks/Checkbox";
+import QueryString from "query-string";
 
 class BuilderPage extends React.Component {
     constructor(props) {
         super(props);
+        let parsedQueryString = QueryString.parse(props.location.search);
         this.state = {
-            toppings: new ToppingConfiguration().emptyConfiguration(),
+            toppings:
+                "config" in parsedQueryString
+                    ? ToppingConfiguration.getObject(
+                          parseInt(parsedQueryString.config)
+                      )
+                    : ToppingConfiguration.getEmpty(),
         };
 
         this.getPizzaTotalPrice = this.getPizzaTotalPrice.bind(this);
