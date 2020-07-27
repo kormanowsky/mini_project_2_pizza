@@ -106,7 +106,10 @@ class Cart {
     static checkout() {
         return new Promise((resolve, reject) => {
             const orderId = parseInt(Math.random() * 899999999) + 100000000;
-            window.localStorage.setItem(`order_${orderId}_items`, this.items);
+            window.localStorage.setItem(
+                `order_${orderId}_items`,
+                JSON.stringify(this.items)
+            );
             window.localStorage.setItem(
                 `order_${orderId}_items_count`,
                 this.count
