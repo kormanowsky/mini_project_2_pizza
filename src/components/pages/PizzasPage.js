@@ -1,9 +1,10 @@
 import React from "react";
 import Header from "../blocks/Header";
 import Data from "../../data";
-import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
+import Pizza from "../pizza/Pizza";
 import { Link } from "react-router-dom";
 import Cart from "../../Cart";
+import Toppings from "../../Toppings";
 
 class PizzasPage extends React.Component {
     render() {
@@ -40,7 +41,7 @@ class PizzasPage extends React.Component {
                                                                 {},
                                                                 pizza,
                                                                 {
-                                                                    toppings: ToppingConfiguration.getNumber(
+                                                                    toppings: Toppings.getNumber(
                                                                         pizza.toppings
                                                                     ),
                                                                 }

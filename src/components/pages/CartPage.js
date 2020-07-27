@@ -1,9 +1,10 @@
 import React from "react";
 import Header from "../blocks/Header";
 import Cart from "../../Cart";
-import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
+import Pizza from "../pizza/Pizza";
 import { capitalize } from "../../utils";
 import { Link } from "react-router-dom";
+import Toppings from "../../Toppings";
 
 class CartPage extends React.Component {
     constructor(props) {
@@ -17,9 +18,7 @@ class CartPage extends React.Component {
             <tr key={`cart-item-${item[1].id}`}>
                 <td className="cart-pizza-td">
                     <Pizza
-                        toppings={ToppingConfiguration.getObject(
-                            item[1].toppings
-                        )}
+                        toppings={Toppings.getObject(item[1].toppings)}
                         responsive={true}
                     />
                 </td>
@@ -27,9 +26,7 @@ class CartPage extends React.Component {
                     <h4 className="font-pd">{item[1].name}</h4>
                     <p className="pizza-ingredients color-gray">
                         {capitalize(
-                            ToppingConfiguration.getDescription(
-                                ToppingConfiguration.getObject(item[1].toppings)
-                            )
+                            Toppings.numberDescription(item[1].toppings)
                         )}
                     </p>
                 </td>

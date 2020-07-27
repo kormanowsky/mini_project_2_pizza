@@ -1,9 +1,10 @@
 import React from "react";
 import Header from "../blocks/Header";
-import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
+import Pizza from "../pizza/Pizza";
 import { Link } from "react-router-dom";
 import Cart from "../../Cart";
 import { capitalize } from "../../utils";
+import Toppings from "../../Toppings";
 
 class PizzaPage extends React.Component {
     render() {
@@ -31,7 +32,7 @@ class PizzaPage extends React.Component {
                                         </h3>
                                         <p id="pizza-ingredients">
                                             {capitalize(
-                                                ToppingConfiguration.getDescription(
+                                                Toppings.description(
                                                     this.props.pizza.toppings
                                                 )
                                             )}
@@ -48,7 +49,7 @@ class PizzaPage extends React.Component {
                                                         {},
                                                         this.props.pizza,
                                                         {
-                                                            toppings: ToppingConfiguration.getNumber(
+                                                            toppings: Toppings.getNumber(
                                                                 this.props.pizza
                                                                     .toppings
                                                             ),

@@ -1,22 +1,23 @@
 import React from "react";
 import Header from "../blocks/Header";
-import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
+import Pizza from "../pizza/Pizza";
 import Cart from "../../Cart";
 import data from "../../data";
 import CheckBox from "../blocks/Checkbox";
 import QueryString from "query-string";
+import Toppings from "../../Toppings";
 
 class BuilderPage extends React.Component {
     constructor(props) {
         super(props);
-        let parsedQueryString = QueryString.parse(props.location.search);
+        let parsedQueryString = QueryString.parse(props.location.search), toppings;
+        if("toppings" in parsedQueryString){
+            toppings = Toppings.numberToConfig(parseInt(parsedQueryString.toppings));
+        }else{
+            toppings = Toppings.empty();
+        }
         this.state = {
-            toppings:
-                "config" in parsedQueryString
-                    ? ToppingConfiguration.getObject(
-                          parseInt(parsedQueryString.config)
-                      )
-                    : ToppingConfiguration.getEmpty(),
+            toppings
         };
 
         this.getPizzaTotalPrice = this.getPizzaTotalPrice.bind(this);
@@ -39,7 +40,7 @@ class BuilderPage extends React.Component {
     }
 
     addToCart() {
-        let toppingsNumber = ToppingConfiguration.getNumber(
+        let toppingsNumber = Toppings.getNumber(
             this.state.toppings
         );
         let pizzaId = 2 * 10 ** 8 + toppingsNumber;

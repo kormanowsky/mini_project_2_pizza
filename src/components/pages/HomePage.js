@@ -1,13 +1,14 @@
 import React from "react";
-import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
+import Pizza from "../pizza/Pizza";
 import Data from "../../data";
 import { Link } from "react-router-dom";
 import Header from "../blocks/Header";
 import Footer from "../blocks/Footer";
+import Toppings from "../../Toppings";
 
 class HomePage extends React.Component {
     render() {
-        const randomToppings = ToppingConfiguration.getRandom();
+        const randomToppings = Toppings.random();
         return (
             <div className="app app-home">
                 <Header />
@@ -34,7 +35,7 @@ class HomePage extends React.Component {
                                     Случайная пицца
                                     <br />
                                     <Link
-                                        to={`/builder?config=${ToppingConfiguration.getNumber(
+                                        to={`/builder?config=${Toppings.getNumber(
                                             randomToppings
                                         )}`}
                                     >
