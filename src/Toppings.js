@@ -59,7 +59,7 @@ class Toppings {
 
     static empty() {
         let configuration = {};
-        for (let key in this.names()) {
+        for (let key of this.names()) {
             configuration[key] = false;
         }
         return configuration;
@@ -67,7 +67,7 @@ class Toppings {
 
     static random() {
         let configuration = {};
-        for (let key in this.names()) {
+        for (let key of this.names()) {
             configuration[key] = Math.random() > 0.5;
         }
         return configuration;
