@@ -122,25 +122,25 @@ class CartPage extends React.Component {
                                         </div>
                                     </div>
                                 ) : (
-                                    ""
-                                )}
+                                        ""
+                                    )}
                             </div>
                         </div>
                     </section>
                     {Cart.items.length ? (
                         ""
                     ) : (
-                        <section id="section-cart-empty">
-                            <p className="container align-center">
-                                В корзине пока ничего нет.{" "}
-                                <Link to="/pizzas">
-                                    Выберите пиццу из каталога
+                            <section id="section-cart-empty">
+                                <p className="container align-center">
+                                    В корзине пока ничего нет.{" "}
+                                    <Link to="/pizzas">
+                                        Выберите пиццу из каталога
                                 </Link>{" "}
                                 или <Link to="/builder">соберите свою</Link>, а
                                 потом добавьте в корзину!
                             </p>
-                        </section>
-                    )}
+                            </section>
+                        )}
                 </main>
             </div>
         );
