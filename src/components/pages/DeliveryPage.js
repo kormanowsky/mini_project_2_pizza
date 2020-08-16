@@ -47,19 +47,23 @@ class DeliveryPage extends React.Component {
                   <Map
                     defaultState={{
                       center: data.projectInfo.geolocation,
-                      zoom: 15,
-                      behaviors: ["drag"],
+                      zoom: 12,
                     }}
                     className="col-xs-12"
                     id="delivery-map"
+                    onClick={() => console.error("This point is not supported")}
                   >
                     <Circle
                       geometry={[data.projectInfo.geolocation, 10000]}
                       options={{
-                        draggable: true,
+                        draggable: false,
                         fillColor: data.projectInfo.colors.primary,
                         fillOpacity: 0.4,
+                        strokeWidth: 0,
                       }}
+                      onClick={(event) =>
+                        console.log("Delivery to", event.get("coords"))
+                      }
                     />
                   </Map>
                 </YMaps>
