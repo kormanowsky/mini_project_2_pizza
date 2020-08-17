@@ -98,9 +98,9 @@ class CartPage extends React.Component {
                       <button
                         className="button"
                         onClick={() => {
-                          Cart.checkout().then((orderId) => {
+                          Cart.checkout().then((order) => {
                             this.props.history.push(
-                              `/order/${orderId}/delivery`
+                              `/order/${order.id}/delivery`
                             );
                           });
                           this.forceUpdate();

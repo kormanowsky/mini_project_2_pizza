@@ -8,7 +8,9 @@ class Order {
   }
 
   get exists() {
-    return window.localStorage.getItem(`order_${id}_items_count`) !== null;
+    return (
+      window.localStorage.getItem(`order_${this._id}_items_count`) !== null
+    );
   }
 
   get id() {

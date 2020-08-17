@@ -4,21 +4,13 @@ import data from "../../data";
 import { YMaps, Map, Circle, Placemark } from "react-yandex-maps";
 import Modal from "../blocks/Modal";
 import { Redirect } from "react-router-dom";
+import Order from "../../Order";
 
 class OrderDeliveryPage extends React.Component {
   constructor(props) {
     super(props);
     let orderId = parseInt(this.props.urlParams.orderId),
-      order = null;
-    if (this.getOrderInfo(orderId, "items_count")) {
-      order = {
-        id: orderId,
-        items: JSON.parse(this.getOrderInfo(orderId, "items")),
-        count: parseInt(this.getOrderInfo(orderId, "items_count")),
-        total: parseInt(this.getOrderInfo(orderId, "total")),
-        destination: JSON.parse(this.getOrderInfo(orderId, "destination")),
-      };
-    }
+      order = new Order(orderId);
     this.state = {
       order,
       modals: { deliveryUnsupported: false },
@@ -28,20 +20,12 @@ class OrderDeliveryPage extends React.Component {
     this.setOrderDestination = this.setOrderDestination.bind(this);
   }
 
-  getOrderInfo(id, key) {
-    return window.localStorage.getItem(`order_${id}_${key}`);
-  }
-
   setOrderDestination(destination) {
-    window.localStorage.setItem(
-      `order_${this.state.order.id}_destination`,
-      JSON.stringify(destination)
-    );
     this.setState({ order: Object.assign(this.state.order, { destination }) });
   }
 
   render() {
-    if (!this.state.order) {
+    if (!this.state.order.exists) {
       return <Redirect to="/" />;
     } else if (this.state.order.destination) {
       if (this.state.doRedirect) {
