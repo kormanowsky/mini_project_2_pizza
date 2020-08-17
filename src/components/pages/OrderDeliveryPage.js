@@ -3,7 +3,7 @@ import Header from "../blocks/Header";
 import data from "../../data";
 import { YMaps, Map, Circle, Placemark } from "react-yandex-maps";
 import Modal from "../blocks/Modal";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Order from "../../Order";
 
 class OrderDeliveryPage extends React.Component {
@@ -85,12 +85,13 @@ class OrderDeliveryPage extends React.Component {
                 </YMaps>
               </div>
               <div>
-                <button
+                <Link
+                  to={`/order/${this.state.order.id}/pay`}
                   className="button"
                   disabled={!this.state.order.destination}
                 >
                   Перейти к оплате
-                </button>
+                </Link>
               </div>
             </div>
           </section>
