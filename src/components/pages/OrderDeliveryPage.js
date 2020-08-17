@@ -21,7 +21,10 @@ class OrderDeliveryPage extends React.Component {
   }
 
   setOrderDestination(destination) {
-    this.setState({ order: Object.assign(this.state.order, { destination }) });
+    this.setState({
+      doRedirect: false,
+      order: Object.assign(this.state.order, { destination }),
+    });
   }
 
   render() {
@@ -31,9 +34,6 @@ class OrderDeliveryPage extends React.Component {
       if (this.state.doRedirect) {
         return <Redirect to={`/order/${this.state.order.id}`} />;
       }
-    }
-    if (this.state.doRedirect) {
-      this.setState({ doRedirect: false });
     }
     return (
       <div className="app app-pizza">

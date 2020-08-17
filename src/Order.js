@@ -4,7 +4,14 @@ class Order {
   }
 
   constructor(id) {
-    this._id = id || this.constructor.generateId();
+    if (!id) {
+      id = this.constructor.generateId();
+      window.localStorage.setItem(
+        `order_${id}_datetime_created`,
+        new Date().getTime()
+      );
+    }
+    this._id = id;
   }
 
   get exists() {
@@ -14,22 +21,28 @@ class Order {
   }
 
   get id() {
+    return this._id;
+  }
+
+  get datetimeCreated() {
     if (!this.exists) {
       return null;
     }
-    return this._id;
+    return new Date(
+      parseInt(window.localStorage.getItem(`order_${this.id}_datetime_created`))
+    );
   }
 
   get items() {
     if (!this.exists) {
       return null;
     }
-    return JSON.parse(window.localStorage.getItem(`order_${this._id}_items`));
+    return JSON.parse(window.localStorage.getItem(`order_${this.id}_items`));
   }
 
   set items(items) {
     window.localStorage.setItem(
-      `order_${this._id}_items`,
+      `order_${this.id}_items`,
       JSON.stringify(items)
     );
   }
@@ -39,23 +52,23 @@ class Order {
       return null;
     }
     return parseInt(
-      window.localStorage.getItem(`order_${this._id}_items_count`)
+      window.localStorage.getItem(`order_${this.id}_items_count`)
     );
   }
 
   set itemsCount(itemsCount) {
-    window.localStorage.setItem(`order_${this._id}_items_count`, itemsCount);
+    window.localStorage.setItem(`order_${this.id}_items_count`, itemsCount);
   }
 
   get total() {
     if (!this.exists) {
       return null;
     }
-    return parseFloat(window.localStorage.getItem(`order_${this._id}_total`));
+    return parseFloat(window.localStorage.getItem(`order_${this.id}_total`));
   }
 
   set total(total) {
-    window.localStorage.setItem(`order_${this._id}_total`, total);
+    window.localStorage.setItem(`order_${this.id}_total`, total);
   }
 
   get destination() {
@@ -63,13 +76,13 @@ class Order {
       return null;
     }
     return JSON.parse(
-      window.localStorage.getItem(`order_${this._id}_destination`)
+      window.localStorage.getItem(`order_${this.id}_destination`)
     );
   }
 
   set destination(destination) {
     window.localStorage.setItem(
-      `order_${this._id}_destination`,
+      `order_${this.id}_destination`,
       JSON.stringify(destination)
     );
   }
