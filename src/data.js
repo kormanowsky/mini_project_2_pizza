@@ -6,6 +6,7 @@ export default {
     geolocation: [55.831132, 37.294537],
     colors: {
       primary: "#ffd700",
+      primaryDark: "#ffbc0a",
     },
   },
   toppings: {

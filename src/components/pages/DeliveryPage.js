@@ -1,39 +1,55 @@
 import React from "react";
 import Header from "../blocks/Header";
 import data from "../../data";
-import { YMaps, Map, Circle } from "react-yandex-maps";
+import { YMaps, Map, Circle, Placemark } from "react-yandex-maps";
 import Modal from "../blocks/Modal";
+import { Redirect } from "react-router-dom";
 
 class DeliveryPage extends React.Component {
   constructor(props) {
     super(props);
     let orderId = parseInt(this.props.urlParams.orderId),
       order = null;
-    if (
-      this.getOrderInfo(orderId, "items_count") &&
-      !this.getOrderInfo(orderId, "destination")
-    ) {
+    if (this.getOrderInfo(orderId, "items_count")) {
       order = {
         id: orderId,
         items: JSON.parse(this.getOrderInfo(orderId, "items")),
         count: parseInt(this.getOrderInfo(orderId, "items_count")),
         total: parseInt(this.getOrderInfo(orderId, "total")),
+        destination: JSON.parse(this.getOrderInfo(orderId, "destination")),
       };
     }
     this.state = {
       order,
       modals: { deliveryUnsupported: false },
+      doRedirect: true,
     };
+
+    this.setOrderDestination = this.setOrderDestination.bind(this);
   }
 
   getOrderInfo(id, key) {
     return window.localStorage.getItem(`order_${id}_${key}`);
   }
 
+  setOrderDestination(destination) {
+    window.localStorage.setItem(
+      `order_${this.state.order.id}_destination`,
+      JSON.stringify(destination)
+    );
+    this.setState({ order: Object.assign(this.state.order, { destination }) });
+  }
+
   render() {
-    
     if (!this.state.order) {
-      return "404";
+      return <Redirect to="/" />;
+    } else if (this.state.order.destination) {
+      if (this.state.doRedirect) {
+        return <Redirect to={`/order/${this.state.order.id}`} />;
+      }
+    }
+    if (this.state.doRedirect) {
+      this.setState({ doRedirect: false });
     }
     return (
       <div className="app app-pizza">
@@ -67,14 +83,30 @@ class DeliveryPage extends React.Component {
                         strokeWidth: 0,
                       }}
                       onClick={(event) =>
-                        console.log("Delivery to", event.get("coords"))
+                        this.setOrderDestination(event.get("coords"))
                       }
                     />
+                    {this.state.order.destination ? (
+                      <Placemark
+                        geometry={this.state.order.destination}
+                        options={{
+                          preset: "islands#circleDotIcon",
+                          iconColor: data.projectInfo.colors.primaryDark,
+                        }}
+                      />
+                    ) : (
+                      ""
+                    )}
                   </Map>
                 </YMaps>
               </div>
               <div>
-                <button className="button">Перейти к оплате</button>
+                <button
+                  className="button"
+                  disabled={!this.state.order.destination}
+                >
+                  Перейти к оплате
+                </button>
               </div>
             </div>
           </section>
@@ -96,8 +128,6 @@ class DeliveryPage extends React.Component {
       </div>
     );
   }
-
-  componentDidMount() {}
 }
 
 export default DeliveryPage;
