@@ -5,7 +5,7 @@ import { YMaps, Map, Circle, Placemark } from "react-yandex-maps";
 import Modal from "../blocks/Modal";
 import { Redirect } from "react-router-dom";
 
-class DeliveryPage extends React.Component {
+class OrderDeliveryPage extends React.Component {
   constructor(props) {
     super(props);
     let orderId = parseInt(this.props.urlParams.orderId),
@@ -130,4 +130,4 @@ class DeliveryPage extends React.Component {
   }
 }
 
-export default DeliveryPage;
+export default OrderDeliveryPage;
