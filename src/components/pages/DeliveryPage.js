@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../blocks/Header";
 import data from "../../data";
 import { YMaps, Map, Circle } from "react-yandex-maps";
+import Modal from "../blocks/Modal";
 
 class DeliveryPage extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class DeliveryPage extends React.Component {
     }
     this.state = {
       order,
+      modals: { deliveryUnsupported: false },
     };
   }
 
@@ -29,6 +31,7 @@ class DeliveryPage extends React.Component {
   }
 
   render() {
+    
     if (!this.state.order) {
       return "404";
     }
@@ -51,7 +54,9 @@ class DeliveryPage extends React.Component {
                     }}
                     className="col-xs-12"
                     id="delivery-map"
-                    onClick={() => console.error("This point is not supported")}
+                    onClick={() =>
+                      this.setState({ modals: { deliveryUnsupported: true } })
+                    }
                   >
                     <Circle
                       geometry={[data.projectInfo.geolocation, 10000]}
@@ -73,6 +78,20 @@ class DeliveryPage extends React.Component {
               </div>
             </div>
           </section>
+          <Modal
+            id="delivery-unsupported-modal"
+            open={this.state.modals.deliveryUnsupported}
+            title="Предупреждение"
+          >
+            <p>Доставка в данную точку не поддерживается.</p>
+            <button
+              onClick={() =>
+                this.setState({ modals: { deliveryUnsupported: false } })
+              }
+            >
+              Понятно
+            </button>
+          </Modal>
         </main>
       </div>
     );

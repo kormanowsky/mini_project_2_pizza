@@ -2,199 +2,202 @@
 @import "./variables";
 
 .pizza {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .pizza.pizza-responsive {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 body,
 .font-pt-sans {
-    font-family: "PT Sans", sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 h1,
 .font-pd {
-    font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", serif;
 }
 
 a {
-    text-decoration: none;
-    color: $accent-color;
+  text-decoration: none;
+  color: $accent-color;
 }
 
 a.button,
 button {
-    font: inherit;
-    color: black;
-    background: $primary-dark-color;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 0 1rem 0 1rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
+  font: inherit;
+  color: black;
+  background: $primary-dark-color;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 0 1rem 0 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
 a.button:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 a.button:hover,
 button:hover {
-    background: $primary-color;
+  background: $primary-color;
 }
 
 a.button.small,
 button.small {
-    padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem;
 }
 
 button .icon,
 a.button .icon {
-    width: 1em;
-    margin-right: 0.5rem;
+  width: 1em;
+  margin-right: 0.5rem;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 footer {
-    background: $primary-dark-color;
-    padding: 1rem;
+  background: $primary-dark-color;
+  padding: 1rem;
 }
 
 footer .row {
-    align-items: center;
+  align-items: center;
 }
 
 footer a {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
 
 header {
-    background: $primary-color;
+  background: $primary-color;
 }
 
 #header-nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #header-cart-info {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 #header-cart-icon {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 ul#header-navigation {
-    display: flex;
-    margin: 0 0 0 2rem;
-    padding: 0;
+  display: flex;
+  margin: 0 0 0 2rem;
+  padding: 0;
 }
 
 header a {
-    color: black;
+  color: black;
 }
 
 #header-navigation a {
-    padding: 1rem;
-    display: block;
+  padding: 1rem;
+  display: block;
 }
 
 header h3 {
-    margin: 0;
-    line-height: 1;
+  margin: 0;
+  line-height: 1;
 }
 
 footer h2 {
-    margin: 0;
+  margin: 0;
 }
 
 main {
-    padding-top: 3rem;
+  padding-top: 3rem;
 }
 
 h1.page-title {
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .page-subtitle {
-    margin-top: 0;
-    font-weight: normal;
-    margin-bottom: 3rem;
+  margin-top: 0;
+  font-weight: normal;
+  margin-bottom: 3rem;
 }
 
 .checkbox {
-    width: 1rem;
-    height: 1rem;
-    background: white;
-    border: 2px solid #ffbc0a;
-    border-radius: 0.25rem;
-    margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border: 2px solid #ffbc0a;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
 }
 
 .checkbox img {
-    width: 1rem;
-    height: 1rem;
-    background: #ffd801;
-    display: block;
+  width: 1rem;
+  height: 1rem;
+  background: #ffd801;
+  display: block;
 }
 
 .checkbox[data-checked="false"] img {
-    display: none;
+  display: none;
 }
 
 .border {
-    border-radius: 0 1rem 0 1rem;
-    border: 1px solid #cecece;
-    padding: 1.5rem 1rem 1rem;
-    margin: 1rem;
+  border-radius: 0 1rem 0 1rem;
+  border: 1px solid #cecece;
+  padding: 1.5rem 1rem 1rem;
+  margin: 1rem;
 }
 
 .d-flex {
-    display: flex;
+  display: flex;
 }
 
 .align-items-center {
-    align-items: center;
+  align-items: center;
 }
 
 .row.with-border {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 
 .color-accent {
-    color: $accent-color;
+  color: $accent-color;
 }
 
 .color-gray {
-    color: #555;
+  color: #555;
 }
 
 .align-center {
-    text-align: center;
+  text-align: center;
 }
 
-p.link{
-    color: $accent-color; 
-    cursor: pointer;
+p.link {
+  color: $accent-color;
+  cursor: pointer;
 }
+
+/* Blocks */
+@import "./modal";
 
 @import "./home";
 @import "./pizza";
