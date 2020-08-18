@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../blocks/Header";
 import data from "../../data";
-import { YMaps, Map, Circle, Placemark } from "react-yandex-maps";
+import { Placemark } from "react-yandex-maps";
 import Modal from "../blocks/Modal";
 import { Redirect, Link } from "react-router-dom";
 import Order from "../../Order";

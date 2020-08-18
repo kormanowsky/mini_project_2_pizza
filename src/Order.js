@@ -10,6 +10,16 @@ class Order {
         `order_${id}_datetime_created`,
         new Date().getTime()
       );
+      // Add new order to all orders
+      let orders,
+        storedOrders = window.localStorage.getItem("orders");
+      if (storedOrders) {
+        orders = JSON.parse(storedOrders);
+      } else {
+        orders = [];
+      }
+      orders.push(id);
+      window.localStorage.setItem("orders", JSON.stringify(orders));
     }
     this._id = id;
   }
