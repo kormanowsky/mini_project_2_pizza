@@ -8,6 +8,7 @@ export default {
       primary: "#ffd700",
       primaryDark: "#ffbc0a",
     },
+    donationsTarget: "4100115734204527",
   },
   toppings: {
     tomatoes: "помидоры",

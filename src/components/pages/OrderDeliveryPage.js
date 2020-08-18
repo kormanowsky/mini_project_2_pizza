@@ -36,7 +36,7 @@ class OrderDeliveryPage extends React.Component {
       }
     }
     return (
-      <div className="app app-pizza">
+      <div className="app app-order app-order-delivery">
         <Header />
         <main>
           <section id="section-pizza-info">
