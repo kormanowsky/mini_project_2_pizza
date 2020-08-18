@@ -1,7 +1,7 @@
 import React from "react";
 import data from "../../data";
 import Order from "../../Order";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Header from "../blocks/Header";
 import Radio from "../blocks/Radio";
 
@@ -122,6 +122,10 @@ class OrderPayPage extends React.Component {
 
             <button>Пожертвовать</button>
           </form>
+
+          <p>
+            <Link to="/">Не жертвовать, перейти на Главную</Link>
+          </p>
         </main>
       </div>
     );
