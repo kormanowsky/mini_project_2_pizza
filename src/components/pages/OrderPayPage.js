@@ -67,7 +67,11 @@ class OrderPayPage extends React.Component {
             <input type="hidden" name="label" value={this.state.order.id} />
 
             {/* TODO: real url */}
-            <input type="hidden" name="successURL" value="/#/after-donate/" />
+            <input
+              type="hidden"
+              name="successURL"
+              value={`/#/order/${this.state.order.id}/after-donation`}
+            />
 
             <input
               type="hidden"
@@ -124,7 +128,9 @@ class OrderPayPage extends React.Component {
           </form>
 
           <p>
-            <Link to="/">Не жертвовать, перейти на Главную</Link>
+            <Link to={`/order/${this.state.order.id}`}>
+              Не жертвовать, перейти к заказу
+            </Link>
           </p>
         </main>
       </div>
