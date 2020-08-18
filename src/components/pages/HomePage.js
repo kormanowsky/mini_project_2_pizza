@@ -139,7 +139,7 @@ class HomePage extends React.Component {
 
             <div className="row" id="home-contacts-row">
               <div className="col-xs-12 col-md-8" id="home-contacts-map">
-                <DeliveryMap clickable={false} />
+                <DeliveryMap for="homepage" />
               </div>
               <div className="col-xs-12 col-md-4" id="home-contacts-data">
                 <h2 className="font-pd">{Data.projectInfo.name}</h2>

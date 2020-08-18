@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../blocks/Header";
 import Order from "../../Order";
 import { Link } from "react-router-dom";
-import moment from "../../moment";
+import { humanDate } from "../../utils";
 
 class OrdersPage extends React.Component {
   render() {
@@ -32,9 +32,7 @@ class OrdersPage extends React.Component {
                       </h2>
                       <p>Дата и время</p>
                       <h4>
-                        {moment(order.datetimeCreated).format(
-                          "D MMMM Y года в H:m"
-                        )}
+                        {humanDate(order.datetimeCreated)}
                       </h4>
                       <p>Сумма</p>
                       <h4>{order.total} &#x20bd;</h4>

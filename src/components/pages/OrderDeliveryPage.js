@@ -47,7 +47,7 @@ class OrderDeliveryPage extends React.Component {
                 Покажите на карте, куда необходимо доставить заказ:
               </h3>
               <DeliveryMap
-                clickable={true}
+                for="delivery"
                 onMapClick={() =>
                   this.setState({ modals: { deliveryUnsupported: true } })
                 }
