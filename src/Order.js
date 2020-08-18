@@ -11,13 +11,7 @@ class Order {
         new Date().getTime()
       );
       // Add new order to all orders
-      let orders,
-        storedOrders = window.localStorage.getItem("orders");
-      if (storedOrders) {
-        orders = JSON.parse(storedOrders);
-      } else {
-        orders = [];
-      }
+      let orders = JSON.parse(window.localStorage.getItem("orders") || "[]");
       orders.push(id);
       window.localStorage.setItem("orders", JSON.stringify(orders));
     }
