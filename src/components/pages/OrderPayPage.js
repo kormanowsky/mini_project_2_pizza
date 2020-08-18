@@ -25,14 +25,13 @@ class OrderPayPage extends React.Component {
       <div className="app app-order app-order-pay">
         <Header />
         <main className="container">
-          <div className="row">
-            <h1>Спасибо за Ваш заказ!</h1>
-            <h2>
-              На этом сайте нет реальной пиццы, это всего лишь работа для
-              портфолио. Но если Вы зашли на эту страницу, предлагаю Вам
-              оставить пожертвование в размере суммы заказа:
-            </h2>
-          </div>
+          <h1>Спасибо за Ваш заказ!</h1>
+          <h3>
+            На этом сайте нет реальной пиццы, это всего лишь работа для
+            портфолио. <br />
+            Так как Вы зашли на эту страницу, предлагаю Вам оставить
+            пожертвование в размере суммы заказа:
+          </h3>
           <form
             method="POST"
             action="https://money.yandex.ru/quickpay/confirm.xml"
