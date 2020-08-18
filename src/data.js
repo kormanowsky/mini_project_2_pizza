@@ -7,6 +7,7 @@ export default {
     colors: {
       primary: "#ffd700",
       primaryDark: "#ffbc0a",
+      accent: "#F44336",
     },
     donationsTarget: "4100115734204527",
   },

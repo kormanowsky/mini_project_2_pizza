@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Header from "../blocks/Header";
 import Footer from "../blocks/Footer";
 import Toppings from "../../Toppings";
+import DeliveryMap from "../blocks/DeliveryMap";
 
 class HomePage extends React.Component {
   render() {
@@ -135,16 +136,10 @@ class HomePage extends React.Component {
             <div className="section-header">
               <h2 className="section-title font-pd">Контакты</h2>
             </div>
+
             <div className="row" id="home-contacts-row">
               <div className="col-xs-12 col-md-8" id="home-contacts-map">
-                <iframe
-                  title="Карта"
-                  src="https://yandex.ru/map-widget/v1/?um=constructor%3A7dbe79e036dda60a8ac6773dd57712468c0e0c27fd4cf55ffc34a2ed1580b56d&amp;source=constructor"
-                  width="100%"
-                  height="400"
-                  frameBorder="0"
-                  id="home-contacts-map-iframe"
-                ></iframe>
+                <DeliveryMap clickable={false} />
               </div>
               <div className="col-xs-12 col-md-4" id="home-contacts-data">
                 <h2 className="font-pd">{Data.projectInfo.name}</h2>

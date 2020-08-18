@@ -5,6 +5,7 @@ import { YMaps, Map, Circle, Placemark } from "react-yandex-maps";
 import Modal from "../blocks/Modal";
 import { Redirect, Link } from "react-router-dom";
 import Order from "../../Order";
+import DeliveryMap from "../blocks/DeliveryMap";
 
 class OrderDeliveryPage extends React.Component {
   constructor(props) {
@@ -44,54 +45,37 @@ class OrderDeliveryPage extends React.Component {
               <h1 className="page-title">
                 Заказ №{this.state.order.id} успешно оформлен!
               </h1>
-              <h3 className="page-subtitle">Выберите, куда его доставить:</h3>
+              <h3 className="page-subtitle">
+                Покажите на карте, куда необходимо доставить заказ:
+              </h3>
+              <DeliveryMap
+                clickable={true}
+                onMapClick={() =>
+                  this.setState({ modals: { deliveryUnsupported: true } })
+                }
+                onCircleClick={(event) =>
+                  this.setOrderDestination(event.get("coords"))
+                }
+              >
+                <Placemark
+                  geometry={this.state.order.destination}
+                  options={{
+                    preset: "islands#circleIcon",
+                    iconColor: data.projectInfo.colors.accent,
+                  }}
+                />
+              </DeliveryMap>
+
               <div className="row">
-                <YMaps key={data.keys.yandexMaps}>
-                  <Map
-                    defaultState={{
-                      center: data.projectInfo.geolocation,
-                      zoom: 12,
-                    }}
-                    className="col-xs-12"
-                    id="delivery-map"
-                    onClick={() =>
-                      this.setState({ modals: { deliveryUnsupported: true } })
-                    }
+                <div className="col-xs-12">
+                  <Link
+                    to={`/order/${this.state.order.id}/pay`}
+                    className="button"
+                    disabled={!this.state.order.destination}
                   >
-                    <Circle
-                      geometry={[data.projectInfo.geolocation, 10000]}
-                      options={{
-                        draggable: false,
-                        fillColor: data.projectInfo.colors.primary,
-                        fillOpacity: 0.4,
-                        strokeWidth: 0,
-                      }}
-                      onClick={(event) =>
-                        this.setOrderDestination(event.get("coords"))
-                      }
-                    />
-                    {this.state.order.destination ? (
-                      <Placemark
-                        geometry={this.state.order.destination}
-                        options={{
-                          preset: "islands#circleDotIcon",
-                          iconColor: data.projectInfo.colors.primaryDark,
-                        }}
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </Map>
-                </YMaps>
-              </div>
-              <div>
-                <Link
-                  to={`/order/${this.state.order.id}/pay`}
-                  className="button"
-                  disabled={!this.state.order.destination}
-                >
-                  Перейти к оплате
-                </Link>
+                    Перейти к оплате
+                  </Link>
+                </div>
               </div>
             </div>
           </section>

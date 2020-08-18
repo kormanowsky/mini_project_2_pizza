@@ -1,3 +1,26 @@
-#delivery-map{
-    height: 50vh;
+#delivery-zone-color {
+  background-color: $primary-color;
+  opacity: 0.4;
+  height: 1rem;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+#delivery-zone {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+#delivery-map {
+  height: 50vh;
+}
+
+.app-order-delivery .page-subtitle {
+  margin-bottom: 1rem;
+}
+
+.app-order-delivery a.button {
+  display: inline-block;
+  margin-top: 1rem;
 }
