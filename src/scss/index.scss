@@ -224,14 +224,17 @@ p.link {
   cursor: pointer;
 }
 
-form div {
-  margin-top: 1rem;
+.label {
+  color: grey;
+  margin-bottom: 0.75rem;
 }
 
-form p {
+.label + * {
   margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: gray;
+}
+
+form div {
+  margin-top: 1rem;
 }
 
 form input,

@@ -76,12 +76,12 @@ class OrderPayPage extends React.Component {
             />
 
             <div>
-              <p>Номер заказа</p>
+              <p className="label">Номер заказа</p>
               <h3>{this.state.order.id}</h3>
             </div>
 
             <div>
-              <p>Сумма пожертвования</p>
+              <p className="label">Сумма пожертвования</p>
               <h3>
                 <input
                   type="number"
@@ -101,7 +101,7 @@ class OrderPayPage extends React.Component {
             </div>
 
             <div>
-              <p>Способ оплаты</p>
+              <p className="label">Способ оплаты</p>
               <Radio
                 values={{
                   PC: "Яндекс.Деньги",
@@ -116,7 +116,7 @@ class OrderPayPage extends React.Component {
             </div>
 
             <div>
-              <p>Комментарий</p>
+              <p className="label">Комментарий</p>
               <textarea name="comment"></textarea>
             </div>
 

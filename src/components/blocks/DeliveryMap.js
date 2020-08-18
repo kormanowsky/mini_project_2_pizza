@@ -19,7 +19,7 @@ class DeliveryMap extends React.Component {
             id="delivery-map"
             onClick={(event) =>
               this.props.for === "delivery" && this.props.onMapClick
-                ? this.onMapClick(event)
+                ? this.props.onMapClick(event)
                 : false
             }
           >

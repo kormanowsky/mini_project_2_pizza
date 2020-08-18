@@ -35,7 +35,12 @@ class OrderPage extends React.Component {
               <DeliveryMap for="order" order={this.state.order} />
             </div>
           </div>
-          <OrderItems useCart={false} items={this.state.order.items} />
+          <div className="row">
+            <div className="col-xs-12">
+              <p className="label">Состав заказа</p>
+              <OrderItems useCart={false} items={this.state.order.items} />
+            </div>
+          </div>
         </main>
       </div>
     );

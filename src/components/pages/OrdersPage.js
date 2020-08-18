@@ -30,11 +30,9 @@ class OrdersPage extends React.Component {
                           Заказ №{order.id}
                         </Link>
                       </h2>
-                      <p>Дата и время</p>
-                      <h4>
-                        {humanDate(order.datetimeCreated)}
-                      </h4>
-                      <p>Сумма</p>
+                      <p className="label">Дата и время</p>
+                      <h4>{humanDate(order.datetimeCreated)}</h4>
+                      <p className="label">Сумма</p>
                       <h4>{order.total} &#x20bd;</h4>
                     </div>
                   </div>
