@@ -12,6 +12,7 @@ import CartPage from "./components/pages/CartPage";
 import PizzasPage from "./components/pages/PizzasPage";
 import BuilderPage from "./components/pages/BuilderPage";
 import OrderDeliveryPage from "./components/pages/OrderDeliveryPage";
+import OrderPayPage from "./components/pages/OrderPayPage";
 
 function WithURLParams(props) {
   let params = useParams(),
@@ -59,6 +60,12 @@ class App extends React.Component {
             path="/order/:orderId/delivery"
             children={<WithURLParams component={OrderDeliveryPage} />}
           />
+
+          <Route
+            exact
+            path="/order/:orderId/pay"
+            children={<WithURLParams component={OrderPayPage} />}
+          ></Route>
         </Switch>
       </Router>
     );

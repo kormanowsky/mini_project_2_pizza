@@ -201,6 +201,46 @@ p.link {
   cursor: pointer;
 }
 
+form div {
+  margin-top: 1rem;
+}
+
+form p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: gray;
+}
+
+form input,
+form textarea {
+  font: inherit;
+  margin: 0;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-sizing: border-box;
+}
+
+form input[type="number"] {
+  width: auto;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border: 2px solid $primary-dark-color;
+}
+
+form textarea {
+  resize: none;
+}
+
+form button,
+form .button {
+  display: block;
+  margin: 1rem 0 0;
+  width: 100%;
+}
+
 /* Blocks */
 @import "./modal";
 
@@ -210,3 +250,4 @@ p.link {
 @import "./builder";
 @import "./pizzas";
 @import "./delivery";
+@import "./pay";

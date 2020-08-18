@@ -1,4 +1,4 @@
-import Recact from "react";
+import React from "react";
 import data from "../../data";
 import Order from "../../Order";
 import { Redirect } from "react-router-dom";
@@ -22,8 +22,8 @@ class OrderPayPage extends React.Component {
     return (
       <div className="app app-order app-order-pay">
         <Header />
-        <main>
-          <div>
+        <main className="container">
+          <div className="row">
             <h1>Спасибо за Ваш заказ!</h1>
             <h2>
               На этом сайте нет реальной пиццы, это всего лишь работа для
@@ -70,18 +70,27 @@ class OrderPayPage extends React.Component {
 
             <div>
               <p>Номер заказа</p>
-              <h4>{this.state.order.id}</h4>
+              <h3>{this.state.order.id}</h3>
             </div>
 
             <div>
               <p>Сумма пожертвования</p>
-              <h4>
+              <h3>
                 <input
                   type="number"
                   value={this.state.donationSum}
                   min={this.state.order.total}
+                  onChange={(event) =>
+                    this.setState({
+                      donationSum: Math.max(
+                        event.target.value,
+                        this.state.order.total
+                      ),
+                    })
+                  }
                 />
-              </h4>
+                &nbsp;&#x20bd;
+              </h3>
             </div>
 
             <div>

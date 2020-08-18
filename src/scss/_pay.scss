@@ -1,0 +1,21 @@
+.app-order-pay main {
+  text-align: center;
+}
+
+.app-order-pay form {
+  text-align: left;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 0 1rem 0 1rem;
+  border: 1px solid lightgrey;
+}
+
+.app-order-pay form h3 {
+  margin: 0;
+}
+
+.app-order-pay form div:first-of-type {
+  margin-top: 0;
+}
