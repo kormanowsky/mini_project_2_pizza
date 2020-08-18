@@ -10,10 +10,8 @@ import DeliveryMap from "../blocks/DeliveryMap";
 class OrderDeliveryPage extends React.Component {
   constructor(props) {
     super(props);
-    let orderId = parseInt(this.props.urlParams.orderId),
-      order = new Order(orderId);
     this.state = {
-      order,
+      order: new Order(this.props.urlParams.orderId),
       modals: { deliveryUnsupported: false },
       doRedirect: true,
     };
