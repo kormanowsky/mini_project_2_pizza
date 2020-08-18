@@ -1,11 +1,5 @@
 import React from "react";
-
-function className(names) {
-  return Object.keys(names)
-    .filter((key) => names[key])
-    .map((key) => key.replace(/([A-Z])/g, (found) => `-${found.toLowerCase()}`))
-    .join(" ");
-}
+import { className } from "../../utils";
 
 class Modal extends React.Component {
   render() {

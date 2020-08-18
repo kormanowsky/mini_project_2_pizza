@@ -3,6 +3,7 @@ import data from "../../data";
 import Order from "../../Order";
 import { Redirect } from "react-router-dom";
 import Header from "../blocks/Header";
+import Radio from "../blocks/Radio";
 
 class OrderPayPage extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class OrderPayPage extends React.Component {
       order,
       donationSum: order.total,
       donationTitle: `${data.projectInfo.name}. Пожертвование`,
+      paymentType: "PC",
     };
   }
 
@@ -68,6 +70,12 @@ class OrderPayPage extends React.Component {
             {/* TODO: real url */}
             <input type="hidden" name="successURL" value="/#/after-donate/" />
 
+            <input
+              type="hidden"
+              name="paymentType"
+              value={this.state.paymentType}
+            />
+
             <div>
               <p>Номер заказа</p>
               <h3>{this.state.order.id}</h3>
@@ -95,18 +103,17 @@ class OrderPayPage extends React.Component {
 
             <div>
               <p>Способ оплаты</p>
-              <label>
-                <input type="radio" name="paymentType" value="PC" />
-                Яндекс.Деньги
-              </label>
-              <label>
-                <input type="radio" name="paymentType" value="AC" />
-                Банковская карта
-              </label>
-              <label>
-                <input type="radio" name="paymentType" value="MC" />
-                Баланс мобильного
-              </label>
+              <Radio
+                values={{
+                  PC: "Яндекс.Деньги",
+                  AC: "Банковская карта",
+                  MC: "Баланс мобильного",
+                }}
+                value={this.state.paymentType}
+                onChange={({ value }) => {
+                  this.setState({ paymentType: value });
+                }}
+              />
             </div>
 
             <div>

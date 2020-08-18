@@ -164,6 +164,27 @@ h1.page-title {
   display: none;
 }
 
+.radio {
+  display: flex;
+  align-items: center;
+}
+
+.radio-circle {
+  width: 1em;
+  height: 1em;
+  border: 2px solid $primary-color;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.radio-label {
+  margin: 0;
+}
+
+.radio[data-checked="true"] .radio-circle {
+  background: $primary-color;
+}
+
 .border {
   border-radius: 0 1rem 0 1rem;
   border: 1px solid #cecece;
