@@ -20,6 +20,9 @@ class Header extends React.Component {
                                 <li>
                                     <Link to="/builder">Конструктор</Link>
                                 </li>
+                                <li>
+                                    <Link to="/orders">Мои заказы</Link>
+                                </li>
                             </ul>
                         </div>
                         <div className="col-xs-3" id="header-cart-info">

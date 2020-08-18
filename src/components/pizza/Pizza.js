@@ -1,77 +1,5 @@
 import React from "react";
-import TomatoesTopping from "./TomatoesTopping";
-import MushroomsTopping from "./MushroomsTopping";
-import PepperTopping from "./PepperTopping";
-import OnionTopping from "./OnionTopping";
-import MeatTopping from "./MeatTopping";
-import SausagesTopping from "./SausagesTopping";
-import GreensTopping from "./GreensTopping";
-import PepperoniTopping from "./PepperoniTopping";
-import OlivesTopping from "./OlivesTopping";
-import BaconTopping from "./BaconTopping";
-import BBQSauce from "./BBQSauce";
-import TomatoSauce from "./TomatoSauce";
-import Data from "../../data";
-const Toppings = {
-    tomatoes: TomatoesTopping,
-    mushrooms: MushroomsTopping,
-    pepper: PepperTopping,
-    onion: OnionTopping,
-    bacon: BaconTopping,
-    meat: MeatTopping,
-    sausages: SausagesTopping,
-    pepperoni: PepperoniTopping,
-    olives: OlivesTopping,
-    greens: GreensTopping,
-    bbqSauce: BBQSauce,
-    tomatoSauce: TomatoSauce,
-};
-
-class ToppingConfiguration {
-    constructor(configuration) {
-        const initialConfiguration = configuration || this.emptyConfiguration();
-        Object.assign(this, initialConfiguration);
-        for (let key in Toppings) {
-            let capitalizedKey = key[0].toUpperCase() + key.slice(1);
-            this.constructor.prototype[`add${capitalizedKey}`] = () => {
-                this[key] = true;
-                return this;
-            };
-            this.constructor.prototype[`remove${capitalizedKey}`] = () => {
-                this[key] = false;
-                return this;
-            };
-        }
-    }
-
-    emptyConfiguration() {
-        let configuration = {};
-        for (let key in Toppings) {
-            configuration[key] = false;
-        }
-        return configuration;
-    }
-
-    static getRandom() {
-        let configuration = {};
-        for (let key in Toppings) {
-            configuration[key] = Math.random() > 0.5;
-        }
-        return configuration;
-    }
-
-    static getDescription(configuration) {
-        if (!configuration || !(configuration instanceof Object)) {
-            return null;
-        }
-        let toppingToDescription = (topping) => Data.toppings[topping];
-        return Object.keys(configuration)
-            .filter(toppingToDescription)
-            .filter((topping) => configuration[topping])
-            .map(toppingToDescription)
-            .join(", ");
-    }
-}
+import Toppings from "../../Toppings";
 
 class Pizza extends React.Component {
     constructor(props) {
@@ -111,8 +39,9 @@ class Pizza extends React.Component {
         return (
             <g className="pizza-toppings">
                 {this.getToppings().map((topping) => {
-                    if (topping in Toppings) {
-                        const ToppingComponent = Toppings[topping];
+                    const ToppingComponents = Toppings.components();
+                    if (topping in ToppingComponents) {
+                        const ToppingComponent = ToppingComponents[topping];
                         return (
                             <ToppingComponent
                                 key={topping}
@@ -212,4 +141,4 @@ class Pizza extends React.Component {
     }
 }
 
-export { Pizza, Toppings, ToppingConfiguration };
+export default Pizza;

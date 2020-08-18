@@ -1,16 +1,22 @@
 import React from "react";
 import Header from "../blocks/Header";
-import Footer from "../blocks/Footer";
-import { Pizza, ToppingConfiguration } from "../pizza/Pizza";
+import Pizza from "../pizza/Pizza";
 import Cart from "../../Cart";
 import data from "../../data";
 import CheckBox from "../blocks/Checkbox";
+import Toppings from "../../Toppings";
 
 class BuilderPage extends React.Component {
     constructor(props) {
         super(props);
+        let toppings = Toppings.empty();
+        if (this.props.urlParams && "toppings" in this.props.urlParams) {
+            toppings = Toppings.numberToConfig(
+                parseInt(this.props.urlParams.toppings)
+            );
+        }
         this.state = {
-            toppings: new ToppingConfiguration().emptyConfiguration(),
+            toppings,
         };
 
         this.getPizzaTotalPrice = this.getPizzaTotalPrice.bind(this);
@@ -33,16 +39,11 @@ class BuilderPage extends React.Component {
     }
 
     addToCart() {
-        let pizzaId = 0;
-        Object.keys(this.state.toppings).forEach((value, index) => {
-            if (this.state.toppings[value]) {
-                pizzaId += 2 ** index;
-            }
-        });
-        pizzaId += 2 * 10 ** (Object.keys(this.state.toppings).length + 2);
+        let toppingsNumber = Toppings.configToNumber(this.state.toppings);
+        let pizzaId = 2 * 10 ** 8 + toppingsNumber;
         let pizza = {
             id: pizzaId,
-            toppings: this.state.toppings,
+            toppings: toppingsNumber,
             price: this.getPizzaTotalPrice(),
             name: "Ваша пицца",
         };
@@ -58,60 +59,60 @@ class BuilderPage extends React.Component {
                     <section id="section-builder">
                         <div className="container">
                             <h1 className="page-title">Конструктор</h1>
-                            <h3>Соберите свою пиццу!</h3>
+                            <h3 className="page-subtitle">
+                                Соберите свою пиццу!
+                            </h3>
                             <div className="row">
-                                <div className="col-xs-12 col-md-6">
+                                <div className="col-xs-12 col-md-5">
                                     <Pizza
                                         toppings={this.state.toppings}
                                         responsive={true}
                                     />
                                 </div>
-                                <div className="col-xs-12 col-md-6">
+                                <div
+                                    className="col-xs-12 col-md-7"
+                                    id="builder-data"
+                                >
                                     <h2>Основа</h2>
                                     <h4>{data.basePrice} &#x20bd;</h4>
                                     <h2>Начинки</h2>
                                     <div id="builder-toppings">
-                                        {Object.keys(this.state.toppings).map(
-                                            (topping) => (
-                                                <div
-                                                    className="builder-topping"
-                                                    key={topping}
-                                                >
-                                                    <CheckBox
-                                                        checked={
-                                                            this.state.toppings[
-                                                                topping
-                                                            ]
-                                                        }
-                                                        onChange={(event) => {
-                                                            console.log(event);
-                                                            this.setState({
-                                                                toppings: Object.assign(
-                                                                    this.state
-                                                                        .toppings,
-                                                                    {
-                                                                        [topping]:
-                                                                            event.checked,
-                                                                    }
-                                                                ),
-                                                            });
-                                                        }}
-                                                    />
-                                                    {data.toppings[topping]}{" "}
-                                                    <b>
-                                                        {
-                                                            data.toppingPrices[
-                                                                topping
-                                                            ]
-                                                        }{" "}
-                                                        &#x20bd;
-                                                    </b>
-                                                </div>
-                                            )
-                                        )}
+                                        {Toppings.names().map((topping) => (
+                                            <div
+                                                className="builder-topping"
+                                                key={topping}
+                                            >
+                                                <CheckBox
+                                                    checked={
+                                                        this.state.toppings[
+                                                            topping
+                                                        ]
+                                                    }
+                                                    onChange={(event) =>
+                                                        this.setState({
+                                                            toppings: Object.assign(
+                                                                this.state
+                                                                    .toppings,
+                                                                {
+                                                                    [topping]:
+                                                                        event.checked,
+                                                                }
+                                                            ),
+                                                        })
+                                                    }
+                                                />
+                                                {Toppings.humanNames()[topping]}{" "}
+                                                <b>
+                                                    {Toppings.prices()[topping]}{" "}
+                                                    &#x20bd;
+                                                </b>
+                                            </div>
+                                        ))}
                                     </div>
                                     <h2>Итоговая цена</h2>
-                                    {this.getPizzaTotalPrice()} &#x20bd;
+                                    <h2 id="builder-total">
+                                        {this.getPizzaTotalPrice()} &#x20bd;
+                                    </h2>
                                     <button
                                         className="button"
                                         onClick={this.addToCart}
@@ -123,7 +124,6 @@ class BuilderPage extends React.Component {
                         </div>
                     </section>
                 </main>
-                <Footer />
             </div>
         );
     }
