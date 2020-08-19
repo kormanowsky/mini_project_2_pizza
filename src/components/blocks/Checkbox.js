@@ -1,5 +1,6 @@
 import React from "react";
 import "../../scss/checkbox.scss";
+import { className } from "../../utils";
 
 class CheckBox extends React.Component {
   constructor(props) {
@@ -10,14 +11,21 @@ class CheckBox extends React.Component {
   render() {
     return (
       <div
-        className="checkbox"
-        data-checked={this.state.checked.toString()}
+        className={className({
+          checkbox: true,
+          checkboxChecked: this.props.checked,
+        })}
         onClick={() => {
-          this.setState({ checked: !this.state.checked }, () => {
+          if (!this.props.onChange) {
+            return false;
+          }
+          if (
             this.props.onChange({
-              checked: this.state.checked,
-            });
-          });
+              checked: !this.props.checked,
+            })
+          ) {
+            this.setState({ checked: this.props.checked });
+          }
         }}
       >
         <img src="/images/check.svg" alt="Чекбокс" />

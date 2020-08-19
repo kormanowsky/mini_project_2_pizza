@@ -111,7 +111,7 @@ class HomePage extends React.Component {
                   key={`feedback-${index}`}
                 >
                   <div className="feedback-inner">
-                    <div className="feedback-header">
+                    <div className="feedback-header d-flex align-items-center">
                       <img
                         src="/images/user.svg"
                         alt={feedback.userName}

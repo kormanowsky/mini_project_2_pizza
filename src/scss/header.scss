@@ -6,6 +6,12 @@ header {
 
 header a {
   color: black;
+  border: none;
+}
+
+header a:hover {
+  background-color: $primary-dark-color;
+  color: black;
 }
 
 header h3 {

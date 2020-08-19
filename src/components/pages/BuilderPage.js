@@ -65,10 +65,12 @@ class BuilderPage extends React.Component {
                   <Pizza toppings={this.state.toppings} responsive={true} />
                 </div>
                 <div className="col-xs-12 col-md-7" id="builder-data">
-                  <p className="label">Основа</p>
-                  <h3>{data.basePrice} &#x20bd;</h3>
-                  <p className="label">Начинки</p>
                   <div id="builder-toppings">
+                    <div className="builder-topping" key="base">
+                      <CheckBox checked={true} onChange={() => false} />
+                      основа
+                      <b>{data.basePrice} &#x20bd;</b>
+                    </div>
                     {Toppings.names().map((topping) => (
                       <div className="builder-topping" key={topping}>
                         <CheckBox
