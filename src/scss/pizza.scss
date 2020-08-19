@@ -1,0 +1,10 @@
+@import "./variables";
+
+.pizza {
+  border-radius: 50%;
+}
+
+.pizza.pizza-responsive {
+  width: 100%;
+  height: auto;
+}
