@@ -6,6 +6,7 @@ import Cart from "../../Cart";
 import "../../scss/header.scss";
 
 class Header extends React.Component {
+
   render() {
     return (
       <header>
