@@ -49,9 +49,7 @@ class HomePage extends React.Component {
             </div>
           </section>
           <section className="container" id="section-news">
-            <div className="section-header">
-              <h2 className="section-title accent-font">Наши пиццы</h2>
-            </div>
+            <h1 className="page-title">Наши пиццы</h1>
             <div className="row" id="home-new-pizzas">
               {Data.pizzas.map((pizza) => (
                 <div
