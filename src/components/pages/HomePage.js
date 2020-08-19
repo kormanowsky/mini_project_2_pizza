@@ -21,7 +21,7 @@ class HomePage extends React.Component {
                 <h3>Пиццерия в Чернево-2</h3>
                 <a
                   href="#/builder"
-                  className="button font-serif"
+                  className="button accent-font"
                   id="home-go-to-builder"
                 >
                   Собрать свою пиццу &raquo;
@@ -43,7 +43,7 @@ class HomePage extends React.Component {
           </section>
           <section className="container" id="section-news">
             <div className="section-header">
-              <h2 className="section-title font-serif">Наши пиццы</h2>
+              <h2 className="section-title accent-font">Наши пиццы</h2>
             </div>
             <div className="row" id="home-new-pizzas">
               {Data.pizzas.map((pizza) => (
@@ -53,7 +53,7 @@ class HomePage extends React.Component {
                 >
                   <div className="new-pizza-inner">
                     <Pizza toppings={pizza.toppings} responsive={true}></Pizza>
-                    <h4 className="new-pizza-title font-serif">
+                    <h4 className="new-pizza-title accent-font">
                       <Link to={`/pizza/${pizza.id}`}>{pizza.name} </Link>
                     </h4>
                     <p className="new-pizza-price">{pizza.price} &#x20bd;</p>
@@ -64,7 +64,7 @@ class HomePage extends React.Component {
             <p id="home-all-pizzas">
               <a
                 href="#/pizzas"
-                className="button font-serif"
+                className="button accent-font"
                 id="home-go-to-builder"
               >
                 Все пиццы &raquo;
@@ -73,7 +73,7 @@ class HomePage extends React.Component {
           </section>
           <section className="container" id="section-advantages">
             <div className="section-header">
-              <h2 className="section-title font-serif">
+              <h2 className="section-title accent-font">
                 Почему {Data.projectInfo.name}?
               </h2>
             </div>
@@ -89,7 +89,7 @@ class HomePage extends React.Component {
                       alt={advantage.title}
                       className="advantage-icon"
                     />
-                    <h3 className="advantage-title font-serif">
+                    <h3 className="advantage-title accent-font">
                       {advantage.title}
                     </h3>
                     <p className="advantage-description">
@@ -102,7 +102,7 @@ class HomePage extends React.Component {
           </section>
           <section className="container" id="section-feedback">
             <div className="section-header">
-              <h2 className="section-title font-serif">Отзывы</h2>
+              <h2 className="section-title accent-font">Отзывы</h2>
             </div>
             <div className="row" id="home-feedbacks">
               {Data.feedbacks.map((feedback, index) => (
@@ -123,7 +123,7 @@ class HomePage extends React.Component {
                       </div>
                     </div>
                     <div className="feedback-main">
-                      <h3 className="feedback-content font-serif">
+                      <h3 className="feedback-content accent-font">
                         {feedback.content}
                       </h3>
                     </div>
@@ -134,7 +134,7 @@ class HomePage extends React.Component {
           </section>
           <section className="container" id="section-conatcts">
             <div className="section-header">
-              <h2 className="section-title font-serif">Контакты</h2>
+              <h2 className="section-title accent-font">Контакты</h2>
             </div>
 
             <div className="row align-items-center">
@@ -142,7 +142,7 @@ class HomePage extends React.Component {
                 <DeliveryMap for="homepage" />
               </div>
               <div className="col-xs-12 col-md-4" id="home-contacts-data">
-                <h2 className="font-serif">{Data.projectInfo.name}</h2>
+                <h2 className="accent-font">{Data.projectInfo.name}</h2>
                 <p>
                   <img src="/images/map-pin-primary.svg" alt="Адрес"></img>
                   {Data.projectInfo.address}

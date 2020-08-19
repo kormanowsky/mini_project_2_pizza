@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap");
 @import "./variables";
 
 body {
@@ -6,13 +6,13 @@ body {
 }
 
 body,
-.font-pt-sans {
-  font-family: "PT Sans", sans-serif;
+.main-font {
+  font-family: $main-font;
 }
 
 h1,
-.font-serif {
-  font-family: "Playfair Display", serif;
+.accent-font {
+  font-family: $accent-font;
 }
 
 a {
@@ -124,7 +124,7 @@ p.link {
 .label {
   margin-bottom: 0.5rem;
   display: inline-block;
-  font-family: "Playfair Display";
+  font-family: "Roboto Mono";
 }
 
 .label + * {
