@@ -6,6 +6,7 @@ import Header from "../blocks/Header";
 import Footer from "../blocks/Footer";
 import Toppings from "../../Toppings";
 import DeliveryMap from "../blocks/DeliveryMap";
+import data from "../../data";
 
 class HomePage extends React.Component {
   render() {
@@ -14,30 +15,36 @@ class HomePage extends React.Component {
       <div className="app app-home">
         <Header />
         <main>
-          <section className="container" id="section-home-top">
-            <div className="row align-items-center">
-              <div className="col-xs-9" id="home-top-text">
-                <h1>{Data.projectInfo.name}</h1>
-                <h3>Пиццерия в Чернево-2</h3>
-                <a
-                  href="#/builder"
-                  className="button accent-font"
-                  id="home-go-to-builder"
-                >
-                  Собрать свою пиццу &raquo;
-                </a>
-              </div>
-              <div className="col-xs-3" id="home-top-pizza">
-                <Pizza toppings={randomToppings} responsive={true} />
-                <p className="text-align-center">
-                  Случайная пицца
-                  <br />
-                  <Link
-                    to={`/builder/${Toppings.configToNumber(randomToppings)}`}
+          <section id="section-home-top">
+            <div className="container">
+              <div className="row align-items-center">
+                <div className="col-xs-9" id="home-top-text">
+                  <h1>{Data.projectInfo.name}</h1>
+                  <h3>Пиццерия в Чернево-2</h3>
+                  <a
+                    href="#/builder"
+                    className="button accent-font"
+                    id="home-go-to-builder"
                   >
-                    Хочу такую!
-                  </Link>
-                </p>
+                    Собрать свою пиццу &raquo;
+                  </a>
+                </div>
+                <div className="col-xs-3" id="home-top-pizza">
+                  <Pizza
+                    toppings={randomToppings}
+                    bgColor={data.projectInfo.colors.primary}
+                    responsive={true}
+                  />
+                  <p className="text-align-center">
+                    Случайная пицца
+                    <br />
+                    <Link
+                      to={`/builder/${Toppings.configToNumber(randomToppings)}`}
+                    >
+                      Хочу такую!
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
           </section>

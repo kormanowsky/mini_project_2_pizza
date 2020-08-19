@@ -1,126 +1,137 @@
+.app-home main {
+  padding-top: 0;
+}
+
 section {
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
+}
+
+section#section-home-top {
+  background-color: $primary-color;
+  padding: 4rem 0;
 }
 
 #home-top-text h1 {
-    color: $primary-dark-color;
-    font-weight: 900;
-    font-size: 5rem;
-    margin: 0;
+  color: white;
+  font-weight: 900;
+  font-size: 5rem;
+  margin: 0;
 }
 
 #home-go-to-builder {
-    display: inline-block;
-    margin: 1rem auto 0;
+  display: inline-block;
+  margin: 1rem auto 0;
 }
 
 .section-header {
-    width: 100%;
-    height: 0.25rem;
-    background: $primary-color;
-    display: flex;
-    align-items: center;
-    margin-bottom: 3rem;
+  width: 100%;
+  height: 0.25rem;
+  background: $primary-color;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
 }
 
 .section-title {
-    background: white;
-    padding: 1rem 2rem;
-    margin: -0.2em auto 0;
-    font-size: 2rem;
-    line-height: 0.7;
+  background: white;
+  padding: 1rem 2rem;
+  margin: -0.2em auto 0;
+  font-size: 2rem;
+  line-height: 0.7;
 }
 
 .new-pizza-inner {
-    margin: 1rem;
-    text-align: center;
-    border-radius: 0 1rem 0 1rem;
-    border: 1px solid #cecece;
-    padding: 1.5rem 1rem 1rem;
+  margin: 1rem;
+  text-align: center;
+  border-radius: 0 1rem 0 1rem;
+  border: 1px solid #cecece;
+  padding: 1.5rem 1rem 1rem;
 }
 
 .new-pizza-title {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .new-pizza-price {
-    margin: 0;
+  margin: 0;
 }
 
 #home-new-pizzas {
-    margin: 0 -1.5rem;
+  margin: 0 -1.5rem;
 }
 
 .advantage-icon {
-    height: 4rem;
-    margin: 2rem 0;
-    background: #ffd801;
-    border-radius: 0 1rem 0 1rem;
-    padding: 1rem;
+  height: 4rem;
+  margin: 2rem 0;
+  background: #ffd801;
+  border-radius: 0 1rem 0 1rem;
+  padding: 1rem;
 }
 
 #home-all-pizzas {
-    text-align: center;
-    font-size: 1.25rem;
+  text-align: center;
+  font-size: 1.25rem;
 }
 
 #home-all-pizzas-link {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .advantage-title {
-    margin-top: 0;
-    font-size: 1.5rem;
+  margin-top: 0;
+  font-size: 1.5rem;
 }
 
 div#home-feedbacks {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .home-feedback {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .feedback-content {
-    line-height: 1.5;
-    margin-left: 2rem;
-    font-weight: 400;
+  line-height: 1.5;
+  margin-left: 2rem;
+  font-weight: 400;
 }
 
 .feedback-user-data h5,
 .feedback-user-data p {
-    margin: 0;
+  margin: 0;
 }
 
 .feedback-user-data h5 {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 .feedback-user-data p {
-    color: #757575;
-    font-size: 0.9rem;
-    line-height: 1;
-    padding-top: 0.25em;
+  color: #757575;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding-top: 0.25em;
 }
 
 img.feedback-user-picture {
-    width: 3rem;
-    padding: 1rem;
-    margin-right: 1rem;
-    border: 1px solid $primary-dark-color;
-    border-radius: 0 1rem 0 1rem;
+  width: 3rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  border: 1px solid $primary-dark-color;
+  border-radius: 0 1rem 0 1rem;
 }
 
-div#home-contacts-data p, footer #footer-contacts p {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+div#home-contacts-data p,
+footer #footer-contacts p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-div#home-contacts-data img, footer p img {
-    margin-right: 1rem;
+div#home-contacts-data img,
+footer p img {
+  margin-right: 1rem;
 }
 
 div#home-contacts-data {
-    padding-left: 2rem;
+  padding-left: 2rem;
 }
