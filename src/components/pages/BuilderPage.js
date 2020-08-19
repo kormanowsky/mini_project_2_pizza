@@ -60,7 +60,7 @@ class BuilderPage extends React.Component {
             <div className="container">
               <h1 className="page-title">Конструктор</h1>
               <h3 className="page-subtitle">Соберите свою пиццу!</h3>
-              <div className="row">
+              <div className="row align-items-center">
                 <div className="col-xs-12 col-md-5">
                   <Pizza toppings={this.state.toppings} responsive={true} />
                 </div>
