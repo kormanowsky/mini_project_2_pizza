@@ -22,7 +22,7 @@ class OrderPayPage extends React.Component {
       return <Redirect to="/" />;
     }
     return (
-      <div className="app app-order app-order-pay">
+      <div className="app app-order app-order-pay text-align-center">
         <Header />
         <main className="container">
           <h1>Спасибо за Ваш заказ!</h1>
@@ -67,7 +67,11 @@ class OrderPayPage extends React.Component {
             <input type="hidden" name="label" value={this.state.order.id} />
 
             {/* TODO: real url */}
-            <input type="hidden" name="successURL" value={`/#/order/${this.state.order.id}/after-donation`} />
+            <input
+              type="hidden"
+              name="successURL"
+              value={`/#/order/${this.state.order.id}/after-donation`}
+            />
 
             <input
               type="hidden"

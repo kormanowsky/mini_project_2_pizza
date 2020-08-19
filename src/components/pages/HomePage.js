@@ -15,7 +15,7 @@ class HomePage extends React.Component {
         <Header />
         <main>
           <section className="container" id="section-home-top">
-            <div className="row" id="home-top-row">
+            <div className="row align-items-center">
               <div className="col-xs-9" id="home-top-text">
                 <h1>{Data.projectInfo.name}</h1>
                 <h3>Пиццерия в Чернево-2</h3>
@@ -29,7 +29,7 @@ class HomePage extends React.Component {
               </div>
               <div className="col-xs-3" id="home-top-pizza">
                 <Pizza toppings={randomToppings} responsive={true} />
-                <p id="home-top-pizza-caption">
+                <p className="text-align-center">
                   Случайная пицца
                   <br />
                   <Link
@@ -137,7 +137,7 @@ class HomePage extends React.Component {
               <h2 className="section-title font-pd">Контакты</h2>
             </div>
 
-            <div className="row" id="home-contacts-row">
+            <div className="row align-items-center">
               <div className="col-xs-12 col-md-8" id="home-contacts-map">
                 <DeliveryMap for="homepage" />
               </div>

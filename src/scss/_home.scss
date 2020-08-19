@@ -2,10 +2,6 @@ section {
     margin-bottom: 5rem;
 }
 
-#home-top-row {
-    align-items: center;
-}
-
 #home-top-text h1 {
     color: $primary-dark-color;
     font-weight: 900;
@@ -16,10 +12,6 @@ section {
 #home-go-to-builder {
     display: inline-block;
     margin: 1rem auto 0;
-}
-
-#home-top-pizza-caption {
-    text-align: center;
 }
 
 .section-header {
@@ -89,11 +81,6 @@ div#home-feedbacks {
     margin-bottom: 2rem;
 }
 
-.feedback-header {
-    display: flex;
-    align-items: center;
-}
-
 .feedback-content {
     line-height: 1.5;
     margin-left: 2rem;
@@ -121,14 +108,6 @@ img.feedback-user-picture {
     padding: 1rem;
     margin-right: 1rem;
     border: 1px solid #ffd801;
-    border-radius: 0 1rem 0 1rem;
-}
-
-#home-contacts-row {
-    align-items: center;
-}
-
-#home-contacts-map-iframe {
     border-radius: 0 1rem 0 1rem;
 }
 

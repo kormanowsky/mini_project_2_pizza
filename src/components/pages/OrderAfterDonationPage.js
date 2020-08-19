@@ -20,13 +20,13 @@ class OrderAfterDonationPage extends React.Component {
         <Header />
         <main className="container">
           <div className="row">
-            <h1 className="page-title align-center col-xs-12">
+            <h1 className="page-title text-align-center col-xs-12">
               Спасибо за пожертвование!
             </h1>
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <p className="align-center">
+              <p className="text-align-center">
                 <Link to={`/order/${this.state.order.id}`} className="button">
                   Перейти к заказу
                 </Link>

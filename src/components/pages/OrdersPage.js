@@ -39,7 +39,7 @@ class OrdersPage extends React.Component {
                 );
               })
             ) : (
-              <p className="container align-center">
+              <p className="container text-align-center">
                 У Вас пока нет заказов.{" "}
                 <Link to="/pizzas">Выберите пиццу из каталога</Link> или{" "}
                 <Link to="/builder">соберите свою</Link>, добавьте в корзину и
