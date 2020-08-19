@@ -13,7 +13,7 @@ class Header extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-9" id="header-nav">
-              <h3 className="font-pd">
+              <h3 className="font-serif">
                 <Link to="/">{Data.projectInfo.name}</Link>
               </h3>
               <ul id="header-navigation">

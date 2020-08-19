@@ -26,7 +26,7 @@ class PizzasPage extends React.Component {
                         <Pizza toppings={pizza.toppings} responsive={true} />
                       </div>
                       <div className="col-xs-12 col-md-6">
-                        <h3 className="font-pd">
+                        <h3 className="font-serif">
                           <Link to={`/pizza/${pizza.id}`}>{pizza.name}</Link>
                         </h3>
                         <button

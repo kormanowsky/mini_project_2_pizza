@@ -88,7 +88,6 @@ class BuilderPage extends React.Component {
                       </div>
                     ))}
                   </div>
-                  <p className="label">Итоговая цена</p>
                   <h2 id="builder-total">
                     {this.getPizzaTotalPrice()} &#x20bd;
                   </h2>

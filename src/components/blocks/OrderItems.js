@@ -15,7 +15,7 @@ class OrderItems extends React.Component {
           />
         </td>
         <td className="cart-desc-td">
-          <h4 className="font-pd">{item[1].name}</h4>
+          <h4 className="font-serif">{item[1].name}</h4>
           <p className="pizza-ingredients color-gray">
             {capitalize(Toppings.numberDescription(item[1].toppings))}
           </p>

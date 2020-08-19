@@ -11,7 +11,7 @@ body,
 }
 
 h1,
-.font-pd {
+.font-serif {
   font-family: "Playfair Display", serif;
 }
 
@@ -122,11 +122,9 @@ p.link {
 }
 
 .label {
-  margin-bottom: 0.75rem;
-
+  margin-bottom: 0.5rem;
   display: inline-block;
   font-family: "Playfair Display";
-  font-style: italic;
 }
 
 .label + * {

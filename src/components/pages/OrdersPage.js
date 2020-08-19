@@ -25,7 +25,7 @@ class OrdersPage extends React.Component {
                     key={orderId}
                   >
                     <div className="border">
-                      <h2 className="font-pd">
+                      <h2 className="font-serif">
                         <Link to={`/order/${order.id}/`}>
                           Заказ №{order.id}
                         </Link>
