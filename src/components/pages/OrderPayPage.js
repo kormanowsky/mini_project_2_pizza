@@ -1,9 +1,10 @@
 import React from "react";
 import data from "../../data";
 import Order from "../../Order";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "../blocks/Header";
 import Radio from "../blocks/Radio";
+import NotFoundPage from "./NotFoundPage";
 
 class OrderPayPage extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class OrderPayPage extends React.Component {
 
   render() {
     if (!this.state.order.exists) {
-      return <Redirect to="/" />;
+      return <NotFoundPage />;
     }
     return (
       <div className="app app-order app-order-pay text-align-center">

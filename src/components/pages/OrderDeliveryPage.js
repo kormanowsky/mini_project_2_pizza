@@ -6,6 +6,7 @@ import Modal from "../blocks/Modal";
 import { Redirect, Link } from "react-router-dom";
 import Order from "../../Order";
 import DeliveryMap from "../blocks/DeliveryMap";
+import NotFoundPage from "./NotFoundPage";
 
 class OrderDeliveryPage extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class OrderDeliveryPage extends React.Component {
 
   render() {
     if (!this.state.order.exists) {
-      return <Redirect to="/" />;
+      return <NotFoundPage />;
     } else if (this.state.order.destination) {
       if (this.state.doRedirect) {
         return <Redirect to={`/order/${this.state.order.id}`} />;

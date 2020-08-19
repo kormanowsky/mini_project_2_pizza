@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../blocks/Header";
 import Order from "../../Order";
-import { Redirect } from "react-router-dom";
 import OrderItems from "../blocks/OrderItems";
 import { humanDate } from "../../utils";
 import DeliveryMap from "../blocks/DeliveryMap";
+import NotFoundPage from "./NotFoundPage";
 
 class OrderPage extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class OrderPage extends React.Component {
 
   render() {
     if (!this.state.order.exists || !this.state.order.destination) {
-      return <Redirect to="/" />;
+      return <NotFoundPage />;
     }
     return (
       <div className="app app-order">

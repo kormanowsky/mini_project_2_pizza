@@ -16,6 +16,7 @@ import OrderPayPage from "./components/pages/OrderPayPage";
 import OrdersPage from "./components/pages/OrdersPage";
 import OrderPage from "./components/pages/OrderPage";
 import OrderAfterDonationPage from "./components/pages/OrderAfterDonationPage";
+import NotFoundPage from "./components/pages/NotFoundPage";
 
 function WithURLParams(props) {
   let params = useParams(),
@@ -83,6 +84,8 @@ class App extends React.Component {
             path="/order/:orderId/after-donation"
             children={<WithURLParams component={OrderAfterDonationPage} />}
           />
+
+          <Route component={NotFoundPage} />
         </Switch>
       </Router>
     );
