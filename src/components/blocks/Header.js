@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import Cart from "../../Cart";
 
 import "../../scss/header.scss";
+import Conjugator from "../../Conjugator";
 
 class Header extends React.Component {
-
   render() {
     return (
       <header>
@@ -36,7 +36,9 @@ class Header extends React.Component {
               ></img>
               <p>
                 <Link to="/cart">
-                  {Cart.count} товаров на {Cart.total}
+                  {Cart.count}{" "}
+                  {Conjugator.getWordCaseForCount("товар", Cart.count)} на{" "}
+                  {Cart.total}
                   &#x20bd;
                 </Link>
               </p>

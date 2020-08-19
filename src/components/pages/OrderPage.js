@@ -24,13 +24,17 @@ class OrderPage extends React.Component {
         <main className="container">
           <h1 className="page-title">Заказ №{this.props.urlParams.orderId}</h1>
           <div className="row">
-            <div className="col-xs-12 col-md-6">
+            <div className="col-xs-12 col-md-4">
               <p className="label">Дата и время</p>
               <h3>{humanDate(this.state.order.datetimeCreated)}</h3>
+            </div>
+            <div className="col-xs-12 col-md-4">
               <p className="label">Сумма</p>
               <h3>{this.state.order.total} &#x20bd;</h3>
             </div>
-            <div className="col-xs-12 col-md-6">
+          </div>
+          <div className="row">
+            <div className="col-xs-12">
               <p className="label">Место доставки</p>
               <DeliveryMap for="order" order={this.state.order} />
             </div>
