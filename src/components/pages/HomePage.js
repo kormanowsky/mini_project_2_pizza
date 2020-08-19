@@ -100,59 +100,51 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
-          <section className="container" id="section-feedback">
-            <div className="section-header">
-              <h2 className="section-title accent-font">Отзывы</h2>
-            </div>
-            <div className="row" id="home-feedbacks">
-              {Data.feedbacks.map((feedback, index) => (
-                <div
-                  className="col-xs-6 home-feedback"
-                  key={`feedback-${index}`}
-                >
-                  <div className="feedback-inner">
-                    <div className="feedback-header d-flex align-items-center">
-                      <img
-                        src="/images/user.svg"
-                        alt={feedback.userName}
-                        className="feedback-user-picture"
-                      />
-                      <div className="feedback-user-data">
-                        <h5>{feedback.userName}</h5>
-                        <p>{feedback.date}</p>
+          <section id="section-feedback">
+            <div className="container">
+              <h1 className="page-title">Отзывы</h1>
+              <div className="row" id="home-feedbacks">
+                {Data.feedbacks.map((feedback, index) => (
+                  <div
+                    className="col-xs-6 home-feedback"
+                    key={`feedback-${index}`}
+                  >
+                    <div className="feedback-inner">
+                      <div className="feedback-header d-flex align-items-center">
+                        <img
+                          src="/images/user.svg"
+                          alt={feedback.userName}
+                          className="feedback-user-picture"
+                        />
+                        <div className="feedback-user-data">
+                          <h5>{feedback.userName}</h5>
+                          <p>{feedback.date}</p>
+                        </div>
+                      </div>
+                      <div className="feedback-main">
+                        <h3 className="feedback-content accent-font">
+                          {feedback.content}
+                        </h3>
                       </div>
                     </div>
-                    <div className="feedback-main">
-                      <h3 className="feedback-content accent-font">
-                        {feedback.content}
-                      </h3>
-                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
-          <section className="container" id="section-conatcts">
-            <div className="section-header">
-              <h2 className="section-title accent-font">Контакты</h2>
+          <section id="section-conatcts">
+            <div className="container" id="home-contacts-data">
+              <h1 className="page-title">Контакты</h1>
+              <p>
+                <img src="/images/phone-primary.svg" alt="Телефон"></img>
+                {Data.projectInfo.phone}
+              </p>
+              <p>
+                <img src="/images/map-pin-primary.svg" alt="Адрес"></img>
+                {Data.projectInfo.address}
+              </p>
             </div>
-
-            <div className="row align-items-center">
-              <div className="col-xs-12 col-md-8" id="home-contacts-map">
-                <DeliveryMap for="homepage" />
-              </div>
-              <div className="col-xs-12 col-md-4" id="home-contacts-data">
-                <h2 className="accent-font">{Data.projectInfo.name}</h2>
-                <p>
-                  <img src="/images/map-pin-primary.svg" alt="Адрес"></img>
-                  {Data.projectInfo.address}
-                </p>
-                <p>
-                  <img src="/images/phone-primary.svg" alt="Телефон"></img>
-                  {Data.projectInfo.phone}
-                </p>
-              </div>
-            </div>
+            <DeliveryMap for="homepage" />
           </section>
         </main>
         <Footer />

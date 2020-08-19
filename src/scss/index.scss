@@ -89,7 +89,7 @@ h1.page-title {
   border: 1px solid $muted-light-color;
   padding: 1.5rem 1rem 1rem;
   margin: 0.5rem 0rem;
-  }
+}
 
 .d-flex {
   display: flex;
@@ -124,6 +124,10 @@ p.link {
 
 .label + * {
   margin-top: 0;
+}
+
+section {
+  padding: 3rem 0 5rem;
 }
 
 form div {
