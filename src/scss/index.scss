@@ -86,10 +86,10 @@ h1.page-title {
 
 .border {
   border-radius: 0 1rem 0 1rem;
-  border: 1px solid #cecece;
+  border: 1px solid $muted-light-color;
   padding: 1.5rem 1rem 1rem;
-  margin: 1rem;
-}
+  margin: 0.5rem 0rem;
+  }
 
 .d-flex {
   display: flex;
@@ -97,11 +97,6 @@ h1.page-title {
 
 .align-items-center {
   align-items: center;
-}
-
-.row.with-border {
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
 }
 
 .color-accent {

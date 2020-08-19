@@ -49,7 +49,13 @@ class HomePage extends React.Component {
             </div>
           </section>
           <section className="container" id="section-news">
-            <h1 className="page-title">Наши пиццы</h1>
+            <div className="row align-items-center">
+              <h1 className="page-title">Наши пиццы</h1>
+              <Link to="/pizzas" id="home-pizzas-link" className="accent-font">
+                Все пиццы
+              </Link>
+            </div>
+
             <div className="row" id="home-new-pizzas">
               {Data.pizzas.map((pizza) => (
                 <div
@@ -66,43 +72,32 @@ class HomePage extends React.Component {
                 </div>
               ))}
             </div>
-            <p id="home-all-pizzas">
-              <a
-                href="#/pizzas"
-                className="button accent-font"
-                id="home-go-to-builder"
-              >
-                Все пиццы &raquo;
-              </a>
-            </p>
           </section>
-          <section className="container" id="section-advantages">
-            <div className="section-header">
-              <h2 className="section-title accent-font">
-                Почему {Data.projectInfo.name}?
-              </h2>
-            </div>
-            <div className="row" id="home-advantages">
-              {Data.advantages.map((advantage, index) => (
-                <div
-                  className="col-xs-4 home-advantage"
-                  key={`advantage-${index}`}
-                >
-                  <div className="advantage-inner">
-                    <img
-                      src={advantage.icon}
-                      alt={advantage.title}
-                      className="advantage-icon"
-                    />
-                    <h3 className="advantage-title accent-font">
-                      {advantage.title}
-                    </h3>
-                    <p className="advantage-description">
-                      {advantage.description}
-                    </p>
+          <section id="section-advantages">
+            <div className="container">
+              <h1 className="page-title">Почему {Data.projectInfo.name}?</h1>
+              <div className="row" id="home-advantages">
+                {Data.advantages.map((advantage, index) => (
+                  <div
+                    className="col-xs-4 home-advantage"
+                    key={`advantage-${index}`}
+                  >
+                    <div className="advantage-inner">
+                      <img
+                        src={advantage.icon}
+                        alt={advantage.title}
+                        className="advantage-icon"
+                      />
+                      <h3 className="advantage-title accent-font">
+                        {advantage.title}
+                      </h3>
+                      <p className="advantage-description">
+                        {advantage.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
           <section className="container" id="section-feedback">

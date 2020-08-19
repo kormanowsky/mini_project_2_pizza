@@ -15,7 +15,7 @@ class OrderPage extends React.Component {
   }
 
   render() {
-    if (!this.state.order.exists) {
+    if (!this.state.order.exists || !this.state.order.destination) {
       return <Redirect to="/" />;
     }
     return (
