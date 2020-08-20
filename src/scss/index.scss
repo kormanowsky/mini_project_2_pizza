@@ -44,8 +44,8 @@ button:focus {
   outline: none;
 }
 
-a.button:not[disabled]:hover,
-button:not[disabled]:hover {
+a.button:not([disabled]):hover,
+button:not([disabled]):hover {
   background: $primary-color;
 }
 

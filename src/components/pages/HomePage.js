@@ -36,12 +36,10 @@ class HomePage extends React.Component {
                     responsive={true}
                   />
                   <p className="text-align-center">
-                    Случайная пицца
-                    <br />
                     <Link
                       to={`/builder/${Toppings.configToNumber(randomToppings)}`}
                     >
-                      Хочу такую!
+                      Хочу такую пиццу!
                     </Link>
                   </p>
                 </div>
