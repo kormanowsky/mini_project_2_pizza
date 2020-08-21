@@ -6,6 +6,10 @@ body {
   font-family: $main-font;
 }
 
+[class^="ymaps"] {
+  font-family: $main-font !important;
+}
+
 main {
   padding-top: 3rem;
 }
@@ -29,11 +33,12 @@ a {
   display: inline-block;
 }
 
-a.accent-color {
+a.accent-color,
+ymaps a {
   border-bottom: none;
 }
 
-a:not(.accent-color):hover {
+a:not(.accent-color):not(.button):hover {
   color: $primary-color;
 }
 
@@ -58,6 +63,17 @@ button:focus {
 a.button:not([disabled]):hover,
 button:not([disabled]):hover {
   background: $primary-color;
+}
+
+.primary-background,
+.primary-dark-background {
+  a:not(.accent-color):not(.button):hover {
+    color: white;
+  }
+  a.button:not([disabled]):hover,
+  button:not([disabled]):hover {
+    background: white;
+  }
 }
 
 a.button[disabled],
