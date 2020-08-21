@@ -12,7 +12,7 @@ class Pizza extends React.Component {
       size = 150;
     }
     this.state = {
-      pizzaColor: "#ffd700",
+      pizzaColor: "#ffdf33", 
       pizzaBorderColor: "#ffbc0a",
       size,
       bgColor: this.props.bgColor || "white",
