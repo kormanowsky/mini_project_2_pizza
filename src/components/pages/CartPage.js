@@ -44,11 +44,11 @@ class CartPage extends React.Component {
           <section id="section-cart-main">
             <h1 className="page-title">Корзина</h1>
             <div className="row">
-              <div className="col-xs-12 col-lg-9">{this.renderTable()}</div>
+              <div className="col-xs-12">{this.renderTable()}</div>
               {Cart.items.length ? (
-                <div className="col-xs-12 col-lg-3">
+                <div className="col-xs-12">
                   <div className="border">
-                    <h2 className="accent-font margin-top-0">Итого</h2>
+                    <p className="label">Итого</p>
                     <h2>{Cart.total} &#x20bd;</h2>
                     <button
                       className="button"
