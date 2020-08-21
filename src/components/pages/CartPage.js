@@ -43,9 +43,7 @@ class CartPage extends React.Component {
                 {Cart.items.length ? (
                   <div className="col-xs-12 col-lg-3">
                     <div className="border">
-                      <h2 className="accent-font" id="cart-total-label">
-                        Итого
-                      </h2>
+                      <h2 className="accent-font margin-top-0">Итого</h2>
                       <h2>{Cart.total} &#x20bd;</h2>
                       <button
                         className="button"

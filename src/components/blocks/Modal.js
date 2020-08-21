@@ -14,7 +14,7 @@ class Modal extends React.Component {
           id={this.props.id}
         >
           {this.props.title ? (
-            <h3 className="modal-title">{this.props.title}</h3>
+            <h3 className="modal-title margin-top-0">{this.props.title}</h3>
           ) : (
             ""
           )}

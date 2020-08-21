@@ -86,7 +86,7 @@ class HomePage extends React.Component {
                         alt={advantage.title}
                         className="advantage-icon"
                       />
-                      <h3 className="advantage-title accent-font">
+                      <h3 className="advantage-title accent-font margin-top-0">
                         {advantage.title}
                       </h3>
                       <p className="advantage-description">

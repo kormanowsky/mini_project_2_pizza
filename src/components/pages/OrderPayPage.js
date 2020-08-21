@@ -80,14 +80,14 @@ class OrderPayPage extends React.Component {
               value={this.state.paymentType}
             />
 
-            <div>
+            <div className="margin-top-0">
               <p className="label">Номер заказа</p>
-              <h3>{this.state.order.id}</h3>
+              <h3 className="margin-0">{this.state.order.id}</h3>
             </div>
 
             <div>
               <p className="label">Сумма пожертвования</p>
-              <h3>
+              <h3 className="margin-0">
                 <input
                   type="number"
                   value={this.state.donationSum}
