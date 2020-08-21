@@ -25,6 +25,7 @@ class CartPage extends React.Component {
               return false;
             }}
             className="accent-color"
+            id="clear-cart"
           >
             Очистить корзину
           </a>

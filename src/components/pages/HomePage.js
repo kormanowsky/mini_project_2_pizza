@@ -49,11 +49,19 @@ class HomePage extends React.Component {
             </div>
           </section>
           <section className="container" id="section-news">
-            <div className="row align-items-center">
-              <h1 className="page-title">Наши пиццы</h1>
-              <Link to="/pizzas" id="home-pizzas-link" className="accent-font">
-                Все пиццы
-              </Link>
+            <div className="row">
+              <div className="col-xs-12">
+                <div className="display-flex align-items-center">
+                  <h1 className="page-title margin-0">Наши пиццы</h1>
+                  <Link
+                    to="/pizzas"
+                    id="home-pizzas-link"
+                    className="accent-font"
+                  >
+                    Все пиццы
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <div className="row" id="home-new-pizzas">

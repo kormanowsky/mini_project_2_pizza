@@ -4,6 +4,7 @@
 body {
   margin: 0;
   font-family: $main-font;
+  overflow-x: hidden;
 }
 
 [class^="ymaps"] {
@@ -146,8 +147,8 @@ h1.page-title {
 
 @media (max-width: 48em) {
   .container {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .container,
@@ -161,8 +162,11 @@ h1.page-title {
   section {
     padding: 2rem 0 3rem;
   }
-}
 
+  .page-title {
+    margin: 1rem 0;
+  }
+}
 
 @import "./pages/home";
 @import "./pages/pizza";

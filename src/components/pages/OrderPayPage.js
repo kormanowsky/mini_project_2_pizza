@@ -24,10 +24,10 @@ class OrderPayPage extends React.Component {
       return <NotFoundPage />;
     }
     return (
-      <div className="app app-order app-order-pay text-align-center">
+      <div className="app app-order app-order-pay">
         <PageTitle title={`Оплата | Заказ №${this.state.order.id}`} />
         <Header />
-        <main className="container">
+        <main className="container  text-align-center">
           <section>
             <h1>Спасибо за Ваш заказ!</h1>
             <h3>

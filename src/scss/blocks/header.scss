@@ -5,11 +5,14 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  height: 3.5rem;
 }
 
 header a {
   color: black;
   border: none;
+  height: 1.5rem;
+  line-height: 1.5rem;
 }
 
 header a:hover {
@@ -19,7 +22,6 @@ header a:hover {
 
 header h3 {
   margin: 0;
-  line-height: 1;
 }
 
 #header-nav {
@@ -88,5 +90,6 @@ header h3 {
 
   #mobile-menu.open {
     display: block;
+    background: $primary-dark-color;
   }
 }
