@@ -26,7 +26,7 @@ class HomePage extends React.Component {
                     className="button accent-font"
                     id="home-go-to-builder"
                   >
-                    Собрать свою пиццу &raquo;
+                    Собрать свою пиццу
                   </a>
                 </div>
                 <div className="col-xs-3" id="home-top-pizza">
