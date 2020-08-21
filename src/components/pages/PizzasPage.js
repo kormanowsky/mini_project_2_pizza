@@ -23,11 +23,11 @@ class PizzasPage extends React.Component {
                   key={`pizza-${pizza.id}`}
                 >
                   <div className="row border align-items-center">
-                    <div className="col-xs-12 col-md-6">
+                    <div className="col-xs-4 col-md-6">
                       <Pizza toppings={pizza.toppings} responsive={true} />
                     </div>
-                    <div className="col-xs-12 col-md-6">
-                      <h3 className="accent-font">
+                    <div className="col-xs-8 col-md-6">
+                      <h3 className="accent-font margin-top-0">
                         <Link to={`/pizza/${pizza.id}`}>{pizza.name}</Link>
                       </h3>
                       <button

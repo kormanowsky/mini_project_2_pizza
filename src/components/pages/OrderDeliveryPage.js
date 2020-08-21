@@ -72,6 +72,7 @@ class OrderDeliveryPage extends React.Component {
                   to={`/order/${this.state.order.id}/pay`}
                   className="button"
                   disabled={!this.state.order.destination}
+                  onClick={() => !this.state.order.destination}
                 >
                   Перейти к оплате
                 </Link>
