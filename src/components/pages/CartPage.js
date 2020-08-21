@@ -37,36 +37,34 @@ class CartPage extends React.Component {
     return (
       <div className="app app-cart">
         <Header />
-        <main>
+        <main className="container">
           <section id="section-cart-main">
-            <div className="container">
-              <h1 className="page-title">Корзина</h1>
-              <div className="row">
-                <div className="col-xs-12 col-lg-9">{this.renderTable()}</div>
-                {Cart.items.length ? (
-                  <div className="col-xs-12 col-lg-3">
-                    <div className="border">
-                      <h2 className="accent-font margin-top-0">Итого</h2>
-                      <h2>{Cart.total} &#x20bd;</h2>
-                      <button
-                        className="button"
-                        onClick={() => {
-                          Cart.checkout().then((order) => {
-                            this.props.history.push(
-                              `/order/${order.id}/delivery`
-                            );
-                          });
-                          this.forceUpdate();
-                        }}
-                      >
-                        Оформить заказ
-                      </button>
-                    </div>
+            <h1 className="page-title">Корзина</h1>
+            <div className="row">
+              <div className="col-xs-12 col-lg-9">{this.renderTable()}</div>
+              {Cart.items.length ? (
+                <div className="col-xs-12 col-lg-3">
+                  <div className="border">
+                    <h2 className="accent-font margin-top-0">Итого</h2>
+                    <h2>{Cart.total} &#x20bd;</h2>
+                    <button
+                      className="button"
+                      onClick={() => {
+                        Cart.checkout().then((order) => {
+                          this.props.history.push(
+                            `/order/${order.id}/delivery`
+                          );
+                        });
+                        this.forceUpdate();
+                      }}
+                    >
+                      Оформить заказ
+                    </button>
                   </div>
-                ) : (
-                  ""
-                )}
-              </div>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </section>
           {Cart.items.length ? (

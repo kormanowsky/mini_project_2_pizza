@@ -38,43 +38,41 @@ class OrderDeliveryPage extends React.Component {
     return (
       <div className="app app-order app-order-delivery">
         <Header />
-        <main>
-          <section id="section-pizza-info">
-            <div className="container">
-              <h1 className="page-title">
-                Заказ №{this.state.order.id} успешно оформлен!
-              </h1>
-              <h3 className="page-subtitle">
-                Покажите на карте, куда необходимо доставить заказ:
-              </h3>
-              <DeliveryMap
-                for="delivery"
-                onMapClick={() =>
-                  this.setState({ modals: { deliveryUnsupported: true } })
-                }
-                onCircleClick={(event) =>
-                  this.setOrderDestination(event.get("coords"))
-                }
-              >
-                <Placemark
-                  geometry={this.state.order.destination}
-                  options={{
-                    preset: "islands#circleIcon",
-                    iconColor: data.projectInfo.colors.accent,
-                  }}
-                />
-              </DeliveryMap>
+        <main className="container">
+          <section>
+            <h1 className="page-title">
+              Заказ №{this.state.order.id} успешно оформлен!
+            </h1>
+            <h3 className="page-subtitle">
+              Покажите на карте, куда необходимо доставить заказ:
+            </h3>
+            <DeliveryMap
+              for="delivery"
+              onMapClick={() =>
+                this.setState({ modals: { deliveryUnsupported: true } })
+              }
+              onCircleClick={(event) =>
+                this.setOrderDestination(event.get("coords"))
+              }
+            >
+              <Placemark
+                geometry={this.state.order.destination}
+                options={{
+                  preset: "islands#circleIcon",
+                  iconColor: data.projectInfo.colors.accent,
+                }}
+              />
+            </DeliveryMap>
 
-              <div className="row">
-                <div className="col-xs-12">
-                  <Link
-                    to={`/order/${this.state.order.id}/pay`}
-                    className="button"
-                    disabled={!this.state.order.destination}
-                  >
-                    Перейти к оплате
-                  </Link>
-                </div>
+            <div className="row">
+              <div className="col-xs-12">
+                <Link
+                  to={`/order/${this.state.order.id}/pay`}
+                  className="button"
+                  disabled={!this.state.order.destination}
+                >
+                  Перейти к оплате
+                </Link>
               </div>
             </div>
           </section>
