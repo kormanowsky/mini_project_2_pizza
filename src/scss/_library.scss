@@ -1,0 +1,84 @@
+/* The library: classes for most frequent style rules */
+@import "./variables";
+
+.main-font {
+  font-family: $main-font;
+}
+
+.accent-font {
+  font-family: $accent-font;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.primary-dark-color {
+  color: $primary-dark-color;
+}
+
+.accent-color {
+  color: $accent-color;
+}
+
+.black-color {
+  color: $black-color;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.margin-left-0 {
+  margin-left: 0;
+}
+
+.margin-right-0 {
+  margin-right: 0;
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-x-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.margin-y-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
