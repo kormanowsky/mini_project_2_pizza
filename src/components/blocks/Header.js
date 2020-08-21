@@ -12,11 +12,16 @@ class Header extends React.Component {
       <header className="primary-background">
         <div className="container">
           <div className="row">
-            <div className="col-xs-9" id="header-nav">
-              <h3 className="accent-font">
-                <Link to="/">{Data.projectInfo.name}</Link>
-              </h3>
-              <ul id="header-navigation">
+            <div className="col-xs-12" id="header-nav">
+              <ul
+                className="margin-0 padding-0 display-flex width-100"
+                id="header-navigation"
+              >
+                <li>
+                  <Link to="/">
+                    <h3 className="accent-font">{Data.projectInfo.name}</h3>
+                  </Link>
+                </li>
                 <li>
                   <Link to="/pizzas">Пиццы</Link>
                 </li>
@@ -26,22 +31,24 @@ class Header extends React.Component {
                 <li>
                   <Link to="/orders">Мои заказы</Link>
                 </li>
+                <li className="margin-left-auto">
+                  <Link to="/cart">
+                    <div id="header-cart-info">
+                      <img
+                        src="/images/shopping-cart.svg"
+                        alt="Корзина"
+                        id="header-cart-icon"
+                      ></img>
+                      <p className="margin-0">
+                        {Cart.count}{" "}
+                        {Conjugator.getWordCaseForCount("товар", Cart.count)} на{" "}
+                        {Cart.total}
+                        &#x20bd;
+                      </p>
+                    </div>
+                  </Link>
+                </li>
               </ul>
-            </div>
-            <div className="col-xs-3" id="header-cart-info">
-              <img
-                src="/images/shopping-cart.svg"
-                alt="Корзина"
-                id="header-cart-icon"
-              ></img>
-              <p>
-                <Link to="/cart">
-                  {Cart.count}{" "}
-                  {Conjugator.getWordCaseForCount("товар", Cart.count)} на{" "}
-                  {Cart.total}
-                  &#x20bd;
-                </Link>
-              </p>
             </div>
           </div>
         </div>
