@@ -20,7 +20,7 @@ class Header extends React.Component {
       <header className="primary-background">
         <div className="container">
           <div className="row">
-            <div className="col-xs-12" id="header-nav">
+            <div id="header-nav">
               <ul
                 className="margin-0 padding-0 display-flex width-100"
                 id="header-navigation"

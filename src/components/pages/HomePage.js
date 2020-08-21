@@ -140,7 +140,7 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
-          <section id="section-conatcts">
+          <section id="section-conatcts" className="container">
             <div className="container" id="home-contacts-data">
               <h1 className="page-title">Контакты</h1>
               <p>
