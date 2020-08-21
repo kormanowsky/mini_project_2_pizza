@@ -13,8 +13,9 @@ class DeliveryMap extends React.Component {
   render() {
     return (
       <div className="row">
-        <YMaps key={data.keys.yandexMaps}>
+        <YMaps query={{ apikey: data.keys.yandexMaps }}>
           <Map
+            onError={console.error}
             defaultState={{
               center:
                 this.props.for === "order"
