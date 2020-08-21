@@ -22,29 +22,33 @@ class OrderPage extends React.Component {
       <div className="app app-order">
         <Header />
         <main className="container">
-          <h1 className="page-title">Заказ №{this.props.urlParams.orderId}</h1>
-          <div className="row">
-            <div className="col-xs-12 col-md-4">
-              <p className="label">Дата и время</p>
-              <h3>{humanDate(this.state.order.datetimeCreated)}</h3>
+          <section>
+            <h1 className="page-title">
+              Заказ №{this.props.urlParams.orderId}
+            </h1>
+            <div className="row">
+              <div className="col-xs-12 col-md-4">
+                <p className="label">Дата и время</p>
+                <h3>{humanDate(this.state.order.datetimeCreated)}</h3>
+              </div>
+              <div className="col-xs-12 col-md-4">
+                <p className="label">Сумма</p>
+                <h3>{this.state.order.total} &#x20bd;</h3>
+              </div>
             </div>
-            <div className="col-xs-12 col-md-4">
-              <p className="label">Сумма</p>
-              <h3>{this.state.order.total} &#x20bd;</h3>
+            <div className="row">
+              <div className="col-xs-12">
+                <p className="label">Место доставки</p>
+                <DeliveryMap for="order" order={this.state.order} />
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-xs-12">
-              <p className="label">Место доставки</p>
-              <DeliveryMap for="order" order={this.state.order} />
+            <div className="row">
+              <div className="col-xs-12">
+                <p className="label">Состав заказа</p>
+                <OrderItems useCart={false} items={this.state.order.items} />
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-xs-12">
-              <p className="label">Состав заказа</p>
-              <OrderItems useCart={false} items={this.state.order.items} />
-            </div>
-          </div>
+          </section>
         </main>
       </div>
     );
