@@ -11,14 +11,8 @@
 }
 
 .new-pizza-inner {
-  margin: 6rem 0.5rem 1rem;
+  margin: 2rem 0.5rem 1rem;
   text-align: center;
-  padding: 1.5rem 1.5rem 1rem;
-}
-
-.home-new-pizza .new-pizza-inner .pizza {
-  margin: -6rem -3rem 0;
-  width: calc(100% + 3rem);
 }
 
 .new-pizza-title {
@@ -114,5 +108,17 @@ div#home-contacts-data {
 @media (max-width: 48em) {
   #home-top-text h1 {
     font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 64em) and (max-width: 75em) {
+  .container {
+    width: 60em;
+  }
+}
+
+@media (min-width: 75em) and (max-width: 84em) {
+  .container {
+    width: 70em;
   }
 }

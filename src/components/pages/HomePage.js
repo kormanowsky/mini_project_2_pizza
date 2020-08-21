@@ -114,7 +114,7 @@ class HomePage extends React.Component {
               <div className="row" id="home-feedbacks">
                 {Data.feedbacks.map((feedback, index) => (
                   <div
-                    className="col-xs-12 col-md-6 home-feedback"
+                    className="col-xs-12 col-lg-6 home-feedback"
                     key={`feedback-${index}`}
                   >
                     <div className="feedback-inner">
