@@ -5,6 +5,7 @@ import OrderItems from "../blocks/OrderItems";
 import { humanDate } from "../../utils";
 import DeliveryMap from "../blocks/DeliveryMap";
 import NotFoundPage from "./NotFoundPage";
+import PageTitle from "../blocks/PageTitle";
 
 class OrderPage extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class OrderPage extends React.Component {
     }
     return (
       <div className="app app-order">
+        <PageTitle title={`Заказ №${this.state.order.id}`} />
         <Header />
         <main className="container">
           <section>

@@ -3,6 +3,7 @@ import Header from "../blocks/Header";
 import Cart from "../../Cart";
 import { Link } from "react-router-dom";
 import OrderItems from "../blocks/OrderItems";
+import PageTitle from "../blocks/PageTitle";
 
 class CartPage extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class CartPage extends React.Component {
   render() {
     return (
       <div className="app app-cart">
+        <PageTitle title="Корзина" />
         <Header />
         <main className="container">
           <section id="section-cart-main">

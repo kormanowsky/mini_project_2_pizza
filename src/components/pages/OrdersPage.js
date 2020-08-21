@@ -3,12 +3,14 @@ import Header from "../blocks/Header";
 import Order from "../../Order";
 import { Link } from "react-router-dom";
 import { humanDate } from "../../utils";
+import PageTitle from "../blocks/PageTitle";
 
 class OrdersPage extends React.Component {
   render() {
     const orders = JSON.parse(window.localStorage.getItem("orders") || "[]");
     return (
       <div className="app app-orders">
+        <PageTitle title={`Мои заказы `} />
         <Header />
         <main className="container">
           <section>

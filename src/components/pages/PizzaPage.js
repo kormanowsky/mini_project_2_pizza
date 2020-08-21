@@ -5,6 +5,8 @@ import Cart from "../../Cart";
 import { capitalize } from "../../utils";
 import Toppings from "../../Toppings";
 import data from "../../data";
+import PageTitle from "../blocks/PageTitle";
+import NotFoundPage from "./NotFoundPage";
 
 class PizzaPage extends React.Component {
   constructor(props) {
@@ -18,10 +20,11 @@ class PizzaPage extends React.Component {
   }
   render() {
     if (!this.state.pizza) {
-      return "404";
+      return <NotFoundPage />;
     }
     return (
       <div className="app app-pizza">
+        <PageTitle title={`${this.state.pizza.name} | Пиццы`} />
         <Header />
         <main>
           <section id="section-pizza-info">

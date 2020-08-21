@@ -1,5 +1,4 @@
 import moment from "./moment";
-
 function capitalize(str) {
   if (!str.length) {
     return "";

@@ -5,11 +5,13 @@ import Pizza from "../pizza/Pizza";
 import { Link } from "react-router-dom";
 import Cart from "../../Cart";
 import Toppings from "../../Toppings";
+import PageTitle from "../blocks/PageTitle";
 
 class PizzasPage extends React.Component {
   render() {
     return (
       <div className="app app-pizzas">
+        <PageTitle title={`Пиццы`} />
         <Header />
         <main className="container">
           <section id="section-pizzas">

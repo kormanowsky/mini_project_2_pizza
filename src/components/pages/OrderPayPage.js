@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Header from "../blocks/Header";
 import Radio from "../blocks/Radio";
 import NotFoundPage from "./NotFoundPage";
+import PageTitle from "../blocks/PageTitle";
 
 class OrderPayPage extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class OrderPayPage extends React.Component {
     }
     return (
       <div className="app app-order app-order-pay text-align-center">
+        <PageTitle title={`Оплата | Заказ №${this.state.order.id}`} />
         <Header />
         <main className="container">
           <section>

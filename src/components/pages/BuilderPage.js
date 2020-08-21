@@ -5,6 +5,7 @@ import Cart from "../../Cart";
 import data from "../../data";
 import CheckBox from "../blocks/Checkbox";
 import Toppings from "../../Toppings";
+import PageTitle from "../blocks/PageTitle";
 
 class BuilderPage extends React.Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class BuilderPage extends React.Component {
   render() {
     return (
       <div className="app app-builder">
+        <PageTitle title="Конструктор" />
         <Header />
         <main>
           <section id="section-builder">

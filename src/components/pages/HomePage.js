@@ -7,12 +7,14 @@ import Footer from "../blocks/Footer";
 import Toppings from "../../Toppings";
 import DeliveryMap from "../blocks/DeliveryMap";
 import data from "../../data";
+import PageTitle from "../blocks/PageTitle";
 
 class HomePage extends React.Component {
   render() {
     const randomToppings = Toppings.random();
     return (
       <div className="app app-home">
+        <PageTitle />
         <Header />
         <main>
           <section id="section-home-top" className="primary-background">
