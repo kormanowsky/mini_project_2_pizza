@@ -38,8 +38,8 @@ class Header extends React.Component {
                     <img
                       src={
                         this.state.mobileMenuOpen
-                          ? "/images/x.svg"
-                          : "/images/menu.svg"
+                          ? "./images/x.svg"
+                          : "./images/menu.svg"
                       }
                       alt={this.state.mobileMenuOpen ? "Закрыть" : "Меню"}
                     />
@@ -63,7 +63,7 @@ class Header extends React.Component {
                   <Link to="/cart">
                     <div id="header-cart-info">
                       <img
-                        src="/images/shopping-cart.svg"
+                        src="./images/shopping-cart.svg"
                         alt="Корзина"
                         id="header-cart-icon"
                       ></img>

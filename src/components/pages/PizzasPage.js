@@ -43,7 +43,7 @@ class PizzasPage extends React.Component {
                         type="button"
                       >
                         <img
-                          src="/images/shopping-cart.svg"
+                          src="./images/shopping-cart.svg"
                           alt="Добавить в корзину"
                           title="Добавить в корзину"
                           className="icon"

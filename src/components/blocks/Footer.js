@@ -14,11 +14,11 @@ class Footer extends React.Component {
                 <Link to="/">{Data.projectInfo.name}</Link>
               </h1>
               <p>
-                <img src="/images/map-pin-white.svg" alt="Адрес"></img>
+                <img src="./images/map-pin-white.svg" alt="Адрес"></img>
                 {Data.projectInfo.address}
               </p>
               <p>
-                <img src="/images/phone-white.svg" alt="Телефон"></img>
+                <img src="./images/phone-white.svg" alt="Телефон"></img>
                 {Data.projectInfo.phone}
               </p>
             </div>

@@ -120,7 +120,7 @@ class HomePage extends React.Component {
                     <div className="feedback-inner">
                       <div className="feedback-header display-flex align-items-center">
                         <img
-                          src="/images/user.svg"
+                          src="./images/user.svg"
                           alt={feedback.userName}
                           className="feedback-user-picture"
                         />
@@ -144,11 +144,11 @@ class HomePage extends React.Component {
             <div className="container" id="home-contacts-data">
               <h1 className="page-title">Контакты</h1>
               <p>
-                <img src="/images/phone-primary.svg" alt="Телефон"></img>
+                <img src="./images/phone-primary.svg" alt="Телефон"></img>
                 {Data.projectInfo.phone}
               </p>
               <p>
-                <img src="/images/map-pin-primary.svg" alt="Адрес"></img>
+                <img src="./images/map-pin-primary.svg" alt="Адрес"></img>
                 {Data.projectInfo.address}
               </p>
             </div>

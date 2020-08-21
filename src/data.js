@@ -111,17 +111,17 @@ export default {
   ],
   advantages: [
     {
-      icon: "/images/package.svg",
+      icon: "./images/package.svg",
       title: "Качественные продукты",
       description: "Мы используем продукты только от проверенных поставщиков",
     },
     {
-      icon: "/images/truck.svg",
+      icon: "./images/truck.svg",
       title: "Быстрая доставка",
       description: "Доставим Ваш заказ в любую точку зоны доставки за 30 минут",
     },
     {
-      icon: "/images/dollar-sign.svg",
+      icon: "./images/dollar-sign.svg",
       title: "Доступные цены",
       description:
         "Мы не завышаем цены и даем покупателям возможноость собрать пиццу на свой вкус и кошелек",

@@ -28,7 +28,7 @@ class CheckBox extends React.Component {
           }
         }}
       >
-        <img src="/images/check.svg" alt="Чекбокс" />
+        <img src="./images/check.svg" alt="Чекбокс" />
       </div>
     );
   }
