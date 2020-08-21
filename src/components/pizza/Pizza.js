@@ -1,6 +1,6 @@
 import React from "react";
 import Toppings from "../../Toppings";
-import "../../scss/pizza.scss";
+import "../../scss/blocks/pizza.scss";
 
 class Pizza extends React.Component {
   constructor(props) {

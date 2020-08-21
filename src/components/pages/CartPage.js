@@ -15,15 +15,18 @@ class CartPage extends React.Component {
       return (
         <div>
           <OrderItems useCart={true} onUpdate={() => this.forceUpdate()} />
-          <p
-            onClick={() => {
+          <a
+            href="/"
+            onClick={(event) => {
+              event.preventDefault();
               Cart.clear();
               this.forceUpdate();
+              return false;
             }}
-            className="color-accent link"
+            className="accent-color"
           >
             Очистить корзину
-          </p>
+          </a>
         </div>
       );
     }

@@ -25,21 +25,25 @@
   color: $black-color;
 }
 
+.muted-color {
+  color: $muted-color;
+}
+
 .primary-background {
-    background: $primary-background;
-  }
-  
-  .primary-dark-background {
-    background: $primary-dark-background;
-  }
-  
-  .accent-background {
-    background: $accent-background;
-  }
-  
-  .black-background {
-    background: $black-background;
-  }
+  background: $primary-color;
+}
+
+.primary-dark-background {
+  background: $primary-dark-color;
+}
+
+.accent-background {
+  background: $accent-color;
+}
+
+.black-background {
+  background: $black-color;
+}
 
 .text-align-center {
   text-align: center;
@@ -97,4 +101,14 @@
 .margin-y-0 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  font-family: "Roboto Mono";
+}
+
+.label + * {
+  margin-top: 0;
 }

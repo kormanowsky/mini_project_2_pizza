@@ -3,7 +3,7 @@ import Data from "../../data";
 import { Link } from "react-router-dom";
 import Cart from "../../Cart";
 
-import "../../scss/header.scss";
+import "../../scss/blocks/header.scss";
 import Conjugator from "../../Conjugator";
 
 class Header extends React.Component {

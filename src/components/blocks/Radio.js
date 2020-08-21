@@ -1,5 +1,5 @@
 import React from "react";
-import "../../scss/radio.scss";
+import "../../scss/blocks/radio.scss";
 import { className } from "../../utils";
 
 class Radio extends React.Component {

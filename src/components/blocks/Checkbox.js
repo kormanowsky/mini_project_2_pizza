@@ -1,5 +1,5 @@
 import React from "react";
-import "../../scss/checkbox.scss";
+import "../../scss/blocks/checkbox.scss";
 import { className } from "../../utils";
 
 class CheckBox extends React.Component {

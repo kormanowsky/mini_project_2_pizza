@@ -40,7 +40,7 @@ class PizzasPage extends React.Component {
                             );
                             this.forceUpdate();
                           }}
-                          className="button d-flex align-items-center small"
+                          className="button display-flex align-items-center small"
                           type="button"
                         >
                           <img

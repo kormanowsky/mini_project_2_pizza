@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../blocks/Header";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Order from "../../Order";
+import NotFoundPage from "./NotFoundPage";
 
 class OrderAfterDonationPage extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class OrderAfterDonationPage extends React.Component {
 
   render() {
     if (!this.state.order.exists) {
-      return <Redirect to="/" />;
+      return <NotFoundPage />
     }
     return (
       <div className="app app-order app-order-after-donation">

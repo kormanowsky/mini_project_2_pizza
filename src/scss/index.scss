@@ -1,18 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap");
-@import "./variables";
+@import "./library";
 
 body {
   margin: 0;
-}
-
-body,
-.main-font {
   font-family: $main-font;
 }
 
-h1,
-.accent-font {
+main {
+  padding-top: 3rem;
+}
+
+section {
+  padding: 3rem 0 5rem;
+}
+
+h1 {
   font-family: $accent-font;
+}
+
+li {
+  list-style: none;
 }
 
 a {
@@ -22,7 +29,11 @@ a {
   display: inline-block;
 }
 
-a:hover {
+a.accent-color {
+  border-bottom: none;
+}
+
+a:not(.accent-color):hover {
   color: $primary-color;
 }
 
@@ -51,7 +62,7 @@ button:not([disabled]):hover {
 
 a.button[disabled],
 button[disabled] {
-  background: lightgray;
+  background: $muted-light-color;
 }
 
 a.button.small,
@@ -63,71 +74,6 @@ button .icon,
 a.button .icon {
   width: 1em;
   margin-right: 0.5rem;
-}
-
-li {
-  list-style: none;
-}
-
-main {
-  padding-top: 3rem;
-}
-
-h1.page-title {
-  font-size: 2.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.page-subtitle {
-  margin-top: 0;
-  font-weight: normal;
-  margin-bottom: 3rem;
-}
-
-.border {
-  border-radius: 0 1rem 0 1rem;
-  border: 1px solid $muted-light-color;
-  padding: 1.5rem 1rem 1rem;
-  margin: 0.5rem 0rem;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-.color-accent {
-  color: $accent-color;
-}
-
-.color-gray {
-  color: #555;
-}
-
-.text-align-center {
-  text-align: center;
-}
-
-p.link {
-  color: $accent-color;
-  cursor: pointer;
-}
-
-.label {
-  margin-bottom: 0.5rem;
-  display: inline-block;
-  font-family: "Roboto Mono";
-}
-
-.label + * {
-  margin-top: 0;
-}
-
-section {
-  padding: 3rem 0 5rem;
 }
 
 form div {
@@ -164,12 +110,30 @@ form .button {
   width: 100%;
 }
 
-@import "./home";
-@import "./pizza";
-@import "./cart";
-@import "./builder";
-@import "./pizzas";
-@import "./delivery";
-@import "./pay";
-@import "./orders";
-@import "./not_found";
+h1.page-title {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  margin-top: 0;
+  font-weight: normal;
+  margin-bottom: 3rem;
+}
+
+.border {
+  border-radius: 0 1rem 0 1rem;
+  border: 1px solid $muted-light-color;
+  padding: 1.5rem 1rem 1rem;
+  margin: 0.5rem 0rem;
+}
+
+@import "./pages/home";
+@import "./pages/pizza";
+@import "./pages/cart";
+@import "./pages/builder";
+@import "./pages/pizzas";
+@import "./pages/delivery";
+@import "./pages/pay";
+@import "./pages/orders";
+@import "./pages/not_found";
