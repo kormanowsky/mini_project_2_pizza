@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mini_project_2_pizza/static/css/main.b0b4e32e.chunk.css",
+    "main.js": "/mini_project_2_pizza/static/js/main.be041720.chunk.js",
+    "main.js.map": "/mini_project_2_pizza/static/js/main.be041720.chunk.js.map",
+    "runtime-main.js": "/mini_project_2_pizza/static/js/runtime-main.18ae7b13.js",
+    "runtime-main.js.map": "/mini_project_2_pizza/static/js/runtime-main.18ae7b13.js.map",
+    "static/js/2.c7c8a81c.chunk.js": "/mini_project_2_pizza/static/js/2.c7c8a81c.chunk.js",
+    "static/js/2.c7c8a81c.chunk.js.map": "/mini_project_2_pizza/static/js/2.c7c8a81c.chunk.js.map",
+    "index.html": "/mini_project_2_pizza/index.html",
+    "precache-manifest.cff1e33f4cbc670d59e7e14b21935378.js": "/mini_project_2_pizza/precache-manifest.cff1e33f4cbc670d59e7e14b21935378.js",
+    "service-worker.js": "/mini_project_2_pizza/service-worker.js",
+    "static/css/main.b0b4e32e.chunk.css.map": "/mini_project_2_pizza/static/css/main.b0b4e32e.chunk.css.map",
+    "static/js/2.c7c8a81c.chunk.js.LICENSE.txt": "/mini_project_2_pizza/static/js/2.c7c8a81c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.18ae7b13.js",
+    "static/js/2.c7c8a81c.chunk.js",
+    "static/css/main.b0b4e32e.chunk.css",
+    "static/js/main.be041720.chunk.js"
+  ]
+}
