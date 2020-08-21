@@ -40,8 +40,11 @@ class Header extends React.Component {
                         id="header-cart-icon"
                       ></img>
                       <p className="margin-0">
-                        {Cart.count}{" "}
-                        {Conjugator.getWordCaseForCount("товар", Cart.count)} на{" "}
+                        <span id="header-cart-count">
+                          {Cart.count}{" "}
+                          {Conjugator.getWordCaseForCount("товар", Cart.count)}{" "}
+                          на{" "}
+                        </span>
                         {Cart.total}
                         &#x20bd;
                       </p>

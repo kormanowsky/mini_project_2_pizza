@@ -48,3 +48,18 @@ header h3 {
   padding: 1rem;
   display: block;
 }
+
+@media (max-width: 48em) {
+  #header-nav li {
+    display: none;
+  }
+
+  #header-navigation > :first-child,
+  #header-navigation > :last-child {
+    display: block;
+  }
+
+  #header-cart-count{
+    display: none;
+  }
+}

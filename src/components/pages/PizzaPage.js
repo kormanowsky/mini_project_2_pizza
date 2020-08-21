@@ -27,13 +27,13 @@ class PizzaPage extends React.Component {
           <section id="section-pizza-info">
             <div className="container">
               <div className="row">
-                <div className="col-xs-4">
+                <div className="col-xs-12 col-md-4">
                   <Pizza
                     responsive={true}
                     toppings={this.state.pizza.toppings}
                   />
                 </div>
-                <div className="col-xs-6">
+                <div className="col-xs-12 col-md-8">
                   <div id="pizza-info">
                     <h1 className="page-title">{this.state.pizza.name}</h1>
                     <p className="label">Состав</p>
