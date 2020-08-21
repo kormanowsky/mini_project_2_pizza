@@ -15,7 +15,7 @@ class Radio extends React.Component {
           <div
             className={className({
               radio: true,
-              radioChecked: this.state.value === "key",
+              radioChecked: this.state.value === key,
             })}
             onClick={() => {
               this.setState({ value: key }, () => {
@@ -24,8 +24,9 @@ class Radio extends React.Component {
                 });
               });
             }}
+            key={key}
           >
-            <div className="radio-circle"></div>
+            <div className="radio-circle margin-y-0"></div>
             <div className="radio-label">{this.props.values[key]}</div>
           </div>
         ))}
