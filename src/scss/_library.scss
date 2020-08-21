@@ -25,6 +25,22 @@
   color: $black-color;
 }
 
+.primary-background {
+    background: $primary-background;
+  }
+  
+  .primary-dark-background {
+    background: $primary-dark-background;
+  }
+  
+  .accent-background {
+    background: $accent-background;
+  }
+  
+  .black-background {
+    background: $black-background;
+  }
+
 .text-align-center {
   text-align: center;
 }

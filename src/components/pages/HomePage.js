@@ -15,7 +15,7 @@ class HomePage extends React.Component {
       <div className="app app-home">
         <Header />
         <main>
-          <section id="section-home-top">
+          <section id="section-home-top" className="primary-background">
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-xs-9" id="home-top-text">
@@ -71,7 +71,7 @@ class HomePage extends React.Component {
               ))}
             </div>
           </section>
-          <section id="section-advantages">
+          <section id="section-advantages" className="black-background">
             <div className="container">
               <h1 className="page-title">Почему {Data.projectInfo.name}?</h1>
               <div className="row" id="home-advantages">
@@ -98,7 +98,7 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
-          <section id="section-feedback">
+          <section id="section-feedback" className="primary-background">
             <div className="container">
               <h1 className="page-title">Отзывы</h1>
               <div className="row" id="home-feedbacks">

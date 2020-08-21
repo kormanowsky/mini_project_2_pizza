@@ -6,7 +6,7 @@ import "../../scss/footer.scss";
 class Footer extends React.Component {
   render() {
     return (
-      <footer>
+      <footer className="primary-dark-background">
         <div className="container">
           <div className="row" id="footer-row">
             <div className="col-xs-12 col-md-4" id="footer-contacts">
