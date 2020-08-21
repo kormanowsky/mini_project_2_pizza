@@ -5,8 +5,16 @@ import Cart from "../../Cart";
 
 import "../../scss/blocks/header.scss";
 import Conjugator from "../../Conjugator";
+import { className } from "../../utils";
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mobileMenuOpen: false,
+    };
+  }
+
   render() {
     return (
       <header className="primary-background">
@@ -17,6 +25,26 @@ class Header extends React.Component {
                 className="margin-0 padding-0 display-flex width-100"
                 id="header-navigation"
               >
+                <li>
+                  <button
+                    id="mobile-nav"
+                    className="align-items-center justify-content-center"
+                    onClick={() =>
+                      this.setState({
+                        mobileMenuOpen: !this.state.mobileMenuOpen,
+                      })
+                    }
+                  >
+                    <img
+                      src={
+                        this.state.mobileMenuOpen
+                          ? "/images/x.svg"
+                          : "/images/menu.svg"
+                      }
+                      alt={this.state.mobileMenuOpen ? "Закрыть" : "Меню"}
+                    />
+                  </button>
+                </li>
                 <li>
                   <Link to="/">
                     <h3 className="accent-font">{Data.projectInfo.name}</h3>
@@ -54,6 +82,22 @@ class Header extends React.Component {
               </ul>
             </div>
           </div>
+        </div>
+        <div
+          id="mobile-menu"
+          className={className({ open: this.state.mobileMenuOpen })}
+        >
+          <ul>
+            <li>
+              <Link to="/pizzas">Пиццы</Link>
+            </li>
+            <li>
+              <Link to="/builder">Конструктор</Link>
+            </li>
+            <li>
+              <Link to="/orders">Мои заказы</Link>
+            </li>
+          </ul>
         </div>
       </header>
     );

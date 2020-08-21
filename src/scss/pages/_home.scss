@@ -112,3 +112,9 @@ footer p img {
 div#home-contacts-data {
   padding-bottom: 1rem;
 }
+
+@media (max-width: 48em) {
+  #home-top-text h1 {
+    font-size: 2.5rem;
+  }
+}

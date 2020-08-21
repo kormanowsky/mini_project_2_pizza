@@ -1,18 +1,11 @@
 @import "../variables";
 
 footer {
-  padding: 1rem;
-}
-
-footer .row {
-  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 footer a {
   color: black;
   text-decoration: underline;
-}
-
-footer h2 {
-  margin: 0;
 }

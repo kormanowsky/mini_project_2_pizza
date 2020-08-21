@@ -59,7 +59,7 @@ class HomePage extends React.Component {
             <div className="row" id="home-new-pizzas">
               {Data.pizzas.map((pizza) => (
                 <div
-                  className="col-xs-2 home-new-pizza"
+                  className="col-xs-6 col-md-4 col-lg-2 home-new-pizza"
                   key={`pizza-${pizza.id}`}
                 >
                   <div className="new-pizza-inner">
@@ -79,7 +79,7 @@ class HomePage extends React.Component {
               <div className="row" id="home-advantages">
                 {Data.advantages.map((advantage, index) => (
                   <div
-                    className="col-xs-4 home-advantage"
+                    className="col-xs-12 col-md-6 col-lg-4 home-advantage"
                     key={`advantage-${index}`}
                   >
                     <div className="advantage-inner">
@@ -106,7 +106,7 @@ class HomePage extends React.Component {
               <div className="row" id="home-feedbacks">
                 {Data.feedbacks.map((feedback, index) => (
                   <div
-                    className="col-xs-6 home-feedback"
+                    className="col-xs-12 col-md-6 home-feedback"
                     key={`feedback-${index}`}
                   >
                     <div className="feedback-inner">

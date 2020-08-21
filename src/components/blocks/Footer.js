@@ -8,7 +8,7 @@ class Footer extends React.Component {
     return (
       <footer className="primary-dark-background">
         <div className="container">
-          <div className="row" id="footer-row">
+          <div className="row align-items-center" id="footer-row">
             <div className="col-xs-12 col-md-4" id="footer-contacts">
               <h1>
                 <Link to="/">{Data.projectInfo.name}</Link>
