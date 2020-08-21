@@ -1,0 +1,127 @@
+/* The library: classes for most frequent style rules */
+@import "./variables";
+
+.main-font {
+  font-family: $main-font;
+}
+
+.accent-font {
+  font-family: $accent-font;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.primary-dark-color {
+  color: $primary-dark-color;
+}
+
+.accent-color {
+  color: $accent-color;
+}
+
+.black-color {
+  color: $black-color;
+}
+
+.muted-color {
+  color: $muted-color;
+}
+
+.primary-background {
+  background: $primary-color;
+}
+
+.primary-dark-background {
+  background: $primary-dark-color;
+}
+
+.accent-background {
+  background: $accent-color;
+}
+
+.black-background {
+  background: $black-color;
+  color: white;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.margin-0 {
+  margin: 0 !important;
+}
+
+.margin-left-0 {
+  margin-left: 0 !important;
+}
+
+.margin-right-0 {
+  margin-right: 0 !important;
+}
+
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0 !important;
+}
+
+.margin-x-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.margin-y-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.margin-left-auto {
+  margin-left: auto !important;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  font-family: "Roboto Mono";
+}
+
+.label + * {
+  margin-top: 0;
+}

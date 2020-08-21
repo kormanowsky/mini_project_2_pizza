@@ -1,32 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap");
-@import "./variables";
-
-.pizza {
-  border-radius: 50%;
-}
-
-.pizza.pizza-responsive {
-  width: 100%;
-  height: auto;
-}
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap");
+@import "./library";
 
 body {
   margin: 0;
+  font-family: $main-font;
+  overflow-x: hidden;
 }
 
-body,
-.font-pt-sans {
-  font-family: "PT Sans", sans-serif;
+[class^="ymaps"] {
+  font-family: $main-font !important;
 }
 
-h1,
-.font-pd {
-  font-family: "Playfair Display", serif;
+main {
+  padding-top: 3rem;
+}
+
+section {
+  padding: 3rem 0 5rem;
+}
+
+h1 {
+  font-family: $accent-font;
+}
+
+li {
+  list-style: none;
 }
 
 a {
   text-decoration: none;
-  color: $accent-color;
+  color: black;
+  border-bottom: 2px solid $primary-dark-color;
+  display: inline-block;
+}
+
+a.accent-color,
+ymaps a {
+  border-bottom: none;
+}
+
+a:not(.accent-color):not(.button):hover {
+  color: $primary-color;
 }
 
 a.button,
@@ -47,14 +61,25 @@ button:focus {
   outline: none;
 }
 
-a.button:not[disabled]:hover,
-button:not[disabled]:hover {
+a.button:not([disabled]):hover,
+button:not([disabled]):hover {
   background: $primary-color;
+}
+
+.primary-background,
+.primary-dark-background {
+  a:not(.accent-color):not(.button):hover {
+    color: white;
+  }
+  a.button:not([disabled]):hover,
+  button:not([disabled]):hover {
+    background: white;
+  }
 }
 
 a.button[disabled],
 button[disabled] {
-  background: lightgray;
+  background: $muted-light-color;
 }
 
 a.button.small,
@@ -66,171 +91,6 @@ button .icon,
 a.button .icon {
   width: 1em;
   margin-right: 0.5rem;
-}
-
-li {
-  list-style: none;
-}
-
-footer {
-  background: $primary-dark-color;
-  padding: 1rem;
-}
-
-footer .row {
-  align-items: center;
-}
-
-footer a {
-  color: black;
-  text-decoration: underline;
-}
-
-header {
-  background: $primary-color;
-}
-
-#header-nav {
-  display: flex;
-  align-items: center;
-}
-
-#header-cart-info {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-#header-cart-icon {
-  margin-right: 1rem;
-}
-
-ul#header-navigation {
-  display: flex;
-  margin: 0 0 0 2rem;
-  padding: 0;
-}
-
-header a {
-  color: black;
-}
-
-#header-navigation a {
-  padding: 1rem;
-  display: block;
-}
-
-header h3 {
-  margin: 0;
-  line-height: 1;
-}
-
-footer h2 {
-  margin: 0;
-}
-
-main {
-  padding-top: 3rem;
-}
-
-h1.page-title {
-  font-size: 2.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.page-subtitle {
-  margin-top: 0;
-  font-weight: normal;
-  margin-bottom: 3rem;
-}
-
-.checkbox {
-  width: 1rem;
-  height: 1rem;
-  background: white;
-  border: 2px solid #ffbc0a;
-  border-radius: 0.25rem;
-  margin-right: 0.5rem;
-}
-
-.checkbox img {
-  width: 1rem;
-  height: 1rem;
-  background: #ffd801;
-  display: block;
-}
-
-.checkbox[data-checked="false"] img {
-  display: none;
-}
-
-.radio {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-}
-
-.radio-circle {
-  width: 1em;
-  height: 1em;
-  border: 2px solid $primary-color;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-}
-
-.radio-label {
-  margin: 0;
-}
-
-.radio[data-checked="true"] .radio-circle {
-  background: $primary-color;
-}
-
-.border {
-  border-radius: 0 1rem 0 1rem;
-  border: 1px solid #cecece;
-  padding: 1.5rem 1rem 1rem;
-  margin: 1rem;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-.row.with-border {
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-}
-
-.color-accent {
-  color: $accent-color;
-}
-
-.color-gray {
-  color: #555;
-}
-
-.align-center {
-  text-align: center;
-}
-
-p.link {
-  color: $accent-color;
-  cursor: pointer;
-}
-
-.label {
-  color: grey;
-  margin-bottom: 0.75rem;
-}
-
-.label + * {
-  margin-top: 0;
 }
 
 form div {
@@ -267,14 +127,60 @@ form .button {
   width: 100%;
 }
 
-/* Blocks */
-@import "./modal";
+h1.page-title {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
 
-@import "./home";
-@import "./pizza";
-@import "./cart";
-@import "./builder";
-@import "./pizzas";
-@import "./delivery";
-@import "./pay";
-@import "./orders";
+.page-subtitle {
+  margin-top: 0;
+  font-weight: normal;
+  margin-bottom: 3rem;
+}
+
+.border {
+  padding: 1.5rem 0 1rem;
+  margin: 0.5rem 0rem;
+}
+
+@media (max-width: 48em) {
+  section {
+    padding: 2rem 0 3rem;
+  }
+
+  .page-title {
+    margin: 1rem 0;
+  }
+
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .container {
+    .container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  header {
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+      .row {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@import "./pages/home";
+@import "./pages/pizza";
+@import "./pages/cart";
+@import "./pages/builder";
+@import "./pages/pizzas";
+@import "./pages/delivery";
+@import "./pages/pay";
+@import "./pages/orders";
+@import "./pages/not_found";

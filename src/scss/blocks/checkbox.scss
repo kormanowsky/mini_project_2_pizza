@@ -1,0 +1,21 @@
+@import "../variables";
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border: 2px solid $primary-dark-color;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+.checkbox img {
+  width: 1rem;
+  height: 1rem;
+  background: $primary-color;
+  display: none;
+}
+
+.checkbox.checkbox-checked img {
+  display: block;
+}

@@ -154,6 +154,6 @@ export default {
     },
   ],
   keys: {
-    yandexMaps: "7e98269e-37d2-4857-ad0f-d76baba7a245",
+    yandexMaps: "4e069f4c-6ebd-4114-a4b1-21bae1ca2aa8",
   },
 };

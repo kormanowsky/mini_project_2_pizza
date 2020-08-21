@@ -3,11 +3,19 @@ import { YMaps, Map, Circle, Placemark } from "react-yandex-maps";
 import data from "../../data";
 
 class DeliveryMap extends React.Component {
+  renderDeliveryZone() {
+    return (
+      <div id="delivery-zone" className="col-xs-12">
+        <div id="delivery-zone-color"></div>Зона доставки
+      </div>
+    );
+  }
   render() {
     return (
       <div className="row">
-        <YMaps key={data.keys.yandexMaps}>
+        <YMaps query={{ apikey: data.keys.yandexMaps }}>
           <Map
+            onError={console.error}
             defaultState={{
               center:
                 this.props.for === "order"
@@ -63,10 +71,12 @@ class DeliveryMap extends React.Component {
             {this.props.children}
           </Map>
         </YMaps>
-        {this.props.for !== "order" ? (
-          <div id="delivery-zone" className="col-xs-12">
-            <div id="delivery-zone-color"></div>Зона доставки
+        {this.props.for === "homepage" ? (
+          <div className="container">
+            <div className="row">{this.renderDeliveryZone()}</div>
           </div>
+        ) : this.props.for !== "order" ? (
+          this.renderDeliveryZone()
         ) : (
           ""
         )}
